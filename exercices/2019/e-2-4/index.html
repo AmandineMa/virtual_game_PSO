@@ -1,54 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-   <head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>2016-FR-24-blockly-fill</title>
-      <script>
-      window.stringsLanguage = 'fr';
-      </script>
-      <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.0.js" id="import-modules"></script>
-      <script class="remove" type="text/javascript">
-        var modulesPath = '../../../_common/modules/'
-        importModules([
-            'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
-            'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform',
-            'taskStyles-0.1']);
-        // set Blockly as default language when none is specified through ?language=
-        importLanguageModules('blockly');
-      </script>
-      <script class="remove" type="text/javascript">
-       var json = {
-          "id": "http://castor-informatique.fr/algorea_tasks/algorea_2016_2/2015-FR-24-blockly-fill/",
-          "language": "fr",
-          "version": "fr.01",
-          "authors": "Mathias Hiron",
-          "translators": [],
-          "license": "",
-          "taskPathPrefix": "",
-          "modulesPathPrefix": "",
-          "browserSupport": [],
-          "fullFeedback": true,
-          "minWidth": "auto"
+    <script>
+      window.stringsLanguage = "fr";
+    </script>
+    <script
+      class="remove"
+      type="text/javascript"
+      src="../../../_common/modules/pemFioi/importModules-1.0.js"
+      id="import-modules"
+    ></script>
+    <script class="remove" type="text/javascript">
+      var modulesPath = "../../../_common/modules/";
+      importModules([
+        "jquery-1.7.1",
+        "JSON-js",
+        "raphael-2.2.1",
+        "beaver-task-2.0",
+        "jschannel",
+        "raphaelFactory-1.0",
+        "delayFactory-1.0",
+        "simulationFactory-1.0",
+        "platform-pr",
+        "buttonsAndMessages",
+        "beav-1.0",
+        "installationAPI.01",
+        "miniPlatform",
+        "taskStyles-0.1"
+      ]);
+      // set Blockly as default language when none is specified through ?language=
+      importLanguageModules("blockly");
+    </script>
+    <script class="remove" type="text/javascript">
+      var json = {
+        id:
+          "http://castor-informatique.fr/algorea_tasks/algorea_2016_2/2015-FR-24-blockly-fill/",
+        language: "fr",
+        version: "fr.01",
+        authors: "Mathias Hiron",
+        translators: [],
+        license: "",
+        taskPathPrefix: "",
+        modulesPathPrefix: "",
+        browserSupport: [],
+        fullFeedback: true,
+        minWidth: "auto"
       };
-      </script>
-      <script type="text/javascript" src="task.js"></script>
-   </head>
-   <body onresize="task.displayedSubTask.updateScale()">
-      <div id="task">
-         <h1>Goumo et sa clé</h1>
-         <img src="icon.png" style="display:none" />
+    </script>
+    <script type="text/javascript" src="task.js"></script>
+  </head>
+  <body onresize="task.displayedSubTask.updateScale()">
+    <div id="task">
+      <h1>Goumo et sa clé</h1>
+      <img src="icon.png" style="display:none" />
 
-         <div id="tabsContainer"></div>
-         <div id="taskContent" style="text-align:left;position:relative">
-            <div id="taskIntro" style="width: 100%">
-				<p>Aide Goumo à récupérer sa clé et ouvrir la serrure.</p>
-				<p>Note : Il suffir de poséder la clé en étant sur la serrure pour l'ouvrir</p>
-            </div>
-            <div id="gridContainer"></div>
-            <div id="blocklyLibContent"></div>
-         </div>
-
-      </div><!-- task -->
-   </body>
+      <div id="tabsContainer"></div>
+      <div id="taskContent" style="text-align:left;position:relative">
+        <div id="taskIntro" style="width: 100%">
+          <p>Aide Goumo à récupérer sa clé et ouvrir la serrure.</p>
+          <p>
+            Note : Il suffir de poséder la clé en étant sur la serrure pour
+            l'ouvrir
+          </p>
+        </div>
+        <div id="gridContainer"></div>
+        <div id="blocklyLibContent"></div>
+      </div>
+    </div>
+    <!-- task -->
+  </body>
 </html>
- 
