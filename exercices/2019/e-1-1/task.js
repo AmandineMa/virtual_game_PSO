@@ -7,7 +7,7 @@ function initTask(subTask) {
     actionDelay: 200,
     itemTypes: {
       robot: {
-        img: "../images/robot/robot_rose.png",
+        img: "../images/robot/robot_rond.png",
         side: 80,
         nbStates: 9,
         isObstacle: true,
@@ -60,7 +60,7 @@ function initTask(subTask) {
       },
       diamant: {
         num: 5,
-        img: "../images/objects/fond_vert/diamant_jaune.png",
+        img: "../images/objects/fond_vert/diamant_orange.png",
         side: cellSide,
         category: "paint",
         isObstacle: false,
@@ -68,14 +68,57 @@ function initTask(subTask) {
         color: "diamant",
         team: 0,
         zOrder: 0
+      },
+
+      caiseJaune: {
+        num: 6,
+        img: "../images/objects/fond_vert/caisse_jaune.png",
+        side: cellSide,
+        category: "paint",
+        isObstacle: true,
+        hasColor: false,
+        team: 0,
+        zOrder: 0
+      },
+
+      mauve: {
+        num: 7,
+        img: "../images/fonds/mauve.png",
+        side: cellSide,
+        category: "paint",
+        isObstacle: true,
+        hasColor: false,
+        team: 0,
+        zOrder: 0
+      },
+      mauveTop: {
+        num: 8,
+        img: "../images/fonds/mauve_top.png",
+        side: cellSide,
+        category: "paint",
+        isObstacle: true,
+        hasColor: false,
+        team: 0,
+        zOrder: 0
+      },
+
+      vertObstacle: {
+        num: 9,
+        img: "../images/fonds/vert.png",
+        side: cellSide,
+        category: "paint",
+        isObstacle: true,
+        hasColor: false,
+        team: 0,
+        zOrder: 0
       }
     },
 
-    maxInstructions: 6,
+    maxInstructions: 7,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["north", "south", "east", "west"]
+        robot: ["north", "south", "east", "west", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -91,25 +134,21 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var robot = context.getRobotItem(context.curRobot);
-        var paints = context.getItems(robot.row, robot.col, {
-          color: "diamant"
-        });
-        if (paints.length != 0) {
+        var hasDiamant =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "diamant";
+
+        if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a atteint le diamant !";
+          throw "Bravo, Bozok a récupéré le diamant !";
         }
         context.success = false;
-        throw "Bozok n'a pas atteint le diamant";
+        throw "Bozok n'a pas récupéré le diamant";
       }
     },
     computeGrade: function(context, message) {
-      var rate = 0;
-      if (context.success) {
-        rate = 1;
-      }
       return {
-        successRate: rate,
+        successRate: rcontext.success ? 1 : 0,
         message: message
       };
     }
@@ -128,7 +167,7 @@ function initTask(subTask) {
           [1, 1, 1, 1, 2, 1, 1],
           [4, 4, 4, 2, 2, 2, 4]
         ],
-        initItems: [{ row: 1, col: 3, dir: 1, type: "robot" }]
+        initItems: [{ row: 5, col: 4, dir: 1, type: "robot" }]
       }
     ]
   };

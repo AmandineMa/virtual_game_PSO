@@ -7,7 +7,7 @@ function initTask(subTask) {
     actionDelay: 200,
     itemTypes: {
       robot: {
-        img: "../images/robot/robot_rose.png",
+        img: "../images/robot/robot_rond.png",
         side: 80,
         nbStates: 9,
         isObstacle: true,
@@ -118,7 +118,7 @@ function initTask(subTask) {
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["north", "south", "east", "west"]
+        robot: ["north", "south", "east", "west", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -134,16 +134,16 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var robot = context.getRobotItem(context.curRobot);
-        var paints = context.getItems(robot.row, robot.col, {
-          color: "diamant"
-        });
-        if (paints.length != 0) {
+        var hasDiamant =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "diamant";
+
+        if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a atteint le diamant !";
+          throw "Bravo, Bozok a récupéré le diamant !";
         }
         context.success = false;
-        throw "Bozok n'a pas atteint le diamant";
+        throw "Bozok n'a pas récupéré le diamant";
       }
     },
     computeGrade: function(context, message) {

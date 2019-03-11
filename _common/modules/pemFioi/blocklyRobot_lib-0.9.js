@@ -950,30 +950,21 @@ var getContext = function(display, infos, curLevel) {
 
   context.robot.pickTransportable = function(callback) {
     var robot = context.getRobotItem(context.curRobot);
-    var transportables = context.getItems(robot.row, robot.col, {
+    var row = robot.row;
+    var col = robot.col;
+
+    var transportables = context.getItems(row, col, {
       isTransportable: true
     });
-    if (transportables.length == 0) {
+    if (transportables.length != 1) {
       throw "Rien à ramasser";
     }
-    /*
-      if (transportables[0].rank != context.nbTransportedItems + 1) {
-         throw("L'objet n'est pas celui qu'il faut ramasser maintenant.");
-      }
-      */
-    if (context.nbTransportedItems > 0) {
-      throw "Le robot transporte déjà un objet";
-    }
+
     var transportable = transportables[0];
     context.items.splice(transportable.index, 1);
     context.nbTransportedItems++;
     context.transportedItem = transportable;
-    /*
-      if (context.nbTransportedItems == context.nbTransportableItems) {
-         context.success = true;
-         throw("Bravo, vous avez ramassé tous les objets dans le bon ordre !");
-      }
-*/
+
     context.waitDelay(function() {
       if (context.display) {
         transportable.element.remove();

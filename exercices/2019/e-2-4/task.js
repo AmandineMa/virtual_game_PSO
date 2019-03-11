@@ -13,126 +13,81 @@ function initTask(subTask) {
         isObstacle: true,
         offsetX: -14,
         category: "robot",
-        team: 0,
-        zOrder: 3
+        zOrder: 1
       },
       ciel: {
         num: 1,
         img: "../images/fonds/ciel.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
 
       caise: {
         num: 2,
         img: "../images/objects/fond_ciel/caise.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        category: "platform",
+        isObstacle: true
       },
       caiseCroix: {
         num: 3,
         img: "../images/objects/fond_ciel/caise_croix.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        category: "platform",
+        isObstacle: true
       },
 
       mer: {
         num: 4,
         img: "../images/objects/fond_ciel/mer.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
       terre: {
         num: 5,
         img: "../images/fonds/terre_top.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
 
       cielObstacle: {
         num: 7,
         img: "../images/fonds/ciel.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
 
       serrure: {
         num: 8,
         img: "../images/objects/fond_ciel/serrure_jaune.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        color: "serrure",
-        team: 0,
-        zOrder: 0
+        category: "serrure",
+        isObstacle: false
       },
       cle: {
         num: 9,
         img: "../images/objects/fond_ciel/cle.png",
         side: cellSide,
-        category: "paint",
+        category: "cle",
         isObstacle: false,
-        hasColor: false,
-        isTransportable: true,
-        color: "cle",
-        team: 0,
-        zOrder: 0
+        isTransportable: true
       },
 
       mouche: {
         num: 10,
         img: "../images/objects/fond_ciel/mouche.gif",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
       n_g: {
         num: 11,
         img: "../images/objects/fond_ciel/nuage_gauche.png",
-        side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        side: cellSide
       },
       n_d: {
         num: 12,
         img: "../images/objects/fond_ciel/nuage_droit.png",
-        side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        side: cellSide
       }
     },
 
@@ -159,9 +114,11 @@ function initTask(subTask) {
         var robot = context.getRobotItem(context.curRobot);
 
         var onSerrure =
-          context.getItems(robot.row, robot.col, { color: "serrure" }).length !=
-          0;
-        var hasKey = context.nbTransportedItems === 1;
+          context.getItems(robot.row, robot.col, { category: "serrure" })
+            .length != 0;
+        var hasKey =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "cle";
 
         if (onSerrure && hasKey) {
           context.success = true;
@@ -173,12 +130,8 @@ function initTask(subTask) {
       }
     },
     computeGrade: function(context, message) {
-      var rate = 0;
-      if (context.success) {
-        rate = 1;
-      }
       return {
-        successRate: rate,
+        successRate: rcontext.success ? 1 : 0,
         message: message
       };
     }
