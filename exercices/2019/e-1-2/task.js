@@ -79,7 +79,7 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 7,
+    maxInstructions: 70,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
@@ -123,16 +123,16 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
+          [1, 1, 1, 1, 6, 1, 1],
+          [1, 1, 3, 1, 6, 1, 1],
+          [1, 1, 1, 1, 1, 5, 1],
+          [1, 6, 2, 2, 3, 2, 1],
           [1, 1, 1, 1, 1, 1, 1],
+          [1, 2, 2, 2, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [1, 2, 2, 2, 1, 2, 1],
-          [1, 1, 1, 1, 1, 3, 1],
-          [1, 1, 1, 1, 1, 3, 1],
-          [1, 1, 1, 1, 5, 1, 1],
-          [1, 1, 1, 1, 2, 1, 1],
-          [4, 4, 4, 2, 2, 2, 4]
+          [4, 4, 4, 4, 4, 4, 4]
         ],
-        initItems: [{ row: 1, col: 3, dir: 1, type: "robot" }]
+        initItems: [{ row: 4, col: 2, dir: 1, type: "robot" }]
       }
     ]
   };
