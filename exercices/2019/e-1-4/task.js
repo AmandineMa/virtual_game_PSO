@@ -9,7 +9,7 @@ function initTask(subTask) {
     itemTypes: {
       robot: {
         img: "../images/robot/robot_rose.png",
-        side: 60,
+        side: 80,
         nbStates: 9,
         isObstacle: true,
         offsetX: 0,
@@ -111,11 +111,11 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 10,
+    maxInstructions: 9,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "jump", "pickTransportable", "east"]
+        robot: ["forward", "jump", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -169,7 +169,7 @@ function initTask(subTask) {
           [7, 7, 1, 1, 1, 7, 7],
           [7, 7, 4, 4, 4, 7, 7]
         ],
-        initItems: [{ row: 5, col: 0, dir: 4, type: "robot" }]
+        initItems: [{ row: 5, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };
