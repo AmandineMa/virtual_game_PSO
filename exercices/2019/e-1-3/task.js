@@ -42,7 +42,7 @@ function initTask(subTask) {
         side: cellSide,
         isObstacle: true
       },
-      diamant: {
+      diamantOrange: {
         num: 5,
         img: "../images/objects/fond_vert/diamant_orange.png",
         side: cellSide,
@@ -83,6 +83,15 @@ function initTask(subTask) {
         img: "../images/fonds/mer.png",
         side: cellSide,
         isObstacle: true
+      },
+
+      diamantJaune: {
+        num: 11,
+        img: "../images/objects/fond_vert/diamant_jaune.png",
+        side: cellSide,
+        category: "diamant",
+        isObstacle: false,
+        isTransportable: true
       }
     },
 
@@ -131,7 +140,7 @@ function initTask(subTask) {
       {
         tiles: [
           [1, 1, 2, 1, 3, 1, 1],
-          [1, 5, 2, 1, 3, 5, 1],
+          [1, 5, 2, 1, 3, 11, 1],
           [1, 3, 3, 1, 2, 2, 1],
           [1, 1, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],

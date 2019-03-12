@@ -5,11 +5,11 @@ standaloneAddContents({
   tasks: [
     /* Niveau 1 : actions simples */
 
-    { code: "e-1-1", title: "Le diamant jaune" },
+    { code: "e-1-1", title: "Le diamant" },
 
-    { code: "", title: "TODO" },
+    { code: "e-1-2", title: "L'autre diamant" },
 
-    { code: "", title: "TODO" },
+    { code: "e-1-3", title: "Les deux diamants" },
 
     { code: "e-1-4", title: "Le diamant orange" },
 

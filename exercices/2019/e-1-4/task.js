@@ -2,16 +2,17 @@ function initTask(subTask) {
   var cellSide = 60;
 
   subTask.gridInfos = {
+    hasGravity: true,
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
     itemTypes: {
       robot: {
-        img: "../images/robot/robot_rond.png",
-        side: 80,
+        img: "../images/robot/robot_rose.png",
+        side: 60,
         nbStates: 9,
         isObstacle: true,
-        offsetX: -14,
+        offsetX: 0,
         category: "robot",
         team: 0,
         zOrder: 3
@@ -20,97 +21,93 @@ function initTask(subTask) {
         num: 1,
         img: "../images/fonds/vert.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
-
       caise: {
         num: 2,
         img: "../images/objects/fond_vert/caise.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        category: "platform",
+        isObstacle: true
       },
       caiseCroix: {
         num: 3,
         img: "../images/objects/fond_vert/caise_croix.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        category: "platform",
+        isObstacle: true
       },
-
       mer: {
         num: 4,
         img: "../images/objects/fond_vert/mer.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
-      diamant: {
+      diamantOrange: {
         num: 5,
         img: "../images/objects/fond_vert/diamant_orange.png",
         side: cellSide,
-        category: "paint",
+        category: "diamant",
         isObstacle: false,
-        hasColor: false,
-        color: "diamant",
-        team: 0,
-        zOrder: 0
+        isTransportable: true
       },
 
       caiseJaune: {
         num: 6,
         img: "../images/objects/fond_vert/caisse_jaune.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
 
       mauve: {
         num: 7,
         img: "../images/fonds/mauve.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
       mauveTop: {
         num: 8,
         img: "../images/fonds/mauve_top.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        category: "platform",
+        isObstacle: true
       },
 
       vertObstacle: {
         num: 9,
         img: "../images/fonds/vert.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
+      },
+
+      merPleine: {
+        num: 10,
+        img: "../images/fonds/mer.png",
+        side: cellSide,
+        isObstacle: true
+      },
+
+      diamantJaune: {
+        num: 11,
+        img: "../images/objects/fond_vert/diamant_jaune.png",
+        side: cellSide,
+        category: "diamant",
+        isObstacle: false,
+        isTransportable: true
+      },
+      mauveGauche: {
+        num: 12,
+        img: "../images/objects/fond_vert/mauve_top_gauche.png",
+        side: cellSide,
+        category: "platform",
+        isObstacle: true
+      },
+      mauveDroite: {
+        num: 13,
+        img: "../images/objects/fond_vert/mauve_top_droite.png",
+        category: "platform",
+        side: cellSide,
+        isObstacle: true
       }
     },
 
@@ -118,7 +115,7 @@ function initTask(subTask) {
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["north", "south", "east", "west", "pickTransportable"]
+        robot: ["forward", "jump", "pickTransportable", "east"]
       },
       standardBlocks: {
         includeAll: false,
@@ -164,15 +161,15 @@ function initTask(subTask) {
         tiles: [
           [1, 1, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1],
-
-          [1, 1, 3, 3, 3, 1, 1],
-          [1, 1, 1, 9, 9, 5, 1],
-          [1, 1, 2, 4, 4, 6, 1],
-          [8, 8, 2, 2, 2, 6, 8],
-          [7, 7, 7, 7, 7, 7, 7]
+          [1, 1, 3, 2, 2, 1, 1],
+          [1, 1, 1, 1, 1, 5, 1],
+          [1, 2, 2, 1, 13, 8, 8],
+          [1, 1, 1, 1, 1, 7, 7],
+          [8, 8, 12, 1, 1, 7, 7],
+          [7, 7, 1, 1, 1, 7, 7],
+          [7, 7, 4, 4, 4, 7, 7]
         ],
-        initItems: [{ row: 5, col: 1, dir: 1, type: "robot" }]
+        initItems: [{ row: 5, col: 0, dir: 4, type: "robot" }]
       }
     ]
   };
