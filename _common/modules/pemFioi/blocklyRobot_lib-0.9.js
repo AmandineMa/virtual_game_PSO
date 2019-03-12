@@ -15,6 +15,7 @@ var getContext = function(display, infos, curLevel) {
         north: "avancer vers le haut",
         paint: "réparer",
         pickTransportable: "ramasser l'objet",
+        openLocker: "ouvrir la serrure",
         dropTransportable: "déposer l'objet",
         onTransportable: "sur une bille",
         onHole: "sur un trou",
@@ -75,6 +76,7 @@ var getContext = function(display, infos, curLevel) {
         west: "gauche",
         north: "haut",
         paint: "peindre",
+        openLocker: "ouvrir",
         pickTransportable: "ramasser",
         dropTransportable: "deposer",
         onTransportable: "surObjet",
@@ -973,6 +975,36 @@ var getContext = function(display, infos, curLevel) {
     });
   };
 
+  context.robot.openLocker = function(callback) {
+    var robot = context.getRobotItem(context.curRobot);
+    var row = robot.row;
+    var col = robot.col;
+
+    var lockers = context.getItems(row, col, {
+      category: "serrure"
+    });
+    if (lockers.length != 1) {
+      throw "Il n'y a pas de serrure à ouvrir à cet endroit";
+    }
+
+    if (
+      context.transportedItem == undefined ||
+      context.transportedItem.category !== "cle"
+    ) {
+      throw "Le robot essaie d'ouvrir une serrure, mais ne possède pas de clé.";
+    }
+
+    var locker = lockers[0];
+    context.items.splice(locker.index, 1);
+
+    context.waitDelay(function() {
+      if (context.display) {
+        locker.element.remove();
+      }
+      callback();
+    });
+  };
+
   context.robot.dropTransportable = function(callback) {
     var robot = context.getRobotItem(context.curRobot);
     if (context.transportedItem == undefined) {
@@ -1099,6 +1131,7 @@ var getContext = function(display, infos, curLevel) {
           { name: "south" },
           { name: "wait" },
           { name: "pickTransportable" },
+          { name: "openLocker" },
           { name: "dropTransportable" },
           { name: "dropTransportable" },
           { name: "writeNumber", params: [null] },

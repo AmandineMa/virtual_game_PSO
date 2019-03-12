@@ -2,6 +2,8 @@ function initTask(subTask) {
   var cellSide = 60;
 
   subTask.gridInfos = {
+    backgroundColor: "#d0f4f7",
+    hasGravity: true,
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
@@ -47,6 +49,7 @@ function initTask(subTask) {
         num: 5,
         img: "../images/fonds/terre_top.png",
         side: cellSide,
+        category: "platform",
         isObstacle: true
       },
 
@@ -91,16 +94,22 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 11,
+    maxInstructions: 9,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["north", "south", "east", "west", "pickTransportable"]
+        robot: [
+          "forward",
+          "turnAround",
+          "jump",
+          "pickTransportable",
+          "openLocker"
+        ]
       },
       standardBlocks: {
         includeAll: false,
         wholeCategories: [],
-        singleBlocks: []
+        singleBlocks: ["controls_repeat"]
       }
     },
     ignoreInvalidMoves: false,
@@ -113,19 +122,16 @@ function initTask(subTask) {
       if (lastTurn) {
         var robot = context.getRobotItem(context.curRobot);
 
-        var onSerrure =
-          context.getItems(robot.row, robot.col, { category: "serrure" })
-            .length != 0;
-        var hasKey =
-          context.nbTransportedItems === 1 &&
-          context.transportedItem.category === "cle";
+        var noSerrure =
+          context.getItems(undefined, undefined, { category: "serrure" })
+            .length == 0;
 
-        if (onSerrure && hasKey) {
+        if (noSerrure) {
           context.success = true;
-          throw "Bravo, Goumo a ouvert la serrure !";
+          throw "Bravo, Goumo a ouvert toutes les serrure !";
         } else {
           context.success = false;
-          throw "Goumo n'a pas ouvert la serrure";
+          throw "Goumo n'a pas ouvert toutes les serrure";
         }
       }
     },
@@ -144,13 +150,13 @@ function initTask(subTask) {
           [1, 1, 1, 1, 1, 1, 1],
           [1, 11, 12, 1, 10, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 8, 1, 1, 1],
-          [1, 2, 2, 2, 2, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [7, 7, 1, 1, 1, 9, 1],
-          [4, 4, 5, 5, 5, 5, 5]
+          [1, 1, 8, 8, 8, 8, 8],
+          [2, 2, 2, 2, 2, 2, 2],
+          [1, 1, 1, 1, 1, 1, 9],
+          [5, 5, 5, 5, 5, 5, 5]
         ],
-        initItems: [{ row: 6, col: 2, dir: 1, type: "robot" }]
+        initItems: [{ row: 6, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };
