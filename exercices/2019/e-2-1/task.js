@@ -2,6 +2,7 @@ function initTask(subTask) {
   var cellSide = 60;
 
   subTask.gridInfos = {
+    backgroundColor: "#d0f4f7",
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
@@ -134,7 +135,7 @@ function initTask(subTask) {
           [3, 3, 3, 3, 3, 3, 3],
           [3, 3, 3, 3, 3, 3, 3]
         ],
-        initItems: [{ row: 4, col: 0, dir: 0, type: "robot" }]
+        initItems: [{ row: 4, col: 5, dir: 0, type: "robot" }]
       }
     ]
   };

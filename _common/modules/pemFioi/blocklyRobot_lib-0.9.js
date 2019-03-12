@@ -1228,10 +1228,13 @@ var getContext = function(display, infos, curLevel) {
     for (var iRow = 0; iRow < context.nbRows; iRow++) {
       cells[iRow] = [];
       for (var iCol = 0; iCol < context.nbCols; iCol++) {
-        var itemTypeNum = context.tiles[iRow][iCol];
-        if (itemTypeNum > 0) {
-          cells[iRow][iCol] = paper.rect(0, 0, 10, 10);
+        rectangle = paper.rect(0, 0, 10, 10);
+
+        if (infos.backgroundColor) {
+          rectangle.attr({ fill: infos.backgroundColor });
         }
+
+        cells[iRow][iCol] = rectangle;
       }
     }
     if (infos.showLabels) {

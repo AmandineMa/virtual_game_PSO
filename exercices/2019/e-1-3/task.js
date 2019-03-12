@@ -2,6 +2,7 @@ function initTask(subTask) {
   var cellSide = 60;
 
   subTask.gridInfos = {
+    backgroundColor: "#80be1f",
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
@@ -95,7 +96,7 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 70,
+    maxInstructions: 22,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
