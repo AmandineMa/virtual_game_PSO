@@ -1,6 +1,6 @@
 standaloneAddContents({
   code: "planete_sciences_2016",
-  title: "Défis Moon Bot Trophée Robotique 2019",
+  title: "Défis programmation - Trophée Robotique 2019",
   folder: "2019/",
   tasks: [
     /* Niveau 1 : actions simples */

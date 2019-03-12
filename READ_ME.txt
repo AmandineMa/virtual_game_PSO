@@ -1,11 +1,22 @@
+
+// ------------------------------------------------------------------------------------------------------------------------
+//
+//	Lots d'exercices de programmations - Avec utilisation de blocs
+//  @author :  Ronan OGOR
+//  @date : 13/03/2019
+// ------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 GRAVITE
 
-- Activer la gravité : 
+- Activer la gravitï¿½ : 
  	subTask.gridInfos = {hasGravity: true}
 
-- Definir des éléments de platforme : 
+- Definir des ï¿½lï¿½ments de platforme : 
  	category: "platform"
 
-- Mettre à disposition les actions : "forward", "turnAround", "jump"
+- Mettre ï¿½ disposition les actions : "forward", "turnAround", "jump"
 
-- Bien préciser la direction du robot (initItems) car l'action forward est en fonction de la direction du robot
+- Bien prï¿½ciser la direction du robot (initItems) car l'action forward est en fonction de la direction du robot
