@@ -15,9 +15,9 @@ standaloneAddContents({
 
     /* Niveau 2 : boucles simples */
 
-    { code: "e-2-1", title: "La Chewing-boule" },
+    { code: "e-2-1", title: "Balouk et le champigon" },
 
-    { code: "", title: "TODO" },
+    { code: "e-2-2", title: "Balouk et plein de champigons !" },
 
     { code: "", title: "TODO" },
 

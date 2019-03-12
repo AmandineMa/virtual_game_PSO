@@ -11,7 +11,7 @@ function initTask(subTask) {
         side: 80,
         nbStates: 9,
         isObstacle: true,
-        offsetX: -14,
+        offsetX: 0,
         category: "robot",
         team: 0,
         zOrder: 3
@@ -20,103 +20,68 @@ function initTask(subTask) {
         num: 1,
         img: "../images/fonds/ciel.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
       terreTop: {
         num: 2,
         img: "../images/fonds/terre_top.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
       terre: {
         num: 3,
         img: "../images/fonds/terre.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: true,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: true
       },
 
-      point: {
+      champignon: {
         num: 4,
-        img: "../images/objects/fond_ciel/point_rose.png",
+        img: "../images/objects/fond_ciel/champigon.png",
         side: cellSide,
-        category: "paint",
+        category: "champignon",
         isObstacle: false,
-        hasColor: false,
-        color: "point_rose",
-        team: 0,
-        zOrder: 0
+        isTransportable: true
       },
       mouche: {
         num: 5,
         img: "../images/objects/fond_ciel/mouche.gif",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
 
       barriere_g: {
         num: 7,
         img: "../images/objects/fond_ciel/barriere_gauche.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
       barriere_d: {
         num: 8,
         img: "../images/objects/fond_ciel/barriere_droite.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
 
       n_g: {
         num: 9,
         img: "../images/objects/fond_ciel/nuage_gauche.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       },
       n_d: {
         num: 10,
         img: "../images/objects/fond_ciel/nuage_droit.png",
         side: cellSide,
-        category: "paint",
-        isObstacle: false,
-        hasColor: false,
-        team: 0,
-        zOrder: 0
+        isObstacle: false
       }
     },
 
-    maxInstructions: 3,
+    maxInstructions: 4,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["north", "south", "east", "west"]
+        robot: ["forward", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -132,16 +97,16 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var robot = context.getRobotItem(context.curRobot);
-        var paints = context.getItems(robot.row, robot.col, {
-          color: "point_rose"
-        });
-        if (paints.length != 0) {
+        var hasDiamant =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "champignon";
+
+        if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a atteint la pâte gluante !";
+          throw "Bravo, Bozok a récupéré les champignons !";
         }
         context.success = false;
-        throw "Bozok n'a pas atteint la pâte gluante !";
+        throw "Bozok n'a pas récupéré les champignons";
       }
     },
     computeGrade: function(context, message) {
@@ -169,7 +134,7 @@ function initTask(subTask) {
           [3, 3, 3, 3, 3, 3, 3],
           [3, 3, 3, 3, 3, 3, 3]
         ],
-        initItems: [{ row: 4, col: 0, dir: 4, type: "robot" }]
+        initItems: [{ row: 4, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };
