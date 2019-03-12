@@ -3,6 +3,7 @@ function initTask(subTask) {
 
   subTask.gridInfos = {
     backgroundColor: "#d0f4f7",
+    hasGravity: true,
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
@@ -27,6 +28,7 @@ function initTask(subTask) {
         num: 2,
         img: "../images/fonds/terre_top.png",
         side: cellSide,
+        category: "platform",
         isObstacle: true
       },
       terre: {
@@ -75,14 +77,34 @@ function initTask(subTask) {
         img: "../images/objects/fond_ciel/nuage_droit.png",
         side: cellSide,
         isObstacle: false
+      },
+      terreLeft: {
+        num: 11,
+        img: "../images/objects/fond_ciel/terre_left.png",
+        side: cellSide,
+        category: "platform",
+        isObstacle: false
+      },
+      terreLRight: {
+        num: 12,
+        img: "../images/objects/fond_ciel/terre_right.png",
+        side: cellSide,
+        category: "platform",
+        isObstacle: false
+      },
+      cactus: {
+        num: 13,
+        img: "../images/objects/fond_ciel/cactus.png",
+        side: cellSide,
+        isObstacle: false
       }
     },
 
-    maxInstructions: 4,
+    maxInstructions: 14,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "pickTransportable"]
+        robot: ["forward", "turnAround", "jump", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -99,7 +121,7 @@ function initTask(subTask) {
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
         var hasDiamant =
-          context.nbTransportedItems === 1 &&
+          context.nbTransportedItems === 3 &&
           context.transportedItem.category === "champignon";
 
         if (hasDiamant) {
@@ -126,16 +148,16 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
+          [1, 5, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 5, 1],
-          [1, 9, 10, 1, 1, 1, 1],
-          [1, 1, 1, 9, 10, 1, 1],
-          [1, 7, 8, 1, 1, 4, 1],
-          [2, 2, 2, 2, 2, 2, 2],
-          [3, 3, 3, 3, 3, 3, 3],
-          [3, 3, 3, 3, 3, 3, 3]
+          [1, 1, 13, 9, 10, 4, 1],
+          [2, 2, 2, 2, 2, 12, 1],
+          [1, 4, 1, 1, 1, 1, 1],
+          [1, 11, 2, 2, 2, 2, 2],
+          [1, 1, 1, 1, 1, 1, 4],
+          [2, 2, 2, 2, 2, 2, 2]
         ],
-        initItems: [{ row: 4, col: 0, dir: 0, type: "robot" }]
+        initItems: [{ row: 6, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };

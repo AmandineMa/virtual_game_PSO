@@ -15,9 +15,9 @@ standaloneAddContents({
 
     /* Niveau 2 : boucles simples */
 
-    { code: "e-2-1", title: "Balouk et le champigon" },
+    { code: "e-2-1", title: "Le champigon" },
 
-    { code: "e-2-2", title: "Balouk et plein de champigons !" },
+    { code: "e-2-2", title: "Plein de champigons !" },
 
     { code: "", title: "TODO" },
 
