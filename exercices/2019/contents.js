@@ -19,9 +19,9 @@ standaloneAddContents({
 
     { code: "e-2-2", title: "Plein de champigons !" },
 
-    { code: "", title: "TODO" },
+    { code: "e-2-3", title: "Plus de champigons !" },
 
-    { code: "e-2-4", title: "Clé et serrure" },
+    { code: "e-2-4", title: "Goumo et sa clé" },
 
     /* Niveau 3 : boucles complexes */
 
