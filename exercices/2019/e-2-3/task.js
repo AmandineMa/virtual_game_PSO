@@ -31,80 +31,40 @@ function initTask(subTask) {
         category: "platform",
         isObstacle: true
       },
-      terre: {
-        num: 3,
-        img: "../images/fonds/terre.png",
-        side: cellSide,
-        isObstacle: true
-      },
-
-      champignon: {
-        num: 4,
-        img: "../images/objects/fond_ciel/champigon.png",
-        side: cellSide,
-        category: "champignon",
-        isObstacle: false,
-        isTransportable: true
-      },
       mouche: {
-        num: 5,
+        num: 3,
         img: "../images/objects/fond_ciel/mouche.gif",
         side: cellSide,
         isObstacle: false
       },
-
-      barriere_g: {
-        num: 7,
-        img: "../images/objects/fond_ciel/barriere_gauche.png",
+      exit: {
+        num: 4,
+        img: "../images/objects/fond_ciel/exit.png",
         side: cellSide,
+        category: "exit",
         isObstacle: false
       },
-      barriere_d: {
-        num: 8,
-        img: "../images/objects/fond_ciel/barriere_droite.png",
+      pierre: {
+        num: 5,
+        img: "../images/fonds/pierre.png",
         side: cellSide,
-        isObstacle: false
+        category: "exit",
+        isObstacle: true
       },
-
-      n_g: {
-        num: 9,
-        img: "../images/objects/fond_ciel/nuage_gauche.png",
-        side: cellSide,
-        isObstacle: false
-      },
-      n_d: {
-        num: 10,
-        img: "../images/objects/fond_ciel/nuage_droit.png",
-        side: cellSide,
-        isObstacle: false
-      },
-      terreLeft: {
-        num: 11,
-        img: "../images/objects/fond_ciel/terre_left.png",
+      caise: {
+        num: 6,
+        img: "../images/objects/fond_ciel/caise.png",
         side: cellSide,
         category: "platform",
-        isObstacle: false
-      },
-      terreLRight: {
-        num: 12,
-        img: "../images/objects/fond_ciel/terre_right.png",
-        side: cellSide,
-        category: "platform",
-        isObstacle: false
-      },
-      cactus: {
-        num: 13,
-        img: "../images/objects/fond_ciel/cactus.png",
-        side: cellSide,
-        isObstacle: false
+        isObstacle: true
       }
     },
 
-    maxInstructions: 14,
+    maxInstructions: 6,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "turnAround", "jump", "pickTransportable"]
+        robot: ["forward", "jump"]
       },
       standardBlocks: {
         includeAll: false,
@@ -120,16 +80,18 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var hasDiamant =
-          context.nbTransportedItems === 3 &&
-          context.transportedItem.category === "champignon";
+        var robot = context.getRobotItem(context.curRobot);
 
-        if (hasDiamant) {
+        var onExit =
+          context.getItems(robot.row, robot.col, { category: "exit" }).length ==
+          1;
+
+        if (onExit) {
           context.success = true;
-          throw "Bravo, Bozok a récupéré les champignons !";
+          throw "Bravo, Balouk est arrivé au panneau !";
         }
         context.success = false;
-        throw "Bozok n'a pas récupéré les champignons";
+        throw "Balouk n'est pas arrivé au panneau";
       }
     },
     computeGrade: function(context, message) {
@@ -148,14 +110,14 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
-          [1, 5, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 13, 9, 10, 4, 1],
-          [2, 2, 2, 2, 2, 12, 1],
-          [1, 4, 1, 1, 1, 1, 1],
-          [1, 11, 2, 2, 2, 2, 2],
-          [1, 1, 1, 1, 1, 1, 4],
-          [2, 2, 2, 2, 2, 2, 2]
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [6, 6, 1, 6, 6, 1, 6, 6, 1, 1, 1],
+          [1, 5, 1, 1, 5, 1, 1, 5, 1, 4, 1],
+          [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
         ],
         initItems: [{ row: 6, col: 0, dir: 0, type: "robot" }]
       }
