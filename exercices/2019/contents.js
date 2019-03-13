@@ -12,7 +12,7 @@ standaloneAddContents({
 
     { code: "e-1-3", title: "Les deux diamants" },
 
-    { code: "e-1-4", title: "Comment sauter...." },
+    { code: "e-1-4", title: "Comment sauter" },
 
     { code: "e-1-5", title: "Le diamant orange" },
 
@@ -32,7 +32,7 @@ standaloneAddContents({
 
     { code: "e-3-2", title: "Les plateformes" },
 
-    { code: "e-3-3", title: "Le champs de dimanants" },
+    { code: "e-3-3", title: "Champs de diamants" },
 
     /* Niveau 4 : conditions */
 
