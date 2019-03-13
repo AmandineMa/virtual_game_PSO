@@ -44,12 +44,13 @@ function initTask(subTask) {
         side: cellSide,
         isObstacle: true
       },
-      pointVert: {
+      diamantOrange: {
         num: 5,
-        img: "../images/objects/fond_vert/point_vert.png",
+        img: "../images/objects/fond_vert/diamant_orange.png",
         side: cellSide,
-        category: "point",
-        isObstacle: false
+        category: "diamant",
+        isObstacle: false,
+        isTransportable: true
       },
 
       caiseJaune: {
@@ -111,11 +112,11 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 5,
+    maxInstructions: 9,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "jump"]
+        robot: ["forward", "jump", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
@@ -131,17 +132,16 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var robot = context.getRobotItem(context.curRobot);
-        var onPoint =
-          context.getItems(robot.row, robot.col, { category: "point" })
-            .length == 1;
+        var hasDiamant =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "diamant";
 
-        if (onPoint) {
+        if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok est sur le point";
+          throw "Bravo, Bozok a récupéré le diamant !";
         }
         context.success = false;
-        throw "Bozok n'est pas sur le point";
+        throw "Bozok n'a pas récupéré le diamant";
       }
     },
     computeGrade: function(context, message) {
@@ -162,15 +162,15 @@ function initTask(subTask) {
         tiles: [
           [1, 1, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 5, 1, 1],
-          [1, 1, 2, 2, 2, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1],
-          [8, 8, 8, 8, 8, 8, 8],
-          [7, 7, 7, 7, 7, 7, 7],
-          [7, 7, 7, 7, 7, 7, 7]
+          [1, 1, 3, 2, 2, 1, 1],
+          [1, 1, 1, 1, 1, 5, 1],
+          [1, 2, 2, 1, 13, 8, 8],
+          [1, 1, 1, 1, 1, 7, 7],
+          [8, 8, 12, 1, 1, 7, 7],
+          [7, 7, 1, 1, 1, 7, 7],
+          [7, 7, 4, 4, 4, 7, 7]
         ],
-        initItems: [{ row: 5, col: 1, dir: 0, type: "robot" }]
+        initItems: [{ row: 5, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };

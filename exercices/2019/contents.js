@@ -11,7 +11,9 @@ standaloneAddContents({
 
     { code: "e-1-3", title: "Les deux diamants" },
 
-    { code: "e-1-4", title: "Le diamant orange" },
+    { code: "e-1-4", title: "Comment sauter...." },
+
+    { code: "e-1-5", title: "Le diamant orange" },
 
     /* Niveau 2 : boucles simples */
 
@@ -28,8 +30,6 @@ standaloneAddContents({
     { code: "e-3-1", title: "Clés et serrures" },
 
     { code: "e-3-2", title: "Les plateformes" },
-
-    { code: "", title: "TODO" },
 
     { code: "", title: "TODO" },
 
