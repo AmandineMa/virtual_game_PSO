@@ -25,9 +25,9 @@ standaloneAddContents({
 
     /* Niveau 3 : boucles complexes */
 
-    { code: "e-3-1", title: "Les 3 clés" },
+    { code: "e-3-1", title: "Clés et serrures" },
 
-    { code: "", title: "TODO" },
+    { code: "e-3-2", title: "Les plateformes" },
 
     { code: "", title: "TODO" },
 
