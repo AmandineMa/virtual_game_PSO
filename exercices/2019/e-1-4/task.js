@@ -10,7 +10,7 @@ function initTask(subTask) {
     itemTypes: {
       robot: {
         img: "../images/robot/robot_rose.png",
-        side: 80,
+        side: 70,
         nbStates: 9,
         isObstacle: true,
         offsetX: 0,
@@ -115,7 +115,7 @@ function initTask(subTask) {
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "jump"]
+        robot: ["forward", "jump", "turnAround"]
       },
       standardBlocks: {
         includeAll: false,

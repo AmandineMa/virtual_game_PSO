@@ -9,7 +9,7 @@ function initTask(subTask) {
     itemTypes: {
       robot: {
         img: "../images/robot/robot_rose.png",
-        side: 80,
+        side: 70,
         nbStates: 9,
         isObstacle: true,
         offsetX: 0,
@@ -130,7 +130,7 @@ function initTask(subTask) {
           [1, 1, 1, 1, 1, 5, 1],
           [1, 9, 10, 1, 1, 1, 1],
           [1, 1, 1, 9, 10, 1, 1],
-          [1, 7, 8, 1, 1, 4, 1],
+          [1, 1, 1, 1, 4, 7, 8],
           [2, 2, 2, 2, 2, 2, 2],
           [3, 3, 3, 3, 3, 3, 3],
           [3, 3, 3, 3, 3, 3, 3]

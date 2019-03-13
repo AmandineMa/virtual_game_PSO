@@ -10,10 +10,10 @@ function initTask(subTask) {
     itemTypes: {
       robot: {
         img: "../images/robot/robot_rose.png",
-        side: 80,
+        side: 70,
         nbStates: 9,
         isObstacle: true,
-        offsetX: -14,
+        offsetX: 0,
         category: "robot",
         zOrder: 1
       },
