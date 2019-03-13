@@ -137,7 +137,7 @@ function initTask(subTask) {
     },
     computeGrade: function(context, message) {
       return {
-        successRate: rcontext.success ? 1 : 0,
+        successRate: context.success ? 1 : 0,
         message: message
       };
     }
