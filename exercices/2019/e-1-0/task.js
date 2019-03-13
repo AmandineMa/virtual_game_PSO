@@ -3,7 +3,6 @@ function initTask(subTask) {
 
   subTask.gridInfos = {
     backgroundColor: "#d0f4f7",
-    hasGravity: true,
     hideSaveOrLoad: true,
     cellSide: cellSide,
     actionDelay: 200,
@@ -28,54 +27,67 @@ function initTask(subTask) {
         num: 2,
         img: "../images/fonds/terre_top.png",
         side: cellSide,
-        category: "platform",
         isObstacle: true
       },
-      mouche: {
-        num: 3,
-        img: "../images/objects/fond_ciel/mouche.gif",
-        side: cellSide,
-        isObstacle: false
-      },
-      exit: {
-        num: 4,
-        img: "../images/objects/fond_ciel/exit.png",
-        side: cellSide,
-        category: "exit",
-        isObstacle: false
-      },
       terre: {
-        num: 5,
+        num: 3,
         img: "../images/fonds/terre.png",
         side: cellSide,
         isObstacle: true
       },
-      caise: {
-        num: 6,
-        img: "../images/objects/fond_ciel/caise.png",
+
+      champignon: {
+        num: 4,
+        img: "../images/objects/fond_ciel/champigon.png",
         side: cellSide,
-        category: "platform",
-        isObstacle: true
+        category: "champignon",
+        isObstacle: false,
+        isTransportable: true
       },
-      terreLeft: {
-        num: 11,
-        img: "../images/objects/fond_ciel/terre_left.png",
+      mouche: {
+        num: 5,
+        img: "../images/objects/fond_ciel/mouche.gif",
         side: cellSide,
-        category: "platform",
+        isObstacle: false
+      },
+
+      barriere_g: {
+        num: 7,
+        img: "../images/objects/fond_ciel/barriere_gauche.png",
+        side: cellSide,
+        isObstacle: false
+      },
+      barriere_d: {
+        num: 8,
+        img: "../images/objects/fond_ciel/barriere_droite.png",
+        side: cellSide,
+        isObstacle: false
+      },
+
+      n_g: {
+        num: 9,
+        img: "../images/objects/fond_ciel/nuage_gauche.png",
+        side: cellSide,
+        isObstacle: false
+      },
+      n_d: {
+        num: 10,
+        img: "../images/objects/fond_ciel/nuage_droit.png",
+        side: cellSide,
         isObstacle: false
       }
     },
 
-    maxInstructions: 7,
+    maxInstructions: 4,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "jump"]
+        robot: ["forward", "pickTransportable"]
       },
       standardBlocks: {
         includeAll: false,
         wholeCategories: [],
-        singleBlocks: ["controls_repeat"]
+        singleBlocks: []
       }
     },
     ignoreInvalidMoves: false,
@@ -86,18 +98,16 @@ function initTask(subTask) {
     checkEndEveryTurn: true,
     checkEndCondition: function(context, lastTurn) {
       if (lastTurn) {
-        var robot = context.getRobotItem(context.curRobot);
+        var hasDiamant =
+          context.nbTransportedItems === 1 &&
+          context.transportedItem.category === "champignon";
 
-        var onExit =
-          context.getItems(robot.row, robot.col, { category: "exit" }).length ==
-          1;
-
-        if (onExit) {
+        if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Balouk est arrivé au panneau !";
+          throw "Bravo, Bozok a récupéré les champignons !";
         }
         context.success = false;
-        throw "Balouk n'est pas arrivé au panneau";
+        throw "Bozok n'a pas récupéré les champignons";
       }
     },
     computeGrade: function(context, message) {
@@ -116,16 +126,16 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 11, 2, 1, 11, 2, 1, 11, 2, 1, 1],
-          [1, 1, 5, 1, 1, 5, 1, 1, 5, 1, 4],
-          [2, 2, 5, 2, 2, 5, 2, 2, 5, 2, 2]
+          [1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 5, 1],
+          [1, 9, 10, 1, 1, 1, 1],
+          [1, 1, 1, 9, 10, 1, 1],
+          [1, 1, 4, 1, 1, 7, 8],
+          [2, 2, 2, 2, 2, 2, 2],
+          [3, 3, 3, 3, 3, 3, 3],
+          [3, 3, 3, 3, 3, 3, 3]
         ],
-        initItems: [{ row: 6, col: 0, dir: 0, type: "robot" }]
+        initItems: [{ row: 4, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };
