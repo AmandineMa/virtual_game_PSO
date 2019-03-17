@@ -26,7 +26,7 @@ var getContext = function(display, infos, curLevel) {
         transportableSquare: "l'objet est carré",
         greenCell: "sur une case verte",
         brownCell: "sur une case marron",
-        markedCell: "le sol est cassé",
+        markedCell: "la case contient une clé",
         addPlatformAbove: "construire une plateforme au dessus",
         addPlatformInFront: "construire une plateforme devant",
         platformInFront: "plateforme devant",
@@ -923,7 +923,11 @@ var getContext = function(display, infos, curLevel) {
   };
 
   context.robot.markedCell = function(callback) {
-    robotCellIsColor(callback, "marker");
+    var robot = context.getRobotItem(context.curRobot);
+    var items = context.getItems(robot.row, robot.col, { category: "key" });
+    var result = items.length == 1;
+
+    context.callCallback(callback, result);
   };
 
   context.robot.brownCell = function(callback) {
