@@ -4,7 +4,7 @@ standaloneAddContents({
   folder: "2019/",
   tasks: [
     /* Niveau 1 : actions simples */
-    { code: "e-1-0", title: "Bouger et rammasser" },
+    { code: "e-1-0", title: "Avancer et rammasser" },
 
     { code: "e-1-1", title: "Le diamant" },
 
