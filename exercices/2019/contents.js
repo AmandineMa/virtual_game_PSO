@@ -38,8 +38,8 @@ standaloneAddContents({
 
     { code: "e-4-1", title: "Le bloc SI" },
 
-    { code: "", title: "TODO" },
+    { code: "e-4-2", title: "Les clés" },
 
-    { code: "", title: "TODO" }
+    { code: "e-4-3", title: "Diamants à récupérer" }
   ]
 });

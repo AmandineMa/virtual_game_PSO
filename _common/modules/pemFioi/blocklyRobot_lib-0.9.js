@@ -26,7 +26,8 @@ var getContext = function(display, infos, curLevel) {
         transportableSquare: "l'objet est carré",
         greenCell: "sur une case verte",
         brownCell: "sur une case marron",
-        markedCell: "la case contient une clé",
+        hasAKey: "la case contient une clé",
+        hasADiamant: "la case contient un diamant",
         addPlatformAbove: "construire une plateforme au dessus",
         addPlatformInFront: "construire une plateforme devant",
         platformInFront: "plateforme devant",
@@ -88,7 +89,8 @@ var getContext = function(display, infos, curLevel) {
         transportableSquare: "objetCarre",
         greenCell: "caseVerte",
         brownCell: "caseMarron",
-        markedCell: "caseMarquee",
+        hasAKey: "hasAKey",
+        hasADiamant: "hasADiamant",
         platformInFront: "plateformeDevant",
         addPlatformAbove: "construirePlateformeAuDessus",
         addPlatformInFront: "construirePlateformeDevant",
@@ -182,7 +184,7 @@ var getContext = function(display, infos, curLevel) {
         transportableSquare: "l'objet est carré",
         greenCell: "auf grünem Feld",
         brownCell: "auf braunem Feld",
-        markedCell: "auf markiertem Feld",
+        hasAKey: "auf markiertem Feld",
         addPlatformAbove: "construire une plateforme au dessus",
         addPlatformInFront: "construire une plateforme devant",
         platformInFront: "vor Plattform",
@@ -243,7 +245,7 @@ var getContext = function(display, infos, curLevel) {
         transportableSquare: "objetCarre",
         greenCell: "caseVerte",
         brownCell: "caseMarron",
-        markedCell: "caseMarquee",
+        hasAKey: "caseMarquee",
         addPlatformAbove: "addPlatformAbove",
         addPlatformInFront: "construirePlatformDevant",
         platformInFront: "plateformeDevant",
@@ -922,9 +924,17 @@ var getContext = function(display, infos, curLevel) {
     robotCellIsColor(callback, "vert");
   };
 
-  context.robot.markedCell = function(callback) {
+  context.robot.hasAKey = function(callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col, { category: "key" });
+    var result = items.length == 1;
+
+    context.callCallback(callback, result);
+  };
+
+  context.robot.hasADiamant = function(callback) {
+    var robot = context.getRobotItem(context.curRobot);
+    var items = context.getItems(robot.row, robot.col, { category: "diamant" });
     var result = items.length == 1;
 
     context.callCallback(callback, result);
@@ -1155,7 +1165,8 @@ var getContext = function(display, infos, curLevel) {
 
           { name: "greenCell", yieldsValue: true },
           { name: "brownCell", yieldsValue: true },
-          { name: "markedCell", yieldsValue: true },
+          { name: "hasAKey", yieldsValue: true },
+          { name: "hasADiamant", yieldsValue: true },
 
           { name: "obstacleInFront", yieldsValue: true },
           { name: "obstacleRight", yieldsValue: true },
