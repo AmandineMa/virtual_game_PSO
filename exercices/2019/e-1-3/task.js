@@ -96,7 +96,7 @@ function initTask(subTask) {
       }
     },
 
-    maxInstructions: 22,
+    maxInstructions: 25,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
