@@ -115,7 +115,7 @@ function initTask(subTask) {
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "jump", "turnAround"]
+        robot: ["forward", "jump"]
       },
       standardBlocks: {
         includeAll: false,
