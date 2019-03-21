@@ -72,9 +72,9 @@ function initTask(subTask) {
         isObstacle: true
       },
 
-      vertObstacle: {
+      exclamation: {
         num: 9,
-        img: "../images/fonds/vert.png",
+        img: "../images/objects/fond_vert/exclamation_jaune.png",
         side: cellSide,
         isObstacle: true
       }
@@ -124,14 +124,14 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
-          [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1],
-          [1, 2, 2, 2, 1, 2, 1],
-          [1, 1, 1, 1, 1, 3, 1],
-          [1, 1, 1, 1, 1, 3, 1],
-          [1, 1, 1, 1, 5, 1, 1],
-          [1, 1, 1, 1, 2, 1, 1],
-          [4, 4, 4, 2, 2, 2, 4]
+          [1, 6, 1, 1, 1, 1, 1],
+          [1, 6, 1, 1, 1, 1, 1],
+          [1, 2, 2, 2, 1, 6, 2],
+          [1, 1, 9, 9, 1, 6, 2],
+          [1, 2, 2, 2, 1, 6, 2],
+          [1, 6, 1, 1, 5, 1, 1],
+          [1, 6, 2, 9, 2, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1]
         ],
         initItems: [{ row: 1, col: 3, dir: 1, type: "robot" }]
       }

@@ -18,6 +18,12 @@ function initTask(subTask) {
         team: 0,
         zOrder: 3
       },
+      gris: {
+        num: 1,
+        img: "../images/fonds/gris.png",
+        side: cellSide,
+        isObstacle: false
+      },
       cle: {
         num: 2,
         img: "../images/objects/fond_gris/cle.png",
@@ -25,12 +31,6 @@ function initTask(subTask) {
         category: "key",
         isObstacle: false,
         isTransportable: true
-      },
-      gris: {
-        num: 1,
-        img: "../images/fonds/gris.png",
-        side: cellSide,
-        isObstacle: false
       },
       mauve: {
         num: 7,
@@ -63,14 +63,36 @@ function initTask(subTask) {
         img: "../images/objects/fond_gris/mouche.png",
         side: cellSide,
         isObstacle: false
+      },
+      caisse: {
+        num: 10,
+        img: "../images/objects/fond_gris/caise.png",
+        side: cellSide,
+        isObstacle: false,
+        category: "platform"
+      },
+      diamant: {
+        num: 11,
+        img: "../images/objects/fond_gris/diamant_vert.png",
+        side: cellSide,
+        isObstacle: false,
+        category: "diamant",
+        isTransportable: true
       }
     },
 
-    maxInstructions: 7,
+    maxInstructions: 18,
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["forward", "pickTransportable", "hasAKey"]
+        robot: [
+          "forward",
+          "turnAround",
+          "jump",
+          "pickTransportable",
+          "hasAKey",
+          "hasADiamant"
+        ]
       },
       standardBlocks: {
         includeAll: false,
@@ -95,12 +117,10 @@ function initTask(subTask) {
           throw "Bozok n'est pas sur la porte";
         }
 
-        var hasCles =
-          context.nbTransportedItems === 4 &&
-          context.transportedItem.category === "key";
-        if (!hasCles) {
+        var asAllObjects = context.nbTransportedItems === 7;
+        if (!asAllObjects) {
           context.success = false;
-          throw "Bozok n'a pas récupré toutes les clés";
+          throw "Bozok n'a pas récupré toutes les clés ou dimants";
         }
         context.success = true;
         throw "Bravo ! Mission accomplie";
@@ -123,16 +143,16 @@ function initTask(subTask) {
       {
         tiles: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 10, 10, 1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 11, 1, 1, 2, 11, 1, 1, 1, 1],
+          [1, 1, 10, 10, 10, 10, 10, 10, 10, 1, 1],
+          [1, 1, 1, 11, 1, 2, 11, 2, 1, 1, 1],
           [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-          [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-          [1, 2, 1, 2, 1, 1, 2, 2, 2, 1, 4],
-          [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
-          [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
           [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
         ],
-        initItems: [{ row: 5, col: 0, dir: 0, type: "robot" }]
+        initItems: [{ row: 6, col: 0, dir: 0, type: "robot" }]
       }
     ]
   };
