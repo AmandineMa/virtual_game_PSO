@@ -138,10 +138,10 @@ function initTask(subTask) {
 
         if (onPoint) {
           context.success = true;
-          throw "Bravo, Bozok est sur le point";
+          throw "Well done, Bozok is on the point";
         }
         context.success = false;
-        throw "Bozok n'est pas sur le point";
+        throw "Bozok is not on the point";
       }
     },
     computeGrade: function(context, message) {

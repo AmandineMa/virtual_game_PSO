@@ -114,7 +114,6 @@
   var alreadyStayed = false;
 
   var miniPlatformValidate = function(mode, success, error) {
-    //$.post('updateTestToken.php', {action: 'showSolution'}, function(){}, 'json');
     if (mode == "nextImmediate") {
       return;
     }
@@ -131,12 +130,6 @@
     $("#toremove").remove();
     if (mode == "cancel") {
       alreadyStayed = false;
-    } else {
-      $("#task").append(
-        "<center id='toremove'><br/><input type='button' value='" +
-          languageStrings[window.stringsLanguage].showSolution +
-          "' onclick='miniPlatformShowSolution()'></input></center>"
-      );
     }
     platform.trigger("validate", [mode]);
     if (success) {
@@ -266,15 +259,6 @@
             $("#choose-view").html("");
             for (var viewName in views) {
               if (!views[viewName].requires) {
-                $("#choose-view").append(
-                  $(
-                    '<button id="choose-view-' +
-                      viewName +
-                      '" class="btn btn-default choose-view-button">' +
-                      languageStrings[window.stringsLanguage][viewName] +
-                      "</button>"
-                  ).click(showViewsHandlerFactory(viewName))
-                );
               }
             }
           });

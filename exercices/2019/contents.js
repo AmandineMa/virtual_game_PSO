@@ -1,5 +1,5 @@
 standaloneAddContents({
-  code: "planete_sciences_2016",
+  code: "pnc",
   title: "Défis programmation - Trophée Robotique 2019",
   folder: "2019/",
   tasks: [

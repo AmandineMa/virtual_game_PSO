@@ -92,7 +92,7 @@ function initTask(subTask) {
             .length == 1;
         if (!onPorte) {
           context.success = false;
-          throw "Bozok n'est pas sur la porte";
+          throw "Bozok is not on the door";
         }
 
         var hasCles =
@@ -100,10 +100,10 @@ function initTask(subTask) {
           context.transportedItem.category === "key";
         if (!hasCles) {
           context.success = false;
-          throw "Bozok n'a pas récupré toutes les clés";
+          throw "Bozok has not picked up all keys";
         }
         context.success = true;
-        throw "Bravo ! Mission accomplie";
+        throw "Congratulation !";
       }
     },
     computeGrade: function(context, message) {

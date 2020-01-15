@@ -126,10 +126,10 @@ function initTask(subTask) {
 
         if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a récupéré les champignons !";
+          throw "Well done, Bozok has got all mushrooms !";
         }
         context.success = false;
-        throw "Bozok n'a pas récupéré les champignons";
+        throw "Bozok did not get all the mushroom :(";
       }
     },
     computeGrade: function(context, message) {

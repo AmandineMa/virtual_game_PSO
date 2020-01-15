@@ -107,7 +107,7 @@ function initTask(subTask) {
 
         if (!hasPoints) {
           context.success = false;
-          throw "Balouk n'a pas récupéré tous les points";
+          throw "Balouk has not picked up all points";
         }
 
         var robot = context.getRobotItem(context.curRobot);
@@ -116,11 +116,11 @@ function initTask(subTask) {
             .length == 1;
         if (!onExit) {
           context.success = false;
-          throw "Balouk n'est pas arrivé à la sortie";
+          throw "Balouk has not reached the exit";
         }
 
         context.success = true;
-        throw "Bravo ! mission accomplie !";
+        throw "Well done !!";
       }
     },
     computeGrade: function(context, message) {

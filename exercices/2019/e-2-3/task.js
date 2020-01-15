@@ -94,10 +94,10 @@ function initTask(subTask) {
 
         if (onExit) {
           context.success = true;
-          throw "Bravo, Balouk est arrivé au panneau !";
+          throw "Congrats, Balouk are reach the sign !";
         }
         context.success = false;
-        throw "Balouk n'est pas arrivé au panneau";
+        throw "Balouk has NOT reached the sign";
       }
     },
     computeGrade: function(context, message) {

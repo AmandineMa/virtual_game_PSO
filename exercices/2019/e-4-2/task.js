@@ -114,16 +114,16 @@ function initTask(subTask) {
             .length == 1;
         if (!onPorte) {
           context.success = false;
-          throw "Bozok n'est pas sur la porte";
+          throw "Bozok is not on the door";
         }
 
         var asAllObjects = context.nbTransportedItems === 7;
         if (!asAllObjects) {
           context.success = false;
-          throw "Bozok n'a pas récupré toutes les clés ou dimants";
+          throw "Bozok has not picked up all keys or diamonds";
         }
         context.success = true;
-        throw "Bravo ! Mission accomplie";
+        throw "Congratulations !";
       }
     },
     computeGrade: function(context, message) {

@@ -138,10 +138,10 @@ function initTask(subTask) {
 
         if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a récupéré le diamant !";
+          throw "Well done, Bozok has got the  diamond !";
         }
         context.success = false;
-        throw "Bozok n'a pas récupéré le diamant";
+        throw "Bozok did not get the  diamond :(";
       }
     },
     computeGrade: function(context, message) {

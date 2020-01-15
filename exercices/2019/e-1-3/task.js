@@ -122,10 +122,10 @@ function initTask(subTask) {
 
         if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a récupéré les diamants !";
+          throw "Well done, Bozok has got the 2 diamonds !";
         } else {
           context.success = false;
-          throw "Bozok n'a pas récupéré les diamants";
+          throw "Bozok did not get the 2 diamonds :(";
         }
       }
     },

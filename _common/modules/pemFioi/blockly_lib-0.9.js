@@ -60,7 +60,7 @@ var languageStrings = {
     programOfRobot: "Robot Programm",
     flagClicked: "When %1 is cliked",
     tooManyIterations: "Your programm take too much time to terminate",
-    submitProgram: "Submit programme",
+    submitProgram: "Submit programm",
     runProgram: "Run program",
     stopProgram: "|<",
     speed: "Speed :",

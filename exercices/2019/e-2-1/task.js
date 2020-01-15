@@ -51,19 +51,12 @@ function initTask(subTask) {
         isObstacle: false
       },
 
-      barriere_g: {
+      cactus: {
         num: 7,
-        img: "../images/objects/fond_ciel/barriere_gauche.png",
+        img: "../images/objects/fond_ciel/cactus.png",
         side: cellSide,
         isObstacle: false
       },
-      barriere_d: {
-        num: 8,
-        img: "../images/objects/fond_ciel/barriere_droite.png",
-        side: cellSide,
-        isObstacle: false
-      },
-
       n_g: {
         num: 9,
         img: "../images/objects/fond_ciel/nuage_gauche.png",
@@ -104,10 +97,10 @@ function initTask(subTask) {
 
         if (hasDiamant) {
           context.success = true;
-          throw "Bravo, Bozok a récupéré les champignons !";
+          throw "Well done, Bozok has got all mushrooms !";
         }
         context.success = false;
-        throw "Bozok n'a pas récupéré les champignons";
+        throw "Bozok did not get all the mushroom :(";
       }
     },
     computeGrade: function(context, message) {
@@ -130,7 +123,7 @@ function initTask(subTask) {
           [1, 1, 1, 1, 1, 5, 1],
           [1, 9, 10, 1, 1, 1, 1],
           [1, 1, 1, 9, 10, 1, 1],
-          [1, 1, 1, 1, 4, 7, 8],
+          [1, 1, 1, 1, 1, 4, 7],
           [2, 2, 2, 2, 2, 2, 2],
           [3, 3, 3, 3, 3, 3, 3],
           [3, 3, 3, 3, 3, 3, 3]

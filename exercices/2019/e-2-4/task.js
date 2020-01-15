@@ -128,10 +128,10 @@ function initTask(subTask) {
 
         if (noSerrure) {
           context.success = true;
-          throw "Bravo, Goumo a ouvert toutes les serrure !";
+          throw "Congrats, Goumo has opened all locks!";
         } else {
           context.success = false;
-          throw "Goumo n'a pas ouvert toutes les serrure";
+          throw "oumo has not opened all locks";
         }
       }
     },
