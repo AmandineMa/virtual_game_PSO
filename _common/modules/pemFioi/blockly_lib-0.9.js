@@ -57,7 +57,7 @@ var languageStrings = {
     download: "download",
     smallestOfTwoNumbers: "Smallest of two numbers",
     greatestOfTwoNumbers: "Greatest of two numbers",
-    programOfRobot: "Robot Programm",
+    programOfRobot: "Robot Program",
     flagClicked: "When %1 is cliked",
     tooManyIterations: "Your programm take too much time to terminate",
     submitProgram: "Submit programm",

@@ -57,9 +57,9 @@ function initTask(subTask) {
         side: cellSide,
         isObstacle: false
       },
-      barriere_d: {
+      to_pnc: {
         num: 8,
-        img: "../images/objects/fond_ciel/barriere_droite.png",
+        img: "../images/objects/fond_ciel/to_pnc.png",
         side: cellSide,
         isObstacle: false
       },
@@ -130,7 +130,7 @@ function initTask(subTask) {
           [1, 1, 1, 1, 1, 5, 1],
           [1, 9, 10, 1, 1, 1, 1],
           [1, 1, 1, 9, 10, 1, 1],
-          [1, 1, 4, 1, 1, 7, 8],
+          [1, 1, 4, 1, 1, 8, 1],
           [2, 2, 2, 2, 2, 2, 2],
           [3, 3, 3, 3, 3, 3, 3],
           [3, 3, 3, 3, 3, 3, 3]
