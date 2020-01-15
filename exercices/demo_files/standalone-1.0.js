@@ -135,17 +135,6 @@ var standaloneLoadPage = function(codes) {
     return ' \
     <div id="main_wrapper"> \
      <div id="main"> \
-        <div id="header"> \
-           <table id="header_table"> \
-           <tr> \
-              <td id="header_logo"></td> \
-              <td id="header_title"></td> \
-              <td id="header_button"> \
-                <input id="button_return_list" type="button" value="Retour à la liste des exercices"></input> \
-              </td> \
-           </tr> \
-           </table> \
-        </div> \
         \
         <div id="header_sep_top"></div> \
         <div class="layout_table_wrapper"> \
