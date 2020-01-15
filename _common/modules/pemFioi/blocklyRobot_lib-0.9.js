@@ -973,7 +973,7 @@ var getContext = function(display, infos, curLevel) {
       isTransportable: true
     });
     if (transportables.length != 1) {
-      throw "Rien à ramasser";
+      throw "Nothing to pick up";
     }
 
     var transportable = transportables[0];
@@ -1240,7 +1240,12 @@ var getContext = function(display, infos, curLevel) {
     return col < 0 || row < 0 || col >= context.nbCols || row >= context.nbRows;
   };
 
-  var delta = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+  var delta = [
+    [0, 1],
+    [1, 0],
+    [0, -1],
+    [-1, 0]
+  ];
   var getCoordsInFront = function(dDir) {
     var item = context.getRobotItem(context.curRobot);
     var lookDir = (item.dir + dDir + 4) % 4;

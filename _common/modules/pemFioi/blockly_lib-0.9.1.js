@@ -82,7 +82,7 @@ var localLanguageStrings = {
     previousTestcase: "Previous",
     nextTestcase: "Next",
     allTests: "All tests: ",
-    errorEmptyProgram: "Le programme est vide ! Connectez des blocs.",
+    errorEmptyProgram: "Program is empty ! Connect blocs first",
     textVariable: "text",
     listVariable: "list"
   },
@@ -132,7 +132,7 @@ var localLanguageStrings = {
     previousTestcase: "Previous",
     nextTestcase: "Next",
     allTests: "All tests: ",
-    errorEmptyProgram: "Le programme est vide ! Connectez des blocs.",
+    errorEmptyProgram: "Program is empty ! Connect blocs first",
     textVariable: "text",
     listVariable: "list"
   },

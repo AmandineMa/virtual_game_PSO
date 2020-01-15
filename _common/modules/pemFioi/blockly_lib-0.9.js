@@ -2185,7 +2185,7 @@ function getBlocklyHelper(maxBlocks, nbTestCases) {
         } // There can be multiple robot_start blocks sometimes
       }
       if (!robotStartHasChildren) {
-        $("#errors").html("Le programme est vide ! Connectez des blocs.");
+        $("#errors").html("Program is empty ! Connect blocs first");
         return;
       }
 
@@ -2202,7 +2202,7 @@ function getBlocklyHelper(maxBlocks, nbTestCases) {
       that.highlightPause = false;
       if (this.scratchMode) {
         if (that.workspace.remainingCapacity() < 0) {
-          $("#errors").html("Trop de blocs utilisés !");
+          $("#errors").html("Too many blocs used !");
           return;
         }
       } else {
