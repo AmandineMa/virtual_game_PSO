@@ -45,6 +45,6 @@ bool CheckerRobotTBLR::analyseCommand(string cmd, vector<string> args) {
 }
 
 void CheckerRobotTBLR::endInputReached() {
-   failure("Le robot n'a pas accompli sa mission");
+   failure("The robot has not accomplished its mission");
 }
 #endif

@@ -120,11 +120,11 @@ var getRobotGridContext = function(display, infos, curLevel) {
     }
     if (isOutsideGrid(row + 1, coords.col)) {
       context.lost = true;
-      throw "Le robot se jette dans le vide !";
+      throw "The robot throws itself into the void!";
     }
     if (row - coords.row > 2) {
       context.lost = true;
-      throw "Le robot va tomber de haut et s'écraser !";
+      throw "The robot will fall from above and crash!";
     }
     coords.row = row;
     context.nbMoves++;
@@ -141,14 +141,14 @@ var getRobotGridContext = function(display, infos, curLevel) {
     var item = context.getRobotItem(context.curRobot);
     if (isOutsideGrid(item.row - 2, item.col)) {
       context.lost = true;
-      throw "Le robot essaie de sauter en dehors de la grille !";
+      throw "The robot is trying to jump outside the grid!";
     }
     var platforms = context.getItems(item.row - 1, item.col, {
       category: "platform"
     });
     if (platforms.length == 0) {
       context.lost = true;
-      throw "Le robot essaie de sauter mais il n'y a pas de plateforme au dessus !";
+      throw "The robot is trying to jump but there is no platform above!";
     }
     context.nbMoves++;
     moveRobot(item.row - 2, item.col, item.dir, callback);
@@ -585,26 +585,17 @@ var getRobotGridContext = function(display, infos, curLevel) {
       isTransportable: true
     });
     if (transportables.length == 0) {
-      throw "Rien à ramasser";
+      throw "Nothing to pick up";
     }
-    /*
-      if (transportables[0].rank != context.nbTransportedItems + 1) {
-         throw("L'objet n'est pas celui qu'il faut ramasser maintenant.");
-      }
-      */
+
     if (context.nbTransportedItems > 0) {
-      throw "Le robot transporte déjà un objet";
+      throw "The robot is already carrying an object";
     }
     var transportable = transportables[0];
     context.items.splice(transportable.index, 1);
     context.nbTransportedItems++;
     context.transportedItem = transportable;
-    /*
-      if (context.nbTransportedItems == context.nbTransportableItems) {
-         context.success = true;
-         throw("Bravo, vous avez ramassé tous les objets dans le bon ordre !");
-      }
-*/
+
     context.waitDelay(function() {
       if (context.display) {
         transportable.element.remove();
@@ -616,13 +607,9 @@ var getRobotGridContext = function(display, infos, curLevel) {
   context.robot_dropTransportable = function(callback) {
     var robot = context.getRobotItem(context.curRobot);
     if (context.transportedItem == undefined) {
-      throw "Le robot essaie de déposer un objet mais n'en transporte pas.";
+      throw "The robot tries to deposit an object but does not transport it.";
     }
-    /*
-      if (context.tiles[robot.row][robot.col] != 2) { // TODO : replace
-         throw("Le robot essaie de déposer un objet ailleurs que sur une étoile.");
-      }
-      */
+
     context.nbDroppedItems++;
     context.nbTransportedItems = 0;
     if (context.nbDroppedItems == context.nbTransportableItems - 1) {
@@ -1370,7 +1357,7 @@ var getRobotGridContext = function(display, infos, curLevel) {
       if (infos.ignoreInvalidMoves) {
         return fasle;
       }
-      throw "Le robot sort de la grille !";
+      throw "The robot comes out of the grid!";
     }
     var itemsInFront = context.getItems(row, col, { isObstacle: true });
     if (itemsInFront.length > 0) {

@@ -21,80 +21,80 @@ var getContext = function(display, infos, curLevel) {
         onHole: "on a hole",
         transportableShape: "forme de l'objet",
         transportableColor: "couleur de l'objet",
-        transportableRed: "l'objet est rouge",
-        transportableBlue: "l'objet est bleu",
-        transportableSquare: "l'objet est carré",
-        greenCell: "sur une case verte",
-        brownCell: "sur une case marron",
+        transportableRed: "the object is red",
+        transportableBlue: "the object is blue",
+        transportableSquare: "the object is square",
+        greenCell: "on a green box",
+        brownCell: "on a brown box",
         hasAKey: "the cell has a key",
         hasADiamant: "the cell has a dimant",
-        addPlatformAbove: "construire une plateforme au dessus",
-        addPlatformInFront: "construire une plateforme devant",
-        platformInFront: "plateforme devant",
-        platformInFrontAndBelow: "plateforme devant plus bas",
-        platformAbove: "plateforme au dessus",
-        gridEdgeInFront: "bord de la grille devant",
-        gridEdgeAbove: "bord de la grille au dessus",
-        gridEdgeBelow: "bord de la grille en dessous",
-        gridEdgeEast: "bord de la grille à droite",
-        gridEdgeWest: "bord de la grille à gauche",
-        obstacleInFront: "obstacle devant",
-        obstacleRight: "obstacle à droite",
-        obstacleLeft: "obstacle à gauche",
-        obstacleEast: "obstacle à droite",
-        obstacleWest: "obstacle à gauche",
-        obstacleNorth: "obstacle en haut",
-        obstacleSouth: "obstacle en bas",
-        paintInFront: "peinture devant",
-        paintOnCell: "peinture sur la case",
-        paintNorthWest: "peinture en haut à gauche",
-        paintNorth: "peinture en haut",
-        paintNorthEast: "peinture en haut à droite",
-        colorUnder: "couleur de la case",
-        numberUnder: "nombre sur la case",
-        writeNumber: "mettre le nombre de la case à",
-        dir: "direction du robot",
-        col: "colonne du robot",
-        row: "ligne du robot",
+        addPlatformAbove: "build a platform above",
+        addPlatformInFront: "build a platform in front",
+        platformInFront: "platform in front",
+        platformInFrontAndBelow: "platform in front of lower",
+        platformAbove: "platform above",
+        gridEdgeInFront: "edge of the grid in front",
+        gridEdgeAbove: "edge of the grid above",
+        gridEdgeBelow: "edge of the grid below",
+        gridEdgeEast: "edge of the grid on the right",
+        gridEdgeWest: "edge of the grid on the left",
+        obstacleInFront: "obstacle in front",
+        obstacleRight: "obstacle on the right",
+        obstacleLeft: "obstacle on the left",
+        obstacleEast: "obstacle on the right",
+        obstacleWest: "obstacle on the left",
+        obstacleNorth: "obstacle at the top",
+        obstacleSouth: "obstacle below",
+        paintInFront: "paint in front",
+        paintOnCell: "paint on the box",
+        paintNorthWest: "paint at the top left",
+        paintNorth: "paint on top",
+        paintNorthEast: "paint at the top right",
+        colorUnder: "color of the box",
+        numberUnder: "number on the box",
+        writeNumber: "set the number of the box to",
+        dir: "robot direction",
+        col: "robot column",
+        row: "robot line",
         alert: "alert",
         onPill: "on pill",
 
-        number: "nombre total d'objets à transporter",
-        exists: "il existe un objet à transporter ",
-        trans_row: "ligne de l'objet à transporter",
-        trans_col: "colonne d'objet à transporter"
+        number: "total number of objects to be transported",
+        exists: "there is an object to transport",
+        trans_row: "line of the object to be transported",
+        trans_col: "column of object to transport"
       },
       code: {
-        wait: "attendre",
-        right: "tournerDroite",
-        left: "tournerGauche",
+        wait: "wait",
+        right: "turnRight",
+        left: "turn left",
         turnAround: "demiTour",
-        jump: "sauter",
-        down: "descendre",
-        forward: "avancer",
-        east: "droite",
-        south: "bas",
-        west: "gauche",
-        north: "haut",
-        paint: "peindre",
-        openLocker: "ouvrir",
-        pickTransportable: "ramasser",
-        dropTransportable: "deposer",
-        onTransportable: "surObjet",
-        onHole: "surTrou",
-        transportableShape: "formeObjet",
-        transportableColor: "couleurObjet",
-        transportableRed: "objetRouge",
-        transportableBlue: "objetBleu",
-        transportableSquare: "objetCarre",
+        jump: "jump",
+        down: "descend",
+        forward: "advance",
+        east: "right",
+        south: "low",
+        west: "left",
+        north: "high",
+        paint: "paint",
+        openLocker: "open",
+        pickTransportable: "pick up",
+        dropTransportable: "drop",
+        onTransportable: "onObject",
+        onHole: "onHole",
+        transportableShape: "shapeObject",
+        transportableColor: "objectColor",
+        transportableRed: "redRed",
+        transportableBlue: "objectBleu",
+        transportableSquare: "objectCarre",
         greenCell: "caseVerte",
         brownCell: "caseMarron",
         hasAKey: "hasAKey",
         hasADiamant: "hasADiamant",
-        platformInFront: "plateformeDevant",
-        addPlatformAbove: "construirePlateformeAuDessus",
-        addPlatformInFront: "construirePlateformeDevant",
-        platformInFrontAndBelow: "plateformeDevantPlusBas",
+        platformInFront: "platformFront",
+        addPlatformAbove: "buildPlatformAuDessus",
+        addPlatformInFront: "buildFrontPlateform",
+        platformInFrontAndBelow: "platformFrontPlusBas",
         platformAbove: "plateformeAuDessus",
         gridEdgeInFront: "bordGrilleDevant",
         gridEdgeEast: "bordGrilleDroite",
@@ -128,36 +128,33 @@ var getContext = function(display, infos, curLevel) {
         trans_col: "colonneTransportable"
       },
       description: {
-        platformAbove:
-          "plateformeAuDessus() : y a-t-il une plateforme au dessus du robot ?",
+        platformAbove: "platformAbove (): is there a platform above the robot?",
         obstacleInFront:
-          "obstacleDevant() : y a-t-il un obstacle devant le robot ?",
-        onHole: "surTrou() : le robot est-il sur un trou ?",
-        onTransportable:
-          "surObjet() : le robot est-il sur un objet ramassable ?",
-        paintOnCell: "peintureSurCase() : la case du robot est-elle peinte ?",
+          "obstacleFront (): is there an obstacle in front of the robot?",
+        onHole: "onHole (): is the robot on a hole?",
+        onTransportable: "onObject (): is the robot on a pickable object?",
+        paintOnCell: "peintureSurCase (): is the robot's box painted?",
         gridEdgeInFront:
-          "bordGrilleDevant() : le robot est-il devant le bord de la grille ?",
+          "edgeGrilleFront (): is the robot in front of the edge of the grid?",
         gridEdgeEast:
-          "bordGrilleGauche() : le bord de la grille est-il juste à gauche du robot ?",
+          "leftGrid edge (): is the edge of the grid just to the left of the robot?",
         gridEdgeWest:
-          "bordGrilleDroite() : le bord de la grille est-il juste à droite du robot ?",
+          "rightGrid edge (): is the edge of the grid just to the right of the robot?",
         gridEdgeAbove:
-          "bordGrilleAuDessus() : le bord de la grille est-il juste au dessus du robot ?",
+          "edgeGrilleAuDessus (): is the edge of the grid just above the robot?",
         gridEdgeBelow:
-          "bordGrilleEnDessous() : le bord de la grille est-il juste en dessous du robot ?",
+          "bordGrilleEnDessous (): is the edge of the grid just below the robot?",
         platformInFront:
-          "plateformeDevant() : y a-t-il une plateforme devant le robot ?",
-        numberUnder: "nombreCase() : nombre inscrit sur la case du robot",
-        col: "colonne() : colonne du robot",
-        row: "ligne() : ligne du robot",
-        paintNorth: "peintureHaut() : la case au dessus est-elle peinte ?",
+          "platformFront (): is there a platform in front of the robot?",
+        numberUnder: "numberCase (): number written in the robot's box",
+        col: "column (): robot column",
+        row: "line (): robot line",
+        paintNorth: "paintTop (): is the box above painted?",
         paintNorthWest:
-          "peintureHautGauche() : la case au dessus à gauche est-elle peinte ?",
-        paintNorthEast:
-          "peintureHautDroite() : la case au dessus à droite est-elle peinte ?"
+          "paintingTop Left (): is the box above on the left painted?",
+        paintNorthEast: "paintingHighRight (): is the box above right painted?"
       },
-      obstacle: "Le robot essaie de se déplacer sur un obstacle !"
+      obstacle: "The robot is trying to move on an obstacle!"
     },
     de: {
       label: {
@@ -283,7 +280,7 @@ var getContext = function(display, infos, curLevel) {
         trans_col: "colonneTransportable"
       },
       description: {},
-      obstacle: "Le robot essaie de se déplacer sur un obstacle !"
+      obstacle: "The robot is trying to move over an obstacle!"
     }
   };
   var strings = languageStrings[stringsLanguage];
@@ -366,11 +363,11 @@ var getContext = function(display, infos, curLevel) {
     }
     if (isOutsideGrid(row + 1, coords.col)) {
       context.lost = true;
-      throw "Le robot se jette dans le vide !";
+      throw "The robot throws itself into the void!";
     }
     if (row - coords.row > 2) {
       context.lost = true;
-      throw "Le robot va tomber de haut et s'écraser !";
+      throw "The robot will fall from above and crash!";
     }
     coords.row = row;
     context.nbMoves++;
@@ -387,21 +384,21 @@ var getContext = function(display, infos, curLevel) {
     var item = context.getRobotItem(context.curRobot);
     if (isOutsideGrid(item.row - 2, item.col)) {
       context.lost = true;
-      throw "Le robot essaie de sauter en dehors de la grille !";
+      throw "The robot is trying to jump outside the grid!";
     }
     var obstacle = context.getItems(item.row - 2, item.col, {
       category: "obstacle"
     });
     if (obstacle.length > 0) {
       context.lost = true;
-      throw "Le robot essaie de sauter mais il y a un obstacle qui le bloque";
+      throw "The robot tries to jump but there is an obstacle blocking it";
     }
     var platforms = context.getItems(item.row - 1, item.col, {
       category: "platform"
     });
     if (platforms.length == 0) {
       context.lost = true;
-      throw "Le robot essaie de sauter mais il n'y a pas de plateforme au dessus !";
+      throw "The robot is trying to jump but there is no platform above!";
     }
     context.nbMoves++;
     moveRobot(item.row - 2, item.col, item.dir, callback);
@@ -417,14 +414,14 @@ var getContext = function(display, infos, curLevel) {
     var item = context.getRobotItem(context.curRobot);
     if (isOutsideGrid(item.row + 2, item.col)) {
       context.lost = true;
-      throw "Le robot essaie de descendre en dehors de la grille !";
+      throw "The robot is trying to descend outside the grid!";
     }
     var platforms = context.getItems(item.row + 3, item.col, {
       category: "platform"
     });
     if (platforms.length == 0) {
       context.lost = true;
-      throw "Le robot essaie de descendre mais il n'y a pas de plateforme en dessous !";
+      throw "The robot is trying to descend but there is no platform underneath!";
     }
     context.nbMoves++;
     moveRobot(item.row + 2, item.col, item.dir, callback);
@@ -1005,7 +1002,7 @@ var getContext = function(display, infos, curLevel) {
       context.transportedItem == undefined ||
       context.transportedItem.category !== "cle"
     ) {
-      throw "Le robot essaie d'ouvrir une serrure, mais ne possède pas de clé.";
+      throw "The robot tries to open a lock, but does not have a key.";
     }
 
     var locker = lockers[0];
@@ -1022,14 +1019,14 @@ var getContext = function(display, infos, curLevel) {
   context.robot.dropTransportable = function(callback) {
     var robot = context.getRobotItem(context.curRobot);
     if (context.transportedItem == undefined) {
-      throw "Le robot essaie de déposer un objet mais n'en transporte pas.";
+      throw "The robot tries to deposit an object but does not transport it.";
     }
 
     context.nbDroppedItems++;
     context.nbTransportedItems = 0;
     if (context.nbDroppedItems == context.nbTransportableItems - 1) {
       context.success = true;
-      throw "Bravo, vous avez déposé toutes les objets !";
+      throw "Congrats, you've dropped all the items!";
     }
     context.waitDelay(function() {
       context.items.push(context.transportedItem);

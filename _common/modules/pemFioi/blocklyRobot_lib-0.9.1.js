@@ -347,11 +347,11 @@ var getContext = function(display, infos, curLevel) {
       }
       if (isOutsideGrid(row + 1, coords.col)) {
          context.lost = true;
-         throw("Le robot se jette dans le vide !");
+         throw("The robot throws itself into the void!");
       }
       if (row - coords.row > 2) {
          context.lost = true;
-         throw("Le robot va tomber de haut et s'écraser !");
+         throw("The robot will fall from above and crash!");
       }
       coords.row = row;
       context.nbMoves++;
@@ -368,12 +368,12 @@ var getContext = function(display, infos, curLevel) {
       var item = context.getRobotItem(context.curRobot);
       if (isOutsideGrid(item.row - 2, item.col)) {
          context.lost = true;
-         throw("Le robot essaie de sauter en dehors de la grille !");
+         throw("The robot is trying to jump outside the grid!");
       }
       var platforms = context.getItems(item.row - 1, item.col, {category: "platform"});
       if (platforms.length == 0) {
          context.lost = true;
-         throw("Le robot essaie de sauter mais il n'y a pas de plateforme au dessus !");
+         throw("The robot is trying to jump but there is no platform above!");
       }
       context.nbMoves++;
       moveRobot(item.row - 2, item.col, item.dir, callback);
@@ -814,12 +814,7 @@ var getContext = function(display, infos, curLevel) {
       context.items.splice(transportable.index, 1);
       context.nbTransportedItems++;
       context.transportedItem = transportable;
-/*
-      if (context.nbTransportedItems == context.nbTransportableItems) {
-         context.success = true;
-         throw("Bravo, vous avez ramassé tous les objets dans le bon ordre !");
-      }
-*/
+
       context.waitDelay(function() {
          if (context.display) {
             transportable.element.remove();
@@ -833,11 +828,7 @@ var getContext = function(display, infos, curLevel) {
       if (context.transportedItem == undefined) {
          throw(context.strings.messages.notTransporting);
       }
-      /*
-      if (context.tiles[robot.row][robot.col] != 2) { // TODO : replace
-         throw("Le robot essaie de déposer un objet ailleurs que sur une étoile.");
-      }
-      */
+
       context.nbDroppedItems++;
       context.nbTransportedItems = 0;
       if (context.nbDroppedItems == context.nbTransportableItems - 1) {
