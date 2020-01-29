@@ -1512,7 +1512,7 @@ var getContext = function(display, infos, curLevel) {
       if (infos.ignoreInvalidMoves) {
         return false;
       }
-      throw "Le robot sort de la grille !";
+      throw "The robot is going out of the grid !";
     }
     var itemsInFront = context.getItems(row, col, { isObstacle: true });
     if (itemsInFront.length > 0) {
