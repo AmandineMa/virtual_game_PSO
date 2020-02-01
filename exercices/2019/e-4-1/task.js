@@ -96,7 +96,7 @@ function initTask(subTask) {
         }
 
         var hasCles =
-          context.nbTransportedItems === 4 &&
+          context.nbTransportedItems === 5 &&
           context.transportedItem.category === "key";
         if (!hasCles) {
           context.success = false;
