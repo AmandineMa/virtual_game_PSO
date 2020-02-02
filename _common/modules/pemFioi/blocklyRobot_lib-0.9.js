@@ -365,9 +365,9 @@ var getContext = function(display, infos, curLevel) {
       context.lost = true;
       throw "The robot throws itself into the void!";
     }
-    if (row - coords.row > 2) {
+    if (row - coords.row > 10) {
       context.lost = true;
-      throw "The robot will fall from above and crash!";
+      throw "WThe robot will fall from above and crash!";
     }
     coords.row = row;
     context.nbMoves++;
@@ -1000,7 +1000,7 @@ var getContext = function(display, infos, curLevel) {
 
     if (
       context.transportedItem == undefined ||
-      context.transportedItem.category !== "cle"
+      context.transportedItem.category !== "key"
     ) {
       throw "The robot tries to open a lock, but does not have a key.";
     }

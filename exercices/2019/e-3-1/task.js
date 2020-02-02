@@ -71,7 +71,7 @@ function initTask(subTask) {
         num: 9,
         img: "../images/objects/fond_ciel/cle.png",
         side: cellSide,
-        category: "cle",
+        category: "key",
         isObstacle: false,
         isTransportable: true
       },
@@ -128,10 +128,10 @@ function initTask(subTask) {
 
         if (noSerrure) {
           context.success = true;
-          throw "Bravo, Goumo a ouvert toutes les serrure !";
+          throw "Well done, Goumo has opened all the locks!";
         } else {
           context.success = false;
-          throw "Goumo n'a pas ouvert toutes les serrure";
+          throw "Goumo has NOT opened all the locks";
         }
       }
     },

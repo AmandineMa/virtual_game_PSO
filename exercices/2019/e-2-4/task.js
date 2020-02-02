@@ -71,7 +71,7 @@ function initTask(subTask) {
         num: 9,
         img: "../images/objects/fond_ciel/cle.png",
         side: cellSide,
-        category: "cle",
+        category: "key",
         isObstacle: false,
         isTransportable: true
       },
