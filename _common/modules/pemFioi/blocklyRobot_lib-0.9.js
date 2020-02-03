@@ -995,7 +995,7 @@ var getContext = function(display, infos, curLevel) {
       category: "serrure"
     });
     if (lockers.length != 1) {
-      throw "Il n'y a pas de serrure à ouvrir à cet endroit";
+      throw "There is no locker to open at this position";
     }
 
     if (
