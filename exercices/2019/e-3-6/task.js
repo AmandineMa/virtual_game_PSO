@@ -130,7 +130,7 @@ function initTask(subTask) {
           1;
         if (isOnFlag) {
           var hasDiamant =
-            context.nbTransportedItems === 6 &&
+            context.nbTransportedItems === 18 &&
             context.transportedItem.category === "diamant";
 
           if (hasDiamant) {
