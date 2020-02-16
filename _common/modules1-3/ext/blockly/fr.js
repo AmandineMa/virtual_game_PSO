@@ -60,18 +60,17 @@ Blockly.Msg.CONTROLS_IF_HELPURL =
   "https://github.com/google/blockly/wiki/IfElse"; // untranslated
 Blockly.Msg.CONTROLS_IF_IF_TOOLTIP =
   "Ajouter, supprimer ou réordonner les sections pour reconfigurer ce bloc si.";
-Blockly.Msg.CONTROLS_IF_MSG_ELSE = "sinon";
-Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "sinon si";
-Blockly.Msg.CONTROLS_IF_MSG_IF = "si";
+Blockly.Msg.CONTROLS_IF_MSG_ELSE = "else";
+Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "else if";
+Blockly.Msg.CONTROLS_IF_MSG_IF = "if";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_1 =
-  "Si une valeur est vraie, alors exécuter certains ordres.";
+  "If a value is true, then execute certain orders.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_2 =
-  "Si une valeur est vraie, alors exécuter le premier bloc d’ordres. Sinon, exécuter le second bloc d’ordres.";
+  "If a value is true, then execute the first block of orders. Otherwise, execute the second block of orders.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_3 =
-  "Si la première valeur est vraie, alors exécuter le premier bloc d’ordres. Sinon, si la seconde valeur est vraie, exécuter le second bloc d’ordres.";
+  "If the first value is true, then execute the first block of orders. Otherwise, if the second value is true, execute the second block of orders.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_4 =
-  "Si la première valeur est vraie, alors exécuter le premier bloc d’ordres. Sinon, si la seconde valeur est vraie, exécuter le second bloc d’ordres. Si aucune des valeurs n’est vraie, exécuter le dernier bloc d’ordres.";
-
+  "If the first value is true, then execute the first block of orders. Otherwise, if the second value is true, execute the second block of orders. If none of the values ​​is true, execute the last block of orders . ";
 Blockly.Msg.CONTROLS_REPEAT_HELPURL = "http://fr.wikipedia.org/wiki/Boucle_for";
 Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "do";
 Blockly.Msg.CONTROLS_REPEAT_TITLE = "repeat %1 time";
@@ -117,38 +116,37 @@ Blockly.Msg.LISTS_GET_INDEX_FROM_END = "# since the end";
 Blockly.Msg.LISTS_GET_INDEX_FROM_START = "#"; // untranslated
 Blockly.Msg.LISTS_GET_INDEX_GET = "get";
 Blockly.Msg.LISTS_GET_INDEX_GET_REMOVE = "get and delete";
-
-Blockly.Msg.LISTS_GET_INDEX_LAST = "dernier";
-Blockly.Msg.LISTS_GET_INDEX_RANDOM = "aléatoire";
-Blockly.Msg.LISTS_GET_INDEX_REMOVE = "supprimer";
+Blockly.Msg.LISTS_GET_INDEX_LAST = "last";
+Blockly.Msg.LISTS_GET_INDEX_RANDOM = "random";
+Blockly.Msg.LISTS_GET_INDEX_REMOVE = "delete";
 Blockly.Msg.LISTS_GET_INDEX_TAIL = ""; // untranslated
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_FIRST =
-  "Renvoie le premier élément dans une liste.";
+  "Returns the first item in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_FROM =
-  "Renvoie l’élément à la position indiquée dans une liste.";
+  "Returns the item at the position specified in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_LAST =
-  "Renvoie le dernier élément dans une liste.";
+  "Returns the last item in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_RANDOM =
-  "Renvoie un élément au hasard dans une liste.";
+  "Returns a random element in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_REMOVE_FIRST =
-  "Supprime et renvoie le premier élément dans une liste.";
+  "Removes and returns the first item in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_REMOVE_FROM =
-  "Supprime et renvoie l’élément à la position indiquée dans une liste.";
+  "Deletes and returns the element at the position indicated in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_REMOVE_LAST =
-  "Supprime et renvoie le dernier élément dans une liste.";
+  "Removes and returns the last item in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_GET_REMOVE_RANDOM =
-  "Supprime et renvoie un élément au hasard dans une liste.";
+  "Randomly deletes and returns an item from a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_REMOVE_FIRST =
-  "Supprime le premier élément dans une liste.";
+  "Remove the first item from a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_REMOVE_FROM =
-  "Supprime l’élément à la position indiquée dans une liste.";
+  "Delete the element at the position indicated in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_REMOVE_LAST =
-  "Supprime le dernier élément dans une liste.";
+  "Delete the last item in a list.";
 Blockly.Msg.LISTS_GET_INDEX_TOOLTIP_REMOVE_RANDOM =
-  "Supprime un élément au hasard dans une liste.";
-Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_END = "jusqu’à # depuis la fin";
-Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_START = "jusqu’à #";
-Blockly.Msg.LISTS_GET_SUBLIST_END_LAST = "jusqu’à la fin";
+  "Randomly delete an item from a list.";
+Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_END = "until # since the end";
+Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_START = "up to #";
+Blockly.Msg.LISTS_GET_SUBLIST_END_LAST = "until the end";
 Blockly.Msg.LISTS_GET_SUBLIST_HELPURL =
   "https://github.com/google/blockly/wiki/Lists#getting-a-sublist"; // untranslated
 Blockly.Msg.LISTS_GET_SUBLIST_START_FIRST =
@@ -244,7 +242,7 @@ Blockly.Msg.LOGIC_COMPARE_TOOLTIP_NEQ =
   "Renvoyer vrai si les deux entrées sont différentes.";
 Blockly.Msg.LOGIC_NEGATE_HELPURL =
   "https://github.com/google/blockly/wiki/Logic#not"; // untranslated
-Blockly.Msg.LOGIC_NEGATE_TITLE = "pas %1";
+Blockly.Msg.LOGIC_NEGATE_TITLE = "not %1";
 Blockly.Msg.LOGIC_NEGATE_TOOLTIP =
   "Renvoie vrai si l’entrée est fausse. Renvoie faux si l’entrée est vraie.";
 Blockly.Msg.LOGIC_NULL = "nul";
@@ -378,8 +376,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_SIN =
   "Renvoie le sinus d’un angle en degrés (pas en radians).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN =
   "Renvoie la tangente d’un angle en degrés (pas en radians).";
-Blockly.Msg.NEW_VARIABLE = "Créer une variable...";
-Blockly.Msg.NEW_VARIABLE_TITLE = "Nouveau nom de la variable :";
+Blockly.Msg.NEW_VARIABLE = "Create a variable..";
+Blockly.Msg.NEW_VARIABLE_TITLE = "Variable name: ";
 Blockly.Msg.ORDINAL_NUMBER_SUFFIX = ""; // untranslated
 Blockly.Msg.PROCEDURES_ALLOW_STATEMENTS = "autoriser les ordres";
 Blockly.Msg.PROCEDURES_BEFORE_PARAMS = "avec :";

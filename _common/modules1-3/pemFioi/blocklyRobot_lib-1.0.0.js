@@ -46,7 +46,7 @@ var getContext = function(display, infos, curLevel) {
           left: "turn left",
           right: "turn right",
           turnAround: "turn around",
-          forward: "advance",
+          forward: "go forward",
           backwards: "back off",
           jump: "jump",
           obstacleInFront: "obstacle in front",
@@ -1025,10 +1025,10 @@ var getContext = function(display, infos, curLevel) {
     marbles: {
       fr: {
         label: {
-          withdrawObject: "ramasser la bille",
-          dropObject: "déposer la bille",
-          onObject: "sur une bille",
-          onContainer: "sur un trou"
+          withdrawObject: "pick up the ball",
+          dropObject: "drop the ball",
+          onObject: "on a ball",
+          onContainer: "on a hole"
         },
         code: {
           withdrawObject: "ramasserBille",
@@ -1037,13 +1037,12 @@ var getContext = function(display, infos, curLevel) {
           onContainer: "surTrou"
         },
         messages: {
-          emptyBag: "Le robot ne porte pas de bille !",
-          tooManyObjects: "Le robot porte déjà une bille !",
-          successContainersFilled: "Bravo, vous avez rangé les billes !",
-          failureContainersFilled:
-            "Les billes ne sont pas toutes bien rangées.",
-          failureContainersFilledLess: "Il reste une bille à ranger.",
-          failureContainersFilledBag: "Il faut déposer la bille dans le trou !"
+          emptyBag: "The robot does not carry a ball!",
+          tooManyObjects: "The robot is already carrying a ball!",
+          successContainersFilled: "Well done, you have put the balls away!",
+          failureContainersFilled: "Not all of the logs are tidy.",
+          failureContainersFilledLess: "There is one ball left to put away.",
+          failureContainersFilledBag: "You have to put the ball in the hole!"
         }
       },
 
@@ -1167,11 +1166,11 @@ var getContext = function(display, infos, curLevel) {
     sokoban: {
       fr: {
         label: {
-          pushObject: "pousser la caisse",
-          onContainer: "sur une case marquée",
-          pushableInFront: "caisse devant",
-          obstacleInFront: "obstacle devant",
-          readNumber: "nombre de la case"
+          pushObject: "push the box",
+          onContainer: "on a marked cell",
+          pushableInFront: "in front of a box",
+          obstacleInFront: "in front of an obstacle",
+          readNumber: "number on the cell"
         },
         code: {
           pushObject: "pousserCaisse",
@@ -1181,12 +1180,13 @@ var getContext = function(display, infos, curLevel) {
           readNumber: "nombreSurCase"
         },
         messages: {
-          successContainersFilled: "Bravo, les caisses sont bien rangées !",
+          successContainersFilled:
+            "Congratulations, the boxes are correctly placed!",
           failureContainersFilled:
-            "Il y a encore des caisses qui ne sont pas à leur place.",
-          failureNothingToPush: "Il n'y a pas de caisse à pousser ici !",
-          failureWhilePushing: "Le robot ne peut pas pousser ici !",
-          obstacle: "Le robot essaie de foncer dans un mur ou dans une caisse !"
+            "There are still boxes that are not places correctly.",
+          failureNothingToPush: "There is no box to push here!",
+          failureWhilePushing: "The robot can't push here!",
+          obstacle: "The robot is trying to move into a wall or a box!"
         }
       },
 

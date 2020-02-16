@@ -35,28 +35,11 @@
       // set Blockly as default language when none is specified through ?language=
       importLanguageModules("blockly");
     </script>
-    <script class="remove" type="text/javascript">
-      var json = {
-        id:
-          "http://castor-informatique.fr/questions/algorea_training/training-var",
-        language: "fr",
-        version: "fr.01",
-        authors: "Mathias Hiron",
-        translators: [],
-        license: "",
-        taskPathPrefix: "",
-        modulesPathPrefix: "",
-        browserSupport: [],
-        acceptedAnswers: [""],
-        fullFeedback: true,
-        minWidth: "auto"
-      };
-    </script>
     <script type="text/javascript" src="task.js"></script>
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Compter les cases marquées</h1>
+      <h1>7- Compute the sum</h1>
       <img src="red_robot.png" style="display:none" />
       <img src="marker.png" style="display:none" />
       <img src="icon.png" style="display:none" />
@@ -65,18 +48,18 @@
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro">
           <p class="easy">
-            Programmez le robot pour que, sur chaque ligne, il compte les cases
-            marquées avec un point noir. Il doit écrire le résultat sur la case
-            blanche au bout de chaque ligne.
+            Program the robot so that, on each line, it counts the boxes marked
+            with a black dot. He must write the result on the box white at the
+            end of each line.
           </p>
           <p class="medium hard">
-            Programmez le robot pour qu'il compte toutes les cases marquées avec
-            un point noir de la grille. Il doit écrire le résultat sur la case
-            blanche en bas à droite.
+            Program the robot to count all the boxes marked with a black dot on
+            the grid. He must write the result on the box white at the bottom
+            right.
           </p>
           <p>
-            Notez que cet exercice contient plusieurs tests. Le même programme
-            doit fonctionner sur tous les tests.
+            Note that this exercise contains several tests. The same program
+            should work on all tests.
           </p>
         </div>
         <div id="gridContainer"></div>

@@ -36,27 +36,11 @@
       // set Blockly as default language when none is specified through ?language=
       importLanguageModules("blockly");
     </script>
-    <script class="remove" type="text/javascript">
-      var json = {
-        id:
-          "http://castor-informatique.fr/questions/algorea_2017_1/collecting_gems",
-        language: "fr",
-        version: "fr.01",
-        authors: "Mathias Hiron, Marielle Léonard",
-        translators: [],
-        license: "",
-        taskPathPrefix: "",
-        modulesPathPrefix: "",
-        browserSupport: [],
-        fullFeedback: true,
-        minWidth: "auto"
-      };
-    </script>
     <script type="text/javascript" src="task.js"></script>
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Pousser les caisses 4</h1>
+      <h1>6- Sokoban (2)</h1>
       <img src="wall.png" style="display:none" />
       <img src="marker.png" style="display:none" />
       <img src="box.png" style="display:none" />
@@ -67,40 +51,37 @@
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro">
           <p class="easy medium">
-            Programmez le robot pour qu'il pousse la caisse sur la case marquée.
+            Program the robot to push the box to the marked square.
           </p>
           <p class="hard">
-            Programmez le robot pour qu'il pousse les caisses sur les cases
-            marquées.
+            Program the robot to push the boxes onto the boxes marked.
           </p>
           <p class="easy">
-            Le nombre devant le robot indique la colonne où il y a une caisse à
-            pousser.
+            The number in front of the robot indicates the column where there is
+            a box to push.
           </p>
           <div class="medium">
             <p>
-              Les nombres devant le robot correspondent aux coordonnées de la
-              caisse à pousser :
+              The numbers in front of the robot correspond to the coordinates of
+              the box:
             </p>
             <ul>
-              <li>Le premier nombre indique la ligne</li>
-              <li>Le second nombre indique la colonne</li>
+              <li>The first number indicates the row</li>
+              <li>The second number indicates the column</li>
             </ul>
           </div>
           <p class="hard">
-            Le nombre dans le coin en bas à gauche indique le nombre de caisses
-            présentes sur la grille.<br />
-            Le nombre en bas de chaque colonne indique la ligne sur laquelle il
-            y a une caisse.
+            The number in the bottom left corner indicates the number of cases
+            present on the grid. <br />
+            The number at the bottom of each column indicates the row on which
+            it there is a case.
           </p>
           <p>
-            Attention, votre programme doit fonctionner sur les trois tests.
-            Regardez-les avant de programmer !
+            Please note, your program must work on all three tests. Watch them
+            before programming!
           </p>
           <p>
-            Vous pouvez avoir besoin d'utiliser une
-            <a onclick="conceptViewer.showConcept('extra_variable')">variable</a
-            >.
+            You may need to use a variable
           </p>
         </div>
         <div id="gridContainer"></div>

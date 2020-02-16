@@ -376,8 +376,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_SIN =
   "Renvoie le sinus d’un angle en degrés (pas en radians).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN =
   "Renvoie la tangente d’un angle en degrés (pas en radians).";
-Blockly.Msg.NEW_VARIABLE = "Créer une variable...";
-Blockly.Msg.NEW_VARIABLE_TITLE = "Nouveau nom de la variable :";
+Blockly.Msg.NEW_VARIABLE = "Create a variable...";
+Blockly.Msg.NEW_VARIABLE_TITLE = "Variable name: ";
 Blockly.Msg.ORDINAL_NUMBER_SUFFIX = ""; // untranslated
 Blockly.Msg.PROCEDURES_ALLOW_STATEMENTS = "autoriser les ordres";
 Blockly.Msg.PROCEDURES_BEFORE_PARAMS = "avec :";

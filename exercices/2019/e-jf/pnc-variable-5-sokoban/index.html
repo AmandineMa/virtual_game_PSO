@@ -36,27 +36,11 @@
       // set Blockly as default language when none is specified through ?language=
       importLanguageModules("blockly");
     </script>
-    <script class="remove" type="text/javascript">
-      var json = {
-        id:
-          "http://castor-informatique.fr/questions/algorea_2017_1/collecting_gems",
-        language: "fr",
-        version: "fr.01",
-        authors: "Mathias Hiron, Marielle Léonard",
-        translators: [],
-        license: "",
-        taskPathPrefix: "",
-        modulesPathPrefix: "",
-        browserSupport: [],
-        fullFeedback: true,
-        minWidth: "auto"
-      };
-    </script>
     <script type="text/javascript" src="task.js"></script>
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Pousser les caisses</h1>
+      <h1>1- Sokoban (1)</h1>
       <img src="wall.png" style="display:none" />
       <img src="marker.png" style="display:none" />
       <img src="box.png" style="display:none" />
@@ -66,21 +50,7 @@
       <div id="tabsContainer"></div>
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro">
-          <p class="easy medium">
-            Programmez le robot pour qu'il pousse la caisse sur la case marquée.
-          </p>
-          <p class="hard">
-            Programmez le robot pour qu'il pousse les caisses sur les cases
-            marquées.
-          </p>
-          <p>
-            Vous pouvez avoir besoin <span data-lang="blockly scratch">du</span
-            ><span data-lang="python">de</span>
-            <a onclick="conceptViewer.showConcept('blockly_controls_repeat')"
-              ><span data-lang="blockly scratch">bloc répéter</span
-              ><span data-lang="python">la boucle for</span></a
-            >
-          </p>
+          Program the robot to push the boxes onto the marked boxes.
         </div>
         <div id="gridContainer"></div>
         <div id="blocklyLibContent"></div>
