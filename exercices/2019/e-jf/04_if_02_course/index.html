@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+   <head>
+    <meta charset="utf-8">
+    <title>04_if_02_if_obstacles</title>
+      <script>
+      window.stringsLanguage = 'fr';
+      </script>
+      <script class="remove" type="text/javascript" src="../../../../_common/modules/pemFioi/importModules-1.3.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript">
+        var modulesPath = '../../../../_common/modules/'
+        importModules([
+            'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
+            'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform', 'conceptViewer-1.0', 'conceptViewer_css-1.0',
+            'taskStyles-0.1']);
+        // set Blockly as default language when none is specified through ?language=
+        importLanguageModules('blockly');
+      </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/questions/algorea_training/training-repeat-if-obstacles/",
+          "language": "fr",
+          "version": "fr.01",
+          "authors": "Mathias Hiron, Marielle Léonard",
+          "translators": [],
+          "license": "CC-BY-SA",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "minWidth": "auto"
+      };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+   </head>
+   <body onresize="task.displayedSubTask.updateScale()">
+      <div id="task">
+         <h1>Suivre le parcours 4</h1>
+         <img src="obstacle.png" style="display:none" />
+         <img src="red_robot.png" style="display:none" />
+         <img src="icon.png" style="display:none" />
+
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <div id="taskIntro">
+               <p>
+                  Programmer le robot pour qu'il atteigne la case verte, sans rentrer dans un obstacle.
+               </p>
+               <p>
+                  Attention: votre programme doit fonctionner pour les deux parcours proposés.
+               </p>
+               <p>
+                  Vous pouvez avoir besoin <span data-lang="blockly scratch">du</span><span data-lang="python">de</span>
+                  <a onclick="conceptViewer.showConcept('blockly_controls_if_else')">
+                  <span data-lang="blockly scratch">bloc si / sinon</span>
+                  <span data-lang="python">l'instruction if / else</span></a>
+               </p>
+         </div>
+            <div id="gridContainer"></div>
+            <div id="blocklyLibContent"></div>
+         </div>
+
+      </div><!-- task -->
+   </body>
+</html>
+ 

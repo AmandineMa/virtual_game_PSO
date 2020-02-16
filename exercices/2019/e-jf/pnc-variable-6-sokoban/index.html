@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>11_variable_04_sokoban</title>
+    <script>
+      window.stringsLanguage = "fr";
+      window.taskStrings = {};
+    </script>
+    <script
+      class="remove"
+      type="text/javascript"
+      src="../../../../_common/modules1-3/pemFioi/importModules-1.3.js"
+      id="import-modules"
+    ></script>
+    <script class="remove" type="text/javascript">
+      var modulesPath = "../../../../_common/modules1-3/";
+      importModules([
+        "jquery-1.7.1",
+        "JSON-js",
+        "raphael-2.2.1",
+        "beaver-task-2.0",
+        "jschannel",
+        "raphaelFactory-1.0",
+        "delayFactory-1.0",
+        "simulationFactory-1.0",
+        "platform-pr",
+        "buttonsAndMessages",
+        "beav-1.0",
+        "installationAPI.01",
+        "miniPlatform",
+        "conceptViewer-1.0",
+        "conceptViewer_css-1.0",
+        "taskStyles-0.1"
+      ]);
+      // set Blockly as default language when none is specified through ?language=
+      importLanguageModules("blockly");
+    </script>
+    <script class="remove" type="text/javascript">
+      var json = {
+        id:
+          "http://castor-informatique.fr/questions/algorea_2017_1/collecting_gems",
+        language: "fr",
+        version: "fr.01",
+        authors: "Mathias Hiron, Marielle Léonard",
+        translators: [],
+        license: "",
+        taskPathPrefix: "",
+        modulesPathPrefix: "",
+        browserSupport: [],
+        fullFeedback: true,
+        minWidth: "auto"
+      };
+    </script>
+    <script type="text/javascript" src="task.js"></script>
+  </head>
+  <body onresize="task.displayedSubTask.updateScale()">
+    <div id="task">
+      <h1>Pousser les caisses 4</h1>
+      <img src="wall.png" style="display:none" />
+      <img src="marker.png" style="display:none" />
+      <img src="box.png" style="display:none" />
+      <img src="green_robot.png" style="display:none" />
+      <img src="icon.png" style="display:none" />
+
+      <div id="tabsContainer"></div>
+      <div id="taskContent" style="text-align:left;position:relative">
+        <div id="taskIntro">
+          <p class="easy medium">
+            Programmez le robot pour qu'il pousse la caisse sur la case marquée.
+          </p>
+          <p class="hard">
+            Programmez le robot pour qu'il pousse les caisses sur les cases
+            marquées.
+          </p>
+          <p class="easy">
+            Le nombre devant le robot indique la colonne où il y a une caisse à
+            pousser.
+          </p>
+          <div class="medium">
+            <p>
+              Les nombres devant le robot correspondent aux coordonnées de la
+              caisse à pousser :
+            </p>
+            <ul>
+              <li>Le premier nombre indique la ligne</li>
+              <li>Le second nombre indique la colonne</li>
+            </ul>
+          </div>
+          <p class="hard">
+            Le nombre dans le coin en bas à gauche indique le nombre de caisses
+            présentes sur la grille.<br />
+            Le nombre en bas de chaque colonne indique la ligne sur laquelle il
+            y a une caisse.
+          </p>
+          <p>
+            Attention, votre programme doit fonctionner sur les trois tests.
+            Regardez-les avant de programmer !
+          </p>
+          <p>
+            Vous pouvez avoir besoin d'utiliser une
+            <a onclick="conceptViewer.showConcept('extra_variable')">variable</a
+            >.
+          </p>
+        </div>
+        <div id="gridContainer"></div>
+        <div id="blocklyLibContent"></div>
+      </div>
+    </div>
+    <!-- task -->
+  </body>
+</html>

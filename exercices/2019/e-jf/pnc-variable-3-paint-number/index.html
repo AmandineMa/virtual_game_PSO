@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>11_variable_02_paint</title>
+    <script>
+      window.stringsLanguage = "fr";
+    </script>
+    <script
+      class="remove"
+      type="text/javascript"
+      src="../../../../_common/modules1-3/pemFioi/importModules-1.3.js"
+      id="import-modules"
+    ></script>
+    <script class="remove" type="text/javascript">
+      var modulesPath = "../../../../_common/modules1-3/";
+      importModules([
+        "jquery-1.7.1",
+        "JSON-js",
+        "raphael-2.2.1",
+        "beaver-task-2.0",
+        "jschannel",
+        "raphaelFactory-1.0",
+        "delayFactory-1.0",
+        "simulationFactory-1.0",
+        "platform-pr",
+        "buttonsAndMessages",
+        "beav-1.0",
+        "installationAPI.01",
+        "miniPlatform",
+        "conceptViewer-1.0",
+        "conceptViewer_css-1.0",
+        "taskStyles-0.1"
+      ]);
+      // set Blockly as default language when none is specified through ?language=
+      importLanguageModules("blockly");
+    </script>
+    <script class="remove" type="text/javascript">
+      var json = {
+        id:
+          "http://castor-informatique.fr/questions/algorea_training/training-var",
+        language: "fr",
+        version: "fr.01",
+        authors: "Mathias Hiron",
+        translators: [],
+        license: "",
+        taskPathPrefix: "",
+        modulesPathPrefix: "",
+        browserSupport: [],
+        acceptedAnswers: [""],
+        fullFeedback: true,
+        minWidth: "auto"
+      };
+    </script>
+    <script type="text/javascript" src="task.js"></script>
+  </head>
+  <body onresize="task.displayedSubTask.updateScale()">
+    <div id="task">
+      <h1>Peindre le motif 6</h1>
+      <img src="red_robot.png" style="display:none" />
+      <img src="marker.png" style="display:none" />
+      <img src="icon.png" style="display:none" />
+
+      <div id="tabsContainer"></div>
+      <div id="taskContent" style="text-align:left;position:relative">
+        <div id="taskIntro">
+          <p>
+            Programmez le robot pour qu'il peigne toute les cases marquées avec
+            un point noir.
+          </p>
+          <div class="easy">
+            <p>
+              Le nombre devant le robot indique combien de cases sont marquées,
+              un peu plus loin. Il doit donc lire ce nombre, le stocker dans sa
+              mémoire grâce à une
+              <a onclick="conceptViewer.showConcept('extra_variable')"
+                >variable</a
+              >, puis utiliser le contenu de cette variable dans le programme.
+            </p>
+            <p>
+              Pour lire le nombre et stocker sa valeur dans la variable
+              <var>nbPointsNoirs</var>, avancez sur sa case, puis exécutez
+              l'instruction suivante :
+            </p>
+            <img
+              data-lang="blockly"
+              src="read_number_blockly.png"
+              style="height:35px"
+            />
+            <img
+              data-lang="scratch"
+              src="read_number_scratch.png"
+              style="height:50px"
+            />
+            <code data-lang="python">nbPointsNoirs = nombreSurCase()</code>
+            <p>
+              Vous pouvez ensuite utiliser cette variable là où vous avez besoin
+              de sa valeur, par exemple :
+            </p>
+            <img
+              data-lang="blockly"
+              src="use_number_blockly.png"
+              style="height:80px"
+            />
+            <img
+              data-lang="scratch"
+              src="use_number_scratch.png"
+              style="height:100px"
+            />
+            <pre data-lang="python">
+for loop in range(nbPointsNoirs):
+   [instructions de la boucle]
+ </pre
+            >
+          </div>
+          <div class="medium">
+            <p>
+              Devant le robot se trouvent deux nombres : le nombre de lignes et
+              le nombre de colonnes du rectangle de cases marquées.
+            </p>
+            <p>
+              Pour résoudre cet exercice, vous devrez créer deux
+              <a onclick="conceptViewer.showConcept('extra_variable')"
+                >variables</a
+              >, pour stocker ces deux nombres. Appelez-les par exemple
+              <var>nbLignes</var> et <var>nbColonnes</var>.
+            </p>
+            <p data-lang="blockly">
+              Dans cette version, les blocs sont regroupés par catégorie dans
+              des menus. Cliquez sur un menu pour accéder aux blocs de la
+              catégorie correspondante.
+            </p>
+            <p data-lang="scratch">
+              Dans cette version, les blocs sont regroupés par catégorie dans
+              des menus. Cliquez sur un menu en haut pour accéder aux blocs de
+              la catégorie correspondante.
+            </p>
+          </div>
+          <div class="hard">
+            <p>
+              Devant le robot se trouve un nombre : le nombre de lignes et de
+              colonnes occupées par le triangle de cases marquées.
+            </p>
+            <p>
+              Pour peindre le bon nombre de cases sur chaque ligne, vous allez
+              devoir créer une
+              <a onclick="conceptViewer.showConcept('extra_variable')"
+                >variable</a
+              >
+              qui pour chaque ligne, devra contenir le nombre de colonnes à
+              marquer. Après avoir dessiné chaque ligne, le contenu de cette
+              variable devra être augmenté de 1. Cela ressemblera un peu à ceci
+              :
+            </p>
+            <img
+              data-lang="blockly"
+              src="use_variable_blockly.png"
+              style="height:200px"
+            />
+            <img
+              data-lang="scratch"
+              src="use_variable_scratch.png"
+              style="height:250px"
+            />
+          </div>
+          <p>
+            Notez que cet exercice contient deux tests. Le programme du robot
+            doit fonctionner sur chacun des deux tests.
+          </p>
+        </div>
+        <div id="gridContainer"></div>
+        <div id="blocklyLibContent"></div>
+      </div>
+    </div>
+    <!-- task -->
+  </body>
+</html>
