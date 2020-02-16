@@ -128,67 +128,68 @@ var getContext = function(display, infos, curLevel) {
           onFemale: "surFemelle"
         },
         messages: {
-          leavesGrid: "Le robot sort de la grille !",
-          obstacle: "Le robot essaie de se déplacer sur un obstacle !",
-          nothingToPickUp: "Il n'y a rien à ramasser !",
-          nothingToLookAt: "Il n'y a ni carte ni conteneur sur cette case",
-          falls: "Le robot va se jeter dans le vide !",
-          willFallAndCrash: "Le robot va tomber de haut et s'écraser !",
-          jumpOutsideGrid: "Le robot essaie de sauter en dehors de la grille !",
+          leavesGrid: "The robot is coming out of the grid!",
+          obstacle: "The robot is trying to move on an obstacle!",
+          nothingToPickUp: "There's nothing to pick up!",
+          nothingToLookAt: "There is no card or container in this box",
+          falls: "The robot will throw itself into the void!",
+          willFallAndCrash: "The robot will fall from the top and crash!",
+          jumpOutsideGrid: "The robot is trying to jump outside the grid!",
           jumpObstacleBlocking:
-            "Le robot essaie de sauter mais il y a un obstacle qui le bloque",
+            "The robot is trying to jump but there is an obstacle blocking it",
           jumpNoPlatform:
-            "Le robot essaie de sauter mais il n'y a pas de plateforme au dessus !",
+            "The robot is trying to jump but there is no platform above!",
           tooManyObjects:
-            "Le robot essaie de transporter trop d'objets à la fois !",
+            "The robot is trying to transport too many objects at the same time!",
           emptyBag:
-            "Le robot essaie de déposer un objet alors qu'il n'en transporte pas !",
-          successReachExit: "Bravo, votre robot a atteint la sortie !",
-          failureReachExit: "Votre robot n'a pas atteint la sortie.",
-          successPickedAllWithdrawables: "Bravo, votre robot a tout ramassé !",
-          failurePickedAllWithdrawables: "Votre robot n'a pas tout ramassé.",
+            "The robot tries to deposit an object while it is not transporting it!",
+          successReachExit: "Well done, your robot has reached the exit!",
+          failureReachExit: "Your robot has not reached the exit.",
+          successPickedAllWithdrawables:
+            "Well done, your robot has picked everything up!",
+          failurePickedAllWithdrawables:
+            "Your robot hasn't picked up everything.",
           successContainersFilled:
-            "Bravo, votre robot a rempli tous les conteneurs",
-          failureContainersFilled: "Il y a un objet hors des conteneurs",
+            "Well done, your robot has filled all the containers",
+          failureContainersFilled: "There is an object outside the containers",
           failureContainersFilledLess:
-            "Votre robot n'a pas rempli tous les conteneurs",
+            "Your robot has not filled all the containers",
           failureContainersFilledBag:
-            "Votre robot n'a pas posé tous les objets",
-          failureUnfilteredObject: "Votre robot a ramassé un objet invalide",
-          failureTooManyMoves: "Votre robot a effectué trop de déplacements.",
-          failureWriteHere: "Votre robot ne peut pas écrire ici !",
-          failureReadHere: "Il n'y a pas de nombre écrit ici !",
+            "Your robot has not placed all the objects",
+          failureUnfilteredObject: "Your robot has picked up an invalid object",
+          failureTooManyMoves: "Your robot has moved too much.",
+          failureWriteHere: "Your robot can't write here!",
+          failureReadHere: "There is no number written here!",
           successNumbersWritten:
-            "Bravo, votre robot a écrit les bons nombres !",
-          failureNumbersWritten: "Votre robot n'a pas écrit les bons nombres !",
-          failureNothingToPush: "Il n'y a pas d'objet à pousser !",
-          failureWhilePushing: "Le robot ne peut pas pousser cet objet !",
-          failureDropObject: "On ne peut pas poser d'objet ici",
+            "Well done, your robot has written the right numbers!",
+          failureNumbersWritten: "Your robot did not write the right numbers!",
+          failureNothingToPush: "There is no object to push!",
+          failureWhilePushing: "The robot cannot push this object!",
+          failureDropObject: "We can't put an object here",
           failureDropOutside:
-            "Votre robot essaie de poser un objet hors de la grille",
-          failureNotEnoughPlatform: "Pas assez de plateformes",
-          failureLights: "Il reste des spots à allumer.",
-          successLights: "Bravo, votre robot a allumé tous les spots !",
+            "Your robot is trying to put an object outside the grid",
+          failureNotEnoughPlatform: "Not enough platforms",
+          failureLights: "There are still spots to light up.",
+          successLights: "Well done, your robot has turned on all the spots!",
           failureLaser:
-            "Le robot doit se trouver sur une borne laser pour pouvoir tirer !",
+            "The robot must be on a laser terminal to be able to shoot!",
           failureNoPlug:
-            "Le robot doit se trouver sur une prise pour pouvoir brancher un câble !",
-          failureAlreadyWired: "Cette prise est déjà connectée à un câble !",
-          failureWrongPlugType:
-            "On ne peut pas connecter ces prises ensemble !",
-          successPlugsWired: "La machine est réparée !",
+            "The robot must be on an outlet to be able to connect a cable!",
+          failureAlreadyWired: "This socket is already connected to a cable!",
+          failureWrongPlugType: "We can't connect these sockets together!",
+          successPlugsWired: "The machine is repaired!",
           failurePlugsWired:
-            "La machine ne fonctionne pas car des prises n'ont pas été connectées !",
+            "The machine does not work because plugs have not been connected!",
           failureWireCrossing:
-            "Impossible de relier ces deux prises, deux câbles vont s'intersecter !",
+            "Impossible to connect these two sockets, two cables will intersect!",
           failureWireTooLong:
-            "Impossible de relier ces deux prises car elles sont trop éloignées !",
+            "Impossible to connect these two sockets because they are too far apart!",
           failureTotalLengthExceeded:
-            "Vous n'avez pas assez de longueur de câble pour relier ces deux prises !",
-          failureProjectile: "Le robot s'est pris un projectile !",
-          failureRewrite: "Le robot a essayé de repeindre une case."
+            "You don't have enough cable length to connect these two sockets!",
+          failureProjectile: "The robot has caught a projectile!",
+          failureRewrite: "The robot tried to repaint a box."
         },
-        startingBlockName: "Programme du robot"
+        startingBlockName: "Robot Programm"
       },
       en: {
         label: {
@@ -624,9 +625,9 @@ var getContext = function(display, infos, curLevel) {
     arrows: {
       fr: {
         messages: {
-          obstacle: "Le robot va sortir du parcours fléché !",
-          successReachExit: "Bravo, votre robot a récupéré le coffre !",
-          failureReachExit: "Votre robot s'est perdu en chemin."
+          obstacle: "The robot will get out of the marked track!",
+          successReachExit: "Congratulations, your robot collected the safe!",
+          failureReachExit: "Yout robot got lost."
         }
       },
       en: {
@@ -648,17 +649,17 @@ var getContext = function(display, infos, curLevel) {
     cards: {
       fr: {
         label: {
-          withdrawObject: "ramasser la carte",
-          dropObject: "déposer la carte",
-          onObject: "sur une carte",
-          onContainer: "sur un emplacement de dépôt"
+          withdrawObject: "pick up the card",
+          dropObject: "drop the card",
+          onObject: "on a card",
+          onContainer: "on a placeholder"
         },
         messages: {
           successContainersFilled:
-            "Bravo, votre robot a rangé les cartes au bon endroit !",
-          failureContainersFilled: "Il y a des cartes mal rangées",
-          failureContainersFilledLess: "Il y a encore des cartes à ranger.",
-          failureContainersFilledBag: "Votre robot doit déposer sa carte."
+            "Congratulations, your robot placed all the cards at the right location!",
+          failureContainersFilled: "Some cards are misplaced",
+          failureContainersFilledLess: "There are still misplaced cards.",
+          failureContainersFilledBag: "Your robot must drop its card."
         }
       },
       en: {
@@ -1097,9 +1098,9 @@ var getContext = function(display, infos, curLevel) {
     paint: {
       fr: {
         label: {
-          dropObject: "peindre la case",
-          onContainer: "sur une case marquée",
-          readNumber: "nombre de la case"
+          dropObject: "paint the box",
+          onContainer: "on a marked box",
+          readNumber: "number of the box"
         },
         code: {
           dropObject: "peindreCase",

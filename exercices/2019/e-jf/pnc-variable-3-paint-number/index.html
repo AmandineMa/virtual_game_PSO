@@ -35,23 +35,6 @@
       // set Blockly as default language when none is specified through ?language=
       importLanguageModules("blockly");
     </script>
-    <script class="remove" type="text/javascript">
-      var json = {
-        id:
-          "http://castor-informatique.fr/questions/algorea_training/training-var",
-        language: "fr",
-        version: "fr.01",
-        authors: "Mathias Hiron",
-        translators: [],
-        license: "",
-        taskPathPrefix: "",
-        modulesPathPrefix: "",
-        browserSupport: [],
-        acceptedAnswers: [""],
-        fullFeedback: true,
-        minWidth: "auto"
-      };
-    </script>
     <script type="text/javascript" src="task.js"></script>
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
@@ -65,107 +48,43 @@
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro">
           <p>
-            Programmez le robot pour qu'il peigne toute les cases marquées avec
-            un point noir.
+            Program the robot to paint all the boxes marked with             a
+            black dot.
           </p>
           <div class="easy">
             <p>
-              Le nombre devant le robot indique combien de cases sont marquées,
-              un peu plus loin. Il doit donc lire ce nombre, le stocker dans sa
-              mémoire grâce à une
-              <a onclick="conceptViewer.showConcept('extra_variable')"
-                >variable</a
-              >, puis utiliser le contenu de cette variable dans le programme.
+              The number in front of the robot indicates how many boxes are
+              marked, a little further. He must therefore read this number,
+              store it in his memory through a variable and then use the
+              contents of this variable in the program.
             </p>
-            <p>
-              Pour lire le nombre et stocker sa valeur dans la variable
-              <var>nbPointsNoirs</var>, avancez sur sa case, puis exécutez
-              l'instruction suivante :
-            </p>
-            <img
-              data-lang="blockly"
-              src="read_number_blockly.png"
-              style="height:35px"
-            />
-            <img
-              data-lang="scratch"
-              src="read_number_scratch.png"
-              style="height:50px"
-            />
-            <code data-lang="python">nbPointsNoirs = nombreSurCase()</code>
-            <p>
-              Vous pouvez ensuite utiliser cette variable là où vous avez besoin
-              de sa valeur, par exemple :
-            </p>
-            <img
-              data-lang="blockly"
-              src="use_number_blockly.png"
-              style="height:80px"
-            />
-            <img
-              data-lang="scratch"
-              src="use_number_scratch.png"
-              style="height:100px"
-            />
-            <pre data-lang="python">
-for loop in range(nbPointsNoirs):
-   [instructions de la boucle]
- </pre
-            >
           </div>
           <div class="medium">
             <p>
-              Devant le robot se trouvent deux nombres : le nombre de lignes et
-              le nombre de colonnes du rectangle de cases marquées.
+              In front of the robot are two numbers: the number of lines and the
+              number of columns in the rectangle of marked boxes.
             </p>
             <p>
-              Pour résoudre cet exercice, vous devrez créer deux
-              <a onclick="conceptViewer.showConcept('extra_variable')"
-                >variables</a
-              >, pour stocker ces deux nombres. Appelez-les par exemple
-              <var>nbLignes</var> et <var>nbColonnes</var>.
-            </p>
-            <p data-lang="blockly">
-              Dans cette version, les blocs sont regroupés par catégorie dans
-              des menus. Cliquez sur un menu pour accéder aux blocs de la
-              catégorie correspondante.
-            </p>
-            <p data-lang="scratch">
-              Dans cette version, les blocs sont regroupés par catégorie dans
-              des menus. Cliquez sur un menu en haut pour accéder aux blocs de
-              la catégorie correspondante.
+              To solve this exercise, you will need to create two variables, to
+              store these two numbers. Call them for example
+              <var> nbLines </var> and <var> nbColumns </var>.
             </p>
           </div>
           <div class="hard">
             <p>
-              Devant le robot se trouve un nombre : le nombre de lignes et de
-              colonnes occupées par le triangle de cases marquées.
+              In front of the robot is a number: the number of lines and columns
+              occupied by the triangle of marked boxes.
             </p>
             <p>
-              Pour peindre le bon nombre de cases sur chaque ligne, vous allez
-              devoir créer une
-              <a onclick="conceptViewer.showConcept('extra_variable')"
-                >variable</a
-              >
-              qui pour chaque ligne, devra contenir le nombre de colonnes à
-              marquer. Après avoir dessiné chaque ligne, le contenu de cette
-              variable devra être augmenté de 1. Cela ressemblera un peu à ceci
-              :
+              To paint the right number of boxes on each line, you will have to
+              create a variable which for each line, must contain the number of
+              columns to mark. After drawing each line, the content of this
+              variable should be increased by 1.
             </p>
-            <img
-              data-lang="blockly"
-              src="use_variable_blockly.png"
-              style="height:200px"
-            />
-            <img
-              data-lang="scratch"
-              src="use_variable_scratch.png"
-              style="height:250px"
-            />
           </div>
           <p>
-            Notez que cet exercice contient deux tests. Le programme du robot
-            doit fonctionner sur chacun des deux tests.
+            Note that this exercise contains two tests. The robot program must
+            work on each of the two tests.
           </p>
         </div>
         <div id="gridContainer"></div>

@@ -1,7 +1,7 @@
 /*!
-* @author John Ropas
-* @since 19/12/2016
-*/
+ * @author John Ropas
+ * @since 19/12/2016
+ */
 
 CodeEditor.Utils.Localization.Strings = {
   fr: {
@@ -42,16 +42,20 @@ CodeEditor.Utils.Localization.Strings = {
     pythonLanguage: "Python",
     importFromBlockly: "Repartir de blockly",
     saveOrLoadProgram: "Enregistrer ou recharger votre programme :",
-    avoidReloadingOtherTask: "Attention : ne rechargez pas le programme d'un autre sujet !",
+    avoidReloadingOtherTask:
+      "Attention : ne rechargez pas le programme d'un autre sujet !",
     reloadProgram: "Recharger :",
     saveProgram: "Enregistrer",
     limitBlocks: "{remainingBlocks} blocs restants sur {maxBlocks} autorisés.",
-    limitBlocksOver: "{remainingBlocks} blocs en trop utilisés pour {maxBlocks} autorisés.",
-    limitElements: "{remainingBlocks} éléments restants sur {maxBlocks} autorisés.",
-    limitElementsOver: "{remainingBlocks} éléments en trop utilisés pour {maxBlocks} autorisés.",
+    limitBlocksOver:
+      "{remainingBlocks} blocs en trop utilisés pour {maxBlocks} autorisés.",
+    limitElements:
+      "{remainingBlocks} éléments restants sur {maxBlocks} autorisés.",
+    limitElementsOver:
+      "{remainingBlocks} éléments en trop utilisés pour {maxBlocks} autorisés.",
     buttons: {
-      next: 'Next',
-      previous: 'Previous'
+      next: "Next",
+      previous: "Previous"
     }
   },
   en: {
@@ -94,13 +98,17 @@ CodeEditor.Utils.Localization.Strings = {
     avoidReloadingOtherTask: "Warning: do not reload code for another task!",
     reloadProgram: "Reload:",
     saveProgram: "Save",
-    limitBlocks: "{remainingBlocks} blocks remaining out of {maxBlocks} available.",
-    limitBlocksOver: "{remainingBlocks} blocks over the limit of {maxBlocks} available.",
-    limitElements: "{remainingBlocks} elements remaining out of {maxBlocks} available.",
-    limitElementsOver: "{remainingBlocks} elements over the limit of {maxBlocks} available.",
+    limitBlocks:
+      "{remainingBlocks} blocks remaining out of {maxBlocks} available.",
+    limitBlocksOver:
+      "{remainingBlocks} blocks over the limit of {maxBlocks} available.",
+    limitElements:
+      "{remainingBlocks} elements remaining out of {maxBlocks} available.",
+    limitElementsOver:
+      "{remainingBlocks} elements over the limit of {maxBlocks} available.",
     buttons: {
-      next: 'Suivant',
-      previous: 'Précédent'
+      next: "Suivant",
+      previous: "Précédent"
     }
   },
   de: {
@@ -139,13 +147,17 @@ CodeEditor.Utils.Localization.Strings = {
     javascriptLanguage: "Javascript",
     importFromBlockly: "Generiere von Blockly-Blöcken",
     saveOrLoadProgram: "Speicher oder lade deinen Quelltext:",
-    avoidReloadingOtherTask: "Warnung: Lade keinen Quelltext von einer anderen Aufgabe!",
+    avoidReloadingOtherTask:
+      "Warnung: Lade keinen Quelltext von einer anderen Aufgabe!",
     reloadProgram: "Laden:",
     saveProgram: "Speichern",
     limitBlocks: "Noch {remainingBlocks} von {maxBlocks} Blöcken verfügbar.",
     // TODO :: translate next three
-    limitBlocksOver: "{remainingBlocks} blocks over the limit of {maxBlocks} available.",
-    limitElements: "{remainingBlocks} elements remaining out of {maxBlocks} available.",
-    limitElementsOver: "{remainingBlocks} elements over the limit of {maxBlocks} available.",
+    limitBlocksOver:
+      "{remainingBlocks} blocks over the limit of {maxBlocks} available.",
+    limitElements:
+      "{remainingBlocks} elements remaining out of {maxBlocks} available.",
+    limitElementsOver:
+      "{remainingBlocks} elements over the limit of {maxBlocks} available."
   }
 };

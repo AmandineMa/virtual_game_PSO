@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>11_variable_00_help</title>
+    <title>PNC Bloc Challenges</title>
     <script>
       window.stringsLanguage = "fr";
     </script>
@@ -35,55 +35,35 @@
       // set Blockly as default language when none is specified through ?language=
       importLanguageModules("blockly");
     </script>
-    <script class="remove" type="text/javascript">
-      var json = {
-        id:
-          "http://castor-informatique.fr/questions/algorea_training/training-var",
-        language: "fr",
-        version: "fr.01",
-        authors: "Mathias Hiron",
-        translators: [],
-        license: "",
-        taskPathPrefix: "",
-        modulesPathPrefix: "",
-        browserSupport: [],
-        acceptedAnswers: [""],
-        fullFeedback: true,
-        minWidth: "auto"
-      };
-    </script>
+
     <script type="text/javascript" src="task.js"></script>
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Tutoriel - Introduction des variables</h1>
+      <h1>1. How to use a variable ?</h1>
       <img src="green_robot.png" style="display:none" />
       <img src="icon.png" style="display:none" />
 
       <div id="tabsContainer"></div>
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro">
-          <div>
-            <p>
-              On veut programmer le robot pour qu'il recopie le nombre 3 dans la
-              case du 0. <br />
-              Mais comment garder le nombre 3 en mémoire le temps du déplacement
-              ?
-            </p>
-            <p>
-              On utilise une variable pour stocker l'information.
-            </p>
-            <p>
-              On peut se représenter une variable comme une boîte à laquelle on
-              a donné un nom.
-            </p>
-            <video src="tutovar.mp4" autoplay loop></video>
-          </div>
+          <p>
+            We want to program the robot to copy the number 3 into the 0 box
+          </p>
+
+          <p>
+            How do you keep the number 3 in memory?
+          </p>
+          <ul>
+            <li>We use a variable to store the information.</li>
+            <li>
+              We can imagine a variable as a box to which we have given a name.
+            </li>
+          </ul>
         </div>
         <div id="gridContainer"></div>
         <div id="blocklyLibContent"></div>
       </div>
     </div>
-    <!-- task -->
   </body>
 </html>
