@@ -34,7 +34,7 @@ function initTask(subTask) {
         }
       },
       variables: {
-        easy: ["nbBackPoints"],
+        easy: ["nbBlackPoints"],
         medium: [],
         hard: []
       }
