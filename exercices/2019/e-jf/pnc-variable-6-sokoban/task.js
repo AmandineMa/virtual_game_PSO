@@ -34,7 +34,7 @@ function initTask(subTask) {
       },
       variables: {
         easy: ["box column"],
-        medium: ["box row", "row column"]
+        medium: ["box row", "box column"]
       }
     }
   };
