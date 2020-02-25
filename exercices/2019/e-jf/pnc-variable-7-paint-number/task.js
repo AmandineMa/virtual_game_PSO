@@ -270,4 +270,4 @@ function initTask(subTask) {
   displayHelper.thresholdMedium = 10000;
 }
 
-initWrapper(initTask, ["easy", "medium", "hard"], null, true);
+initWrapper(initTask, ["easy"], null, true);
