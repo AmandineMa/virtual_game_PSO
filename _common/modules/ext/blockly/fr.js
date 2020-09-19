@@ -221,11 +221,11 @@ Blockly.Msg.LISTS_SPLIT_TOOLTIP_JOIN =
 Blockly.Msg.LISTS_SPLIT_TOOLTIP_SPLIT =
   "Couper un texte en une liste de textes, en coupant à chaque séparateur.";
 Blockly.Msg.LISTS_SPLIT_WITH_DELIMITER = "avec le séparateur";
-Blockly.Msg.LOGIC_BOOLEAN_FALSE = "faux";
+Blockly.Msg.LOGIC_BOOLEAN_FALSE = "false";
 Blockly.Msg.LOGIC_BOOLEAN_HELPURL =
   "https://github.com/google/blockly/wiki/Logic#values"; // untranslated
 Blockly.Msg.LOGIC_BOOLEAN_TOOLTIP = "Renvoie soit vrai soit faux.";
-Blockly.Msg.LOGIC_BOOLEAN_TRUE = "vrai";
+Blockly.Msg.LOGIC_BOOLEAN_TRUE = "true";
 Blockly.Msg.LOGIC_COMPARE_HELPURL =
   "https://fr.wikipedia.org/wiki/Inegalite_(mathematiques)";
 Blockly.Msg.LOGIC_COMPARE_TOOLTIP_EQ =
@@ -248,10 +248,10 @@ Blockly.Msg.LOGIC_NEGATE_TOOLTIP =
 Blockly.Msg.LOGIC_NULL = "nul";
 Blockly.Msg.LOGIC_NULL_HELPURL = "https://en.wikipedia.org/wiki/Nullable_type";
 Blockly.Msg.LOGIC_NULL_TOOLTIP = "Renvoie nul.";
-Blockly.Msg.LOGIC_OPERATION_AND = "et";
+Blockly.Msg.LOGIC_OPERATION_AND = "and";
 Blockly.Msg.LOGIC_OPERATION_HELPURL =
   "https://github.com/google/blockly/wiki/Logic#logical-operations"; // untranslated
-Blockly.Msg.LOGIC_OPERATION_OR = "ou";
+Blockly.Msg.LOGIC_OPERATION_OR = "or";
 Blockly.Msg.LOGIC_OPERATION_TOOLTIP_AND =
   "Renvoyer vrai si les deux entrées sont vraies.";
 Blockly.Msg.LOGIC_OPERATION_TOOLTIP_OR =
