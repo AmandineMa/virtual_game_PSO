@@ -1,4 +1,4 @@
-var getContext = function(display, infos, curLevel) {
+var getContext = function (display, infos, curLevel) {
   var languageStrings = {
     fr: {
       label: {
@@ -27,7 +27,10 @@ var getContext = function(display, infos, curLevel) {
         greenCell: "on a green box",
         brownCell: "on a brown box",
         hasAKey: "the cell has a key",
-        hasADiamant: "the cell has a dimant",
+        hasADiamant: "the cell has a diamond",
+        hasGreenMonster: "the cell has green monster",
+        hasOrangeMonster: "the cell has orange monster",
+
         addPlatformAbove: "build a platform above",
         addPlatformInFront: "build a platform in front",
         platformInFront: "platform in front",
@@ -62,7 +65,7 @@ var getContext = function(display, infos, curLevel) {
         number: "total number of objects to be transported",
         exists: "there is an object to transport",
         trans_row: "line of the object to be transported",
-        trans_col: "column of object to transport"
+        trans_col: "column of object to transport",
       },
       code: {
         wait: "attendre",
@@ -91,6 +94,10 @@ var getContext = function(display, infos, curLevel) {
         brownCell: "caseMarron",
         hasAKey: "hasAKey",
         hasADiamant: "hasADiamant",
+
+        hasGreenMonster: "hasGreenMonster",
+        hasOrangeMonster: "hasOrangeMonster",
+
         platformInFront: "plateformeDevant",
         addPlatformAbove: "construirePlateformeAuDessus",
         addPlatformInFront: "construirePlateformeDevant",
@@ -125,7 +132,7 @@ var getContext = function(display, infos, curLevel) {
         number: "nombreTransportables",
         exists: "existeTransportable",
         trans_row: "ligneTransportable",
-        trans_col: "colonneTransportable"
+        trans_col: "colonneTransportable",
       },
       description: {
         platformAbove: "platformAbove (): is there a platform above the robot?",
@@ -152,9 +159,9 @@ var getContext = function(display, infos, curLevel) {
         paintNorth: "paintTop (): is the box above painted?",
         paintNorthWest:
           "paintingTop Left (): is the box above on the left painted?",
-        paintNorthEast: "paintingHighRight (): is the box above right painted?"
+        paintNorthEast: "paintingHighRight (): is the box above right painted?",
       },
-      obstacle: "The robot is trying to move on an obstacle!"
+      obstacle: "The robot is trying to move on an obstacle!",
     },
     de: {
       label: {
@@ -216,7 +223,7 @@ var getContext = function(display, infos, curLevel) {
         number: "nombre total d'objets à transporter",
         exists: "il existe un objet à transporter ",
         trans_row: "ligne de l'objet à transporter",
-        trans_col: "colonne d'objet à transporter"
+        trans_col: "colonne d'objet à transporter",
       },
       code: {
         wait: "warte",
@@ -277,11 +284,11 @@ var getContext = function(display, infos, curLevel) {
         number: "nombreTransportables",
         exists: "existeTransportable",
         trans_row: "ligneTransportable",
-        trans_col: "colonneTransportable"
+        trans_col: "colonneTransportable",
       },
       description: {},
-      obstacle: "The robot is trying to move over an obstacle!"
-    }
+      obstacle: "The robot is trying to move over an obstacle!",
+    },
   };
   var strings = languageStrings[stringsLanguage];
 
@@ -310,30 +317,30 @@ var getContext = function(display, infos, curLevel) {
     display: display,
     infos: infos,
     robot: {},
-    strings: strings
+    strings: strings,
   };
 
-  context.changeDelay = function(newDelay) {
+  context.changeDelay = function (newDelay) {
     infos.actionDelay = newDelay;
   };
 
-  context.waitDelay = function(callback, value) {
+  context.waitDelay = function (callback, value) {
     context.runner.waitDelay(callback, value, infos.actionDelay);
   };
 
-  context.callCallback = function(callback, value) {
+  context.callCallback = function (callback, value) {
     // Default implementation
     context.runner.noDelay(callback, value);
   };
 
   context.nbRobots = 1;
 
-  context.getRobotItem = function(iRobot) {
+  context.getRobotItem = function (iRobot) {
     var items = context.getItems(undefined, undefined, { category: "robot" });
     return items[iRobot];
   };
 
-  context.robot.forward = function(callback) {
+  context.robot.forward = function (callback) {
     if (context.lost) {
       return;
     }
@@ -350,15 +357,15 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.fall = function(item, coords, callback) {
+  context.fall = function (item, coords, callback) {
     var row = coords.row;
     var platforms = context.getItems(row + 1, coords.col, {
-      category: "platform"
+      category: "platform",
     });
     while (!isOutsideGrid(row + 1, coords.col) && platforms.length == 0) {
       row++;
       platforms = context.getItems(row + 1, coords.col, {
-        category: "platform"
+        category: "platform",
       });
     }
     if (isOutsideGrid(row + 1, coords.col)) {
@@ -374,7 +381,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(coords.row, coords.col, item.dir, callback);
   };
 
-  context.robot.jump = function(callback) {
+  context.robot.jump = function (callback) {
     if (!infos.hasGravity) {
       throw "Error: can't jump without gravity";
     }
@@ -387,14 +394,14 @@ var getContext = function(display, infos, curLevel) {
       throw "The robot is trying to jump outside the grid!";
     }
     var obstacle = context.getItems(item.row - 2, item.col, {
-      category: "obstacle"
+      category: "obstacle",
     });
     if (obstacle.length > 0) {
       context.lost = true;
       throw "The robot tries to jump but there is an obstacle blocking it";
     }
     var platforms = context.getItems(item.row - 1, item.col, {
-      category: "platform"
+      category: "platform",
     });
     if (platforms.length == 0) {
       context.lost = true;
@@ -404,7 +411,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(item.row - 2, item.col, item.dir, callback);
   };
 
-  context.robot.down = function(callback) {
+  context.robot.down = function (callback) {
     if (!infos.hasGravity) {
       throw "Error: can't go down without gravity";
     }
@@ -417,7 +424,7 @@ var getContext = function(display, infos, curLevel) {
       throw "The robot is trying to descend outside the grid!";
     }
     var platforms = context.getItems(item.row + 3, item.col, {
-      category: "platform"
+      category: "platform",
     });
     if (platforms.length == 0) {
       context.lost = true;
@@ -427,7 +434,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(item.row + 2, item.col, item.dir, callback);
   };
 
-  context.robot.turnAround = function(callback) {
+  context.robot.turnAround = function (callback) {
     if (context.lost) {
       return;
     }
@@ -436,7 +443,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(item.row, item.col, newDir, callback);
   };
 
-  context.robot.platformInFront = function(callback) {
+  context.robot.platformInFront = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var col = robot.col;
     if (robot.dir == 0) {
@@ -445,12 +452,12 @@ var getContext = function(display, infos, curLevel) {
       col -= 1;
     }
     var platforms = context.getItems(robot.row + 1, col, {
-      category: "platform"
+      category: "platform",
     });
     context.runner.noDelay(callback, platforms.length > 0);
   };
 
-  context.robot.platformInFrontAndBelow = function(callback) {
+  context.robot.platformInFrontAndBelow = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     var col = item.col;
     if (item.dir == 0) {
@@ -463,15 +470,15 @@ var getContext = function(display, infos, curLevel) {
     context.runner.noDelay(callback, platforms.length > 0);
   };
 
-  context.robot.platformAbove = function(callback) {
+  context.robot.platformAbove = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var platforms = context.getItems(robot.row - 1, robot.col, {
-      category: "platform"
+      category: "platform",
     });
     context.runner.noDelay(callback, platforms.length > 0);
   };
 
-  context.robot.gridEdgeInFront = function(callback) {
+  context.robot.gridEdgeInFront = function (callback) {
     var coords = getCoordsInFront(0);
     gridEdgeCoord(coords.row, coords.col, callback);
   };
@@ -486,22 +493,22 @@ var getContext = function(display, infos, curLevel) {
     context.runner.noDelay(callback, gridEdge);
   }
 
-  context.robot.gridEdgeAbove = function(callback) {
+  context.robot.gridEdgeAbove = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     gridEdgeCoord(robot.row - 1, robot.col, callback);
   };
 
-  context.robot.gridEdgeBelow = function(callback) {
+  context.robot.gridEdgeBelow = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     gridEdgeCoord(robot.row + 1, robot.col, callback);
   };
 
-  context.robot.gridEdgeEast = function(callback) {
+  context.robot.gridEdgeEast = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     gridEdgeCoord(robot.row, robot.col + 1, callback);
   };
 
-  context.robot.gridEdgeWest = function(callback) {
+  context.robot.gridEdgeWest = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     gridEdgeCoord(robot.row, robot.col - 1, callback);
   };
@@ -528,7 +535,7 @@ var getContext = function(display, infos, curLevel) {
     if (isOutsideGrid(newItem.row, newItem.col)) {
       throw "La case est en dehors de la grille";
     }
-    var addItem = function() {
+    var addItem = function () {
       resetItem(newItem);
       if (context.display) {
         resetItemsZOrder(newItem.row, newItem.col);
@@ -540,7 +547,7 @@ var getContext = function(display, infos, curLevel) {
     if (infos.actionDelay > 0 && context.display) {
       context.delayFactory.createTimeout(
         "addItem" + context.curRobot + "_" + Math.random(),
-        function() {
+        function () {
           addItem();
         },
         infos.actionDelay / 2
@@ -563,13 +570,13 @@ var getContext = function(display, infos, curLevel) {
     context.waitDelay(callback);
   }
 
-  context.robot.addPlatformInFront = function(callback) {
+  context.robot.addPlatformInFront = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var coords = getCoordsInFront(robot.dir);
     addPlatform(coords.row + 1, coords.col, callback);
   };
 
-  context.robot.addPlatformAbove = function(callback) {
+  context.robot.addPlatformAbove = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     addPlatform(robot.row - 1, robot.col, callback);
   };
@@ -591,21 +598,21 @@ var getContext = function(display, infos, curLevel) {
     context.waitDelay(callback);
   }
 
-  context.robot.paint = function(callback) {
+  context.robot.paint = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     paint(item.row, item.col, "paint", callback);
   };
 
-  context.robot.paintGray = function(callback) {
+  context.robot.paintGray = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     paint(item.row, item.col, "paintGray", callback);
   };
 
-  context.robot.wait = function(callback) {
+  context.robot.wait = function (callback) {
     context.waitDelay(callback);
   };
 
-  context.robot.right = function(callback) {
+  context.robot.right = function (callback) {
     if (context.lost) {
       return;
     }
@@ -618,7 +625,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(item.row, item.col, newDir, callback);
   };
 
-  context.robot.left = function(callback) {
+  context.robot.left = function (callback) {
     if (context.lost) {
       return;
     }
@@ -631,7 +638,7 @@ var getContext = function(display, infos, curLevel) {
     moveRobot(item.row, item.col, newDir, callback);
   };
 
-  context.robot.east = function(callback) {
+  context.robot.east = function (callback) {
     if (context.lost) {
       return;
     }
@@ -644,7 +651,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.west = function(callback) {
+  context.robot.west = function (callback) {
     if (context.lost) {
       return;
     }
@@ -657,7 +664,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.north = function(callback) {
+  context.robot.north = function (callback) {
     if (context.lost) {
       return;
     }
@@ -670,7 +677,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.south = function(callback) {
+  context.robot.south = function (callback) {
     if (context.lost) {
       return;
     }
@@ -683,7 +690,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.debug_alert = function(message, callback) {
+  context.debug_alert = function (message, callback) {
     message = message ? message.toString() : "";
     if (context.display) {
       alert(message);
@@ -691,94 +698,94 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback);
   };
 
-  context.robot.itemInFront = function(callback) {
+  context.robot.itemInFront = function (callback) {
     var itemsInFront = getItemsInFront({ isObstacle: true });
     context.callCallback(callback, itemsInFront.length > 0);
   };
 
-  context.robot.obstacleInFront = function(callback) {
+  context.robot.obstacleInFront = function (callback) {
     categoryInFront("obstacle", false, callback);
   };
 
-  context.robot.obstacleRight = function(callback) {
+  context.robot.obstacleRight = function (callback) {
     var coords = getCoordsInFront(1);
     var items = context.getItems(coords.row, coords.col, { isObstacle: true });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.obstacleLeft = function(callback) {
+  context.robot.obstacleLeft = function (callback) {
     var coords = getCoordsInFront(-1);
     var items = context.getItems(coords.row, coords.col, { isObstacle: true });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.obstacleEast = function(callback) {
+  context.robot.obstacleEast = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col + 1, {
-      isObstacle: true
+      isObstacle: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.obstacleWest = function(callback) {
+  context.robot.obstacleWest = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col - 1, {
-      isObstacle: true
+      isObstacle: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.obstacleNorth = function(callback) {
+  context.robot.obstacleNorth = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row - 1, robot.col, {
-      isObstacle: true
+      isObstacle: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.obstacleSouth = function(callback) {
+  context.robot.obstacleSouth = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row + 1, robot.col, {
-      isObstacle: true
+      isObstacle: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.paintInFront = function(callback) {
+  context.robot.paintInFront = function (callback) {
     var coords = getCoordsInFront(0);
     var items = context.getItems(coords.row, coords.col, { isPaint: true });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.paintOnCell = function(callback) {
+  context.robot.paintOnCell = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col, { isPaint: true });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.paintNorthWest = function(callback) {
+  context.robot.paintNorthWest = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row - 1, robot.col - 1, {
-      isPaint: true
+      isPaint: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.paintNorth = function(callback) {
+  context.robot.paintNorth = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row - 1, robot.col, { isPaint: true });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.paintNorthEast = function(callback) {
+  context.robot.paintNorthEast = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row - 1, robot.col + 1, {
-      isPaint: true
+      isPaint: true,
     });
     context.callCallback(callback, items.length > 0);
   };
 
-  context.robot.colorUnder = function(callback) {
+  context.robot.colorUnder = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var itemsUnder = context.getItems(robot.row, robot.col, { hasColor: true });
     if (itemsUnder.length == 0) {
@@ -788,10 +795,10 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.numberUnder = function(callback) {
+  context.robot.numberUnder = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var itemsUnder = context.getItems(robot.row, robot.col, {
-      category: "number"
+      category: "number",
     });
     if (itemsUnder.length == 0) {
       context.callCallback(callback, 0);
@@ -800,10 +807,10 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.writeNumber = function(value, callback) {
+  context.robot.writeNumber = function (value, callback) {
     var robot = context.getRobotItem(context.curRobot);
     var itemsUnder = context.getItems(robot.row, robot.col, {
-      category: "number"
+      category: "number",
     });
     if (itemsUnder.length == 0) {
       context.callCallback(callback);
@@ -816,7 +823,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  context.robot.col = function(callback) {
+  context.robot.col = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     var col = item.col + 1;
     if (context.curRobot == 1) {
@@ -825,14 +832,14 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, col);
   };
 
-  context.robot.row = function(callback) {
+  context.robot.row = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     context.callCallback(callback, item.row + 1);
   };
 
-  var findTransportable = function(id) {
+  var findTransportable = function (id) {
     var transportables = context.getItems(undefined, undefined, {
-      isTransportable: true
+      isTransportable: true,
     });
     for (var iItem = 1; iItem < transportables.length; iItem++) {
       var item = transportables[iItem];
@@ -843,12 +850,12 @@ var getContext = function(display, infos, curLevel) {
     return null;
   };
 
-  context.transportable_exists = function(id, callback) {
+  context.transportable_exists = function (id, callback) {
     var transportable = findTransportable(id);
     context.runner.noDelay(callback, transportable != null);
   };
 
-  context.transportable_col = function(id, callback) {
+  context.transportable_col = function (id, callback) {
     var transportable = findTransportable(id);
     var res = 0;
     if (transportable != null) {
@@ -857,7 +864,7 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, res);
   };
 
-  context.transportable_row = function(id, callback) {
+  context.transportable_row = function (id, callback) {
     var transportable = findTransportable(id);
     var res = 0;
     if (transportable != null) {
@@ -866,47 +873,47 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, res);
   };
 
-  context.transportable_number = function(callback) {
+  context.transportable_number = function (callback) {
     var transportables = context.getItems(undefined, undefined, {
-      isTransportable: true
+      isTransportable: true,
     });
     context.callCallback(callback, transportables.length);
   };
 
-  context.robot.onTransportable = function(callback) {
+  context.robot.onTransportable = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var transportables = context.getItems(robot.row, robot.col, {
-      isTransportable: true
+      isTransportable: true,
     });
     context.callCallback(callback, transportables.length != 0);
   };
 
-  context.robot.onHole = function(callback) {
+  context.robot.onHole = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var holes = context.getItems(robot.row, robot.col, { isHole: true });
     context.callCallback(callback, holes.length != 0);
   };
 
-  context.robot.transportableColor = function(callback) {
+  context.robot.transportableColor = function (callback) {
     var result = getTransportableProperty("color");
     context.callCallback(callback, result);
   };
 
-  context.robot.transportableSquare = function(callback) {
+  context.robot.transportableSquare = function (callback) {
     var result = getTransportableProperty("shape");
     context.callCallback(callback, result == "carré");
   };
 
-  context.robot.transportableRed = function(callback) {
+  context.robot.transportableRed = function (callback) {
     var result = getTransportableProperty("color");
     context.callCallback(callback, result == "rouge");
   };
 
-  var robotCellIsColor = function(callback, color) {
+  var robotCellIsColor = function (callback, color) {
     var robot = context.getRobotItem(context.curRobot);
     var result = false;
     var transportables = context.getItems(robot.row, robot.col, {
-      category: "paint"
+      category: "paint",
     });
     if (transportables.length > 0) {
       var itemType = infos.itemTypes[transportables[0].type];
@@ -917,11 +924,31 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, result);
   };
 
-  context.robot.greenCell = function(callback) {
+  context.robot.greenCell = function (callback) {
     robotCellIsColor(callback, "vert");
   };
 
-  context.robot.hasAKey = function(callback) {
+  context.robot.hasGreenMonster = function (callback) {
+    var robot = context.getRobotItem(context.curRobot);
+    var items = context.getItems(robot.row, robot.col, {
+      category: "greenMonster",
+    });
+    var result = items.length == 1;
+
+    context.callCallback(callback, result);
+  };
+
+  context.robot.hasOrangeMonster = function (callback) {
+    var robot = context.getRobotItem(context.curRobot);
+    var items = context.getItems(robot.row, robot.col, {
+      category: "orangeMonster",
+    });
+    var result = items.length == 1;
+
+    context.callCallback(callback, result);
+  };
+
+  context.robot.hasAKey = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col, { category: "key" });
     var result = items.length == 1;
@@ -929,7 +956,7 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, result);
   };
 
-  context.robot.hasADiamant = function(callback) {
+  context.robot.hasADiamant = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var items = context.getItems(robot.row, robot.col, { category: "diamant" });
     var result = items.length == 1;
@@ -937,14 +964,14 @@ var getContext = function(display, infos, curLevel) {
     context.callCallback(callback, result);
   };
 
-  context.robot.brownCell = function(callback) {
+  context.robot.brownCell = function (callback) {
     robotCellIsColor(callback, "brown");
   };
 
-  var getTransportableProperty = function(property) {
+  var getTransportableProperty = function (property) {
     var robot = context.getRobotItem(context.curRobot);
     var transportables = context.getItems(robot.row, robot.col, {
-      isTransportable: true
+      isTransportable: true,
     });
     if (transportables.length == 0) {
       return "";
@@ -956,18 +983,18 @@ var getContext = function(display, infos, curLevel) {
     return "";
   };
 
-  context.robot.transportableShape = function(callback) {
+  context.robot.transportableShape = function (callback) {
     var result = getTransportableProperty("shape");
     context.callCallback(callback, result);
   };
 
-  context.robot.pickTransportable = function(callback) {
+  context.robot.pickTransportable = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var row = robot.row;
     var col = robot.col;
 
     var transportables = context.getItems(row, col, {
-      isTransportable: true
+      isTransportable: true,
     });
     if (transportables.length != 1) {
       throw "Nothing to pick up";
@@ -978,7 +1005,7 @@ var getContext = function(display, infos, curLevel) {
     context.nbTransportedItems++;
     context.transportedItem = transportable;
 
-    context.waitDelay(function() {
+    context.waitDelay(function () {
       if (context.display) {
         transportable.element.remove();
       }
@@ -986,13 +1013,13 @@ var getContext = function(display, infos, curLevel) {
     });
   };
 
-  context.robot.openLocker = function(callback) {
+  context.robot.openLocker = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     var row = robot.row;
     var col = robot.col;
 
     var lockers = context.getItems(row, col, {
-      category: "serrure"
+      category: "serrure",
     });
     if (lockers.length != 1) {
       throw "There is no locker to open at this position";
@@ -1008,7 +1035,7 @@ var getContext = function(display, infos, curLevel) {
     var locker = lockers[0];
     context.items.splice(locker.index, 1);
 
-    context.waitDelay(function() {
+    context.waitDelay(function () {
       if (context.display) {
         locker.element.remove();
       }
@@ -1016,7 +1043,7 @@ var getContext = function(display, infos, curLevel) {
     });
   };
 
-  context.robot.dropTransportable = function(callback) {
+  context.robot.dropTransportable = function (callback) {
     var robot = context.getRobotItem(context.curRobot);
     if (context.transportedItem == undefined) {
       throw "The robot tries to deposit an object but does not transport it.";
@@ -1028,7 +1055,7 @@ var getContext = function(display, infos, curLevel) {
       context.success = true;
       throw "Congrats, you've dropped all the items!";
     }
-    context.waitDelay(function() {
+    context.waitDelay(function () {
       context.items.push(context.transportedItem);
       context.transportedItem.row = robot.row;
       context.transportedItem.col = robot.col;
@@ -1041,12 +1068,12 @@ var getContext = function(display, infos, curLevel) {
   };
 
   var dirNames = ["E", "S", "O", "N"];
-  context.robot.dir = function(callback) {
+  context.robot.dir = function (callback) {
     var item = context.getRobotItem(context.curRobot);
     context.callCallback(callback, dirNames[item.dir]);
   };
 
-  context.program_end = function(callback) {
+  context.program_end = function (callback) {
     var curRobot = context.curRobot;
     if (!context.programEnded[curRobot]) {
       context.programEnded[curRobot] = true;
@@ -1055,7 +1082,7 @@ var getContext = function(display, infos, curLevel) {
     context.waitDelay(callback);
   };
 
-  context.reset = function(gridInfos) {
+  context.reset = function (gridInfos) {
     if (gridInfos) {
       context.tiles = gridInfos.tiles;
       context.initItems = gridInfos.initItems;
@@ -1078,7 +1105,7 @@ var getContext = function(display, infos, curLevel) {
     //resetScores();
   };
 
-  context.resetDisplay = function() {
+  context.resetDisplay = function () {
     this.delayFactory.destroyAll();
     this.raphaelFactory.destroyAll();
     paper = this.raphaelFactory.create(
@@ -1094,7 +1121,7 @@ var getContext = function(display, infos, curLevel) {
     context.updateScale();
   };
 
-  context.unload = function() {
+  context.unload = function () {
     if (context.display) {
       if (paper != null) {
         paper.remove();
@@ -1147,8 +1174,8 @@ var getContext = function(display, infos, curLevel) {
           { name: "dropTransportable" },
           { name: "writeNumber", params: [null] },
           { name: "addPlatformAbove", yieldsValue: false },
-          { name: "addPlatformInFront", yieldsValue: false }
-        ]
+          { name: "addPlatformInFront", yieldsValue: false },
+        ],
       },
       sensors: {
         blocks: [
@@ -1164,6 +1191,8 @@ var getContext = function(display, infos, curLevel) {
           { name: "brownCell", yieldsValue: true },
           { name: "hasAKey", yieldsValue: true },
           { name: "hasADiamant", yieldsValue: true },
+          { name: "hasGreenMonster", yieldsValue: true },
+          { name: "hasOrangeMonster", yieldsValue: true },
 
           { name: "obstacleInFront", yieldsValue: true },
           { name: "obstacleRight", yieldsValue: true },
@@ -1191,9 +1220,9 @@ var getContext = function(display, infos, curLevel) {
           { name: "dir", yieldsValue: true },
           { name: "col", yieldsValue: true },
           { name: "row", yieldsValue: true },
-          { name: "onPill", yieldsValue: true }
-        ]
-      }
+          { name: "onPill", yieldsValue: true },
+        ],
+      },
     },
     transport: {
       sensors: {
@@ -1201,39 +1230,39 @@ var getContext = function(display, infos, curLevel) {
           {
             name: "number",
             yieldsValue: true,
-            handler: context.transportable_number
+            handler: context.transportable_number,
           },
           {
             name: "exists",
             yieldsValue: true,
             params: [null],
-            handler: context.transportable_exists
+            handler: context.transportable_exists,
           },
           {
             name: "trans_row",
             yieldsValue: true,
             params: [null],
-            handler: context.transportable_row
+            handler: context.transportable_row,
           },
           {
             name: "trans_col",
             yieldsValue: true,
             params: [null],
-            handler: context.transportable_col
-          }
-        ]
-      }
+            handler: context.transportable_col,
+          },
+        ],
+      },
     },
     debug: {
       debug: {
         blocks: [
-          { name: "alert", params: [null], handler: context.debug_alert }
-        ]
-      }
-    }
+          { name: "alert", params: [null], handler: context.debug_alert },
+        ],
+      },
+    },
   };
 
-  var isOutsideGrid = function(row, col) {
+  var isOutsideGrid = function (row, col) {
     return col < 0 || row < 0 || col >= context.nbCols || row >= context.nbRows;
   };
 
@@ -1241,28 +1270,28 @@ var getContext = function(display, infos, curLevel) {
     [0, 1],
     [1, 0],
     [0, -1],
-    [-1, 0]
+    [-1, 0],
   ];
-  var getCoordsInFront = function(dDir) {
+  var getCoordsInFront = function (dDir) {
     var item = context.getRobotItem(context.curRobot);
     var lookDir = (item.dir + dDir + 4) % 4;
     return {
       row: item.row + delta[lookDir][0],
-      col: item.col + delta[lookDir][1]
+      col: item.col + delta[lookDir][1],
     };
   };
 
-  var getItemsInFront = function(filters) {
+  var getItemsInFront = function (filters) {
     var coords = getCoordsInFront(0);
     return context.getItems(coords.row, coords.col, filters);
   };
 
-  var nbOfCategoryInFront = function(category) {
+  var nbOfCategoryInFront = function (category) {
     var itemsInFront = getItemsInFront({ category: category });
     return itemsInFront.length;
   };
 
-  var categoryInFront = function(category, count, callback) {
+  var categoryInFront = function (category, count, callback) {
     var nbOfCategoryFound = nbOfCategoryInFront(category);
     var result = 0;
     if (count) {
@@ -1274,7 +1303,7 @@ var getContext = function(display, infos, curLevel) {
   };
 
   // positions and dimensions will be set later by updateScale
-  var resetBoard = function() {
+  var resetBoard = function () {
     for (var iRow = 0; iRow < context.nbRows; iRow++) {
       cells[iRow] = [];
       for (var iCol = 0; iCol < context.nbCols; iCol++) {
@@ -1297,7 +1326,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  var resetItem = function(initItem) {
+  var resetItem = function (initItem) {
     var item = {};
     context.items.push(item);
     for (var property in initItem) {
@@ -1331,7 +1360,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  var resetItems = function() {
+  var resetItems = function () {
     context.items = [];
     var itemTypeByNum = {};
     for (var type in infos.itemTypes) {
@@ -1347,7 +1376,7 @@ var getContext = function(display, infos, curLevel) {
           resetItem({
             row: iRow,
             col: iCol,
-            type: itemTypeByNum[itemTypeNum]
+            type: itemTypeByNum[itemTypeNum],
           });
         }
       }
@@ -1357,7 +1386,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  var resetItemsZOrder = function(row, col) {
+  var resetItemsZOrder = function (row, col) {
     var cellItems = [];
     for (var iItem = context.items.length - 1; iItem >= 0; iItem--) {
       var item = context.items[iItem];
@@ -1365,7 +1394,7 @@ var getContext = function(display, infos, curLevel) {
         cellItems.push(item);
       }
     }
-    cellItems.sort(function(itemA, itemB) {
+    cellItems.sort(function (itemA, itemB) {
       if (itemA.zOrder < itemB.zOrder) {
         return -1;
       }
@@ -1379,7 +1408,7 @@ var getContext = function(display, infos, curLevel) {
     }
   };
 
-  var redisplayItem = function(item) {
+  var redisplayItem = function (item) {
     if (item.element != null) {
       item.element.remove();
     }
@@ -1407,7 +1436,7 @@ var getContext = function(display, infos, curLevel) {
     resetItemsZOrder(item.row, item.col);
   };
 
-  var moveRobot = function(newRow, newCol, newDir, callback) {
+  var moveRobot = function (newRow, newCol, newDir, callback) {
     var iRobot = context.curRobot;
     var item = context.getRobotItem(iRobot);
     var animate =
@@ -1425,7 +1454,7 @@ var getContext = function(display, infos, curLevel) {
     item.col = newCol;
 
     var collectibles = context.getItems(newRow, newCol, {
-      isCollectible: true
+      isCollectible: true,
     });
     var collected = [];
     while (collectibles.length > 0) {
@@ -1447,7 +1476,7 @@ var getContext = function(display, infos, curLevel) {
       if (collected.length > 0) {
         context.delayFactory.createTimeout(
           "removeItems" + iRobot + "_" + Math.random(),
-          function() {
+          function () {
             removeItemsElements(collected);
           },
           infos.actionDelay
@@ -1466,7 +1495,7 @@ var getContext = function(display, infos, curLevel) {
         if (infos.actionDelay > 0) {
           context.delayFactory.createTimeout(
             "moveRobot" + iRobot + "_" + Math.random(),
-            function() {
+            function () {
               item.element.attr(attr);
             },
             infos.actionDelay / 2
@@ -1480,7 +1509,7 @@ var getContext = function(display, infos, curLevel) {
     context.waitDelay(callback);
   };
 
-  context.getItems = function(row, col, filters) {
+  context.getItems = function (row, col, filters) {
     var listItems = [];
     for (var iItem = 0; iItem < context.items.length; iItem++) {
       var item = context.items[iItem];
@@ -1507,7 +1536,7 @@ var getContext = function(display, infos, curLevel) {
     return listItems;
   };
 
-  var checkTileAllowed = function(row, col) {
+  var checkTileAllowed = function (row, col) {
     if (isOutsideGrid(row, col) || context.tiles[row][col] == 0) {
       if (infos.ignoreInvalidMoves) {
         return false;
@@ -1524,7 +1553,7 @@ var getContext = function(display, infos, curLevel) {
     return true;
   };
 
-  var itemAttributes = function(item) {
+  var itemAttributes = function (item) {
     var itemType = infos.itemTypes[item.type];
     var x =
       (infos.cellSide * item.col + item.offsetX + infos.leftMargin) * scale;
@@ -1551,11 +1580,11 @@ var getContext = function(display, infos, curLevel) {
       y: y,
       width: item.side * item.nbStates * scale,
       height: item.side * scale,
-      "clip-rect": clipRect
+      "clip-rect": clipRect,
     };
   };
 
-  context.updateScale = function() {
+  context.updateScale = function () {
     if (!context.display) {
       return;
     }
@@ -1587,7 +1616,7 @@ var getContext = function(display, infos, curLevel) {
             x: x,
             y: y,
             width: infos.cellSide * scale,
-            height: infos.cellSide * scale
+            height: infos.cellSide * scale,
           });
         }
       }

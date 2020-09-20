@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Sum of numbers</title>
+    <title>Number of times greater than previous</title>
     <script>
       window.stringsLanguage = "fr";
     </script>
@@ -56,7 +56,7 @@
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Sum of numbers</h1>
+      <h1>Number of times greater than previous</h1>
       <img src="red_robot.png" style="display: none" />
       <img src="icon.png" style="display: none" />
 
@@ -64,12 +64,13 @@
       <div id="taskContent" style="text-align: left; position: relative">
         <div id="taskIntro">
           <p>
-            Program the robot to write instead of the zero (on the right side),
-            the sum of the numbers in the left side of the line.
+            Program the robot so that it writes instead of the zero on the
+            right, the number of times a number on the right side of the line is
+            greater than or equal to the number to its left.
           </p>
           <p>
-            Note that this exercise contains two tests. The robot program must
-            run on each of the two tests.
+            The robot has 2 variables (memory 1 and memory 2). Use them to solve
+            the problem.
           </p>
         </div>
         <div id="gridContainer"></div>

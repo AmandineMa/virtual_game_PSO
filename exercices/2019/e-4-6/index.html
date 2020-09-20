@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Sum of numbers</title>
+    <title>Balouk and the monsters !</title>
     <script>
       window.stringsLanguage = "fr";
     </script>
     <script
       class="remove"
       type="text/javascript"
-      src="../../../../_common/modules/pemFioi/importModules-1.0.js"
+      src="../../../_common/modules/pemFioi/importModules-1.0.js"
       id="import-modules"
     ></script>
     <script class="remove" type="text/javascript">
-      var modulesPath = "../../../../_common/modules/";
+      var modulesPath = "../../../_common/modules/";
       importModules([
         "jquery-1.7.1",
         "JSON-js",
@@ -28,8 +28,6 @@
         "beav-1.0",
         "installationAPI.01",
         "miniPlatform",
-        "conceptViewer-1.0",
-        "conceptViewer_css-1.0",
         "taskStyles-0.1",
       ]);
       // set Blockly as default language when none is specified through ?language=
@@ -38,16 +36,15 @@
     <script class="remove" type="text/javascript">
       var json = {
         id:
-          "http://castor-informatique.fr/questions/algorea_training/training-var",
+          "http://castor-informatique.fr/algorea_tasks/algorea_2016_2/2015-FR-24-blockly-fill/",
         language: "fr",
         version: "fr.01",
-        authors: "Mathias Hiron",
+        authors: "Ronan OGOR",
         translators: [],
         license: "",
         taskPathPrefix: "",
         modulesPathPrefix: "",
         browserSupport: [],
-        acceptedAnswers: [""],
         fullFeedback: true,
         minWidth: "auto",
       };
@@ -56,22 +53,15 @@
   </head>
   <body onresize="task.displayedSubTask.updateScale()">
     <div id="task">
-      <h1>Sum of numbers</h1>
-      <img src="red_robot.png" style="display: none" />
+      <h1>Balouk and the monsters !</h1>
       <img src="icon.png" style="display: none" />
 
       <div id="tabsContainer"></div>
       <div id="taskContent" style="text-align: left; position: relative">
-        <div id="taskIntro">
-          <p>
-            Program the robot to write instead of the zero (on the right side),
-            the sum of the numbers in the left side of the line.
-          </p>
-          <p>
-            Note that this exercise contains two tests. The robot program must
-            run on each of the two tests.
-          </p>
+        <div id="taskIntro" style="width: 50%">
+          <p>Help Balouk to pick up all monsters and go to PNC !</p>
         </div>
+
         <div id="gridContainer"></div>
         <div id="blocklyLibContent"></div>
       </div>
