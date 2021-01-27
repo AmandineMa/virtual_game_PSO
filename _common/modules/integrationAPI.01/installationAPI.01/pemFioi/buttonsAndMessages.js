@@ -48,72 +48,72 @@ window.displayHelper = {
 
    languageStrings: {
       fr: {
-         version: "Version",
-         levelVersionName_easy: "easy version",
-         levelVersionName_medium: "medium version",
-         levelVersionName_hard: "hard version",
-         levelVersionName_easy_stars: "2 stars version",
-         levelVersionName_medium_stars: "3 stars version",
-         levelVersionName_hard_stars: "4 stars version",
-         levelName_easy: "Easy",
-         levelName_medium: "Medium",
-         levelName_hard: "Hard",
-         warningTimeout: "<p>Warning, it has been more than {0} minutes since you started working on this task.</p><p>You should probably switch to a diffrent task, by clicking on the button on the top-right.</p>",
-         alright: "Alright",
-         moveOn: "Move on",
-         solvedMoveOn: "You solved this task completely, move on to another task.",
-         confirmRestart: "Are you sure you want to restart this version?",
-         yes: "Yes",
-         no: "No",
-         tryHardLevel: "We suggest you try the 4 stars version.",
-         tryMediumLevel: "We suggest you try the 3 stars version.",
-         tryNextTask: "We suggest you try the next task. If you still have time, come back later and try the next version of this task.",
-         yourScoreIsNow: "Your score is now:",
-         worseScoreStays: "This is not as good as before. Your score stays:",
-         scoreStays: "Your score stays the same:",
-         score: "Score:",
-         noPointsForLevel: "You have not received any points yet on this version.",
-         outOf: " out of ",
-         tryToDoBetterOrChangeTask: "Try to do even better, or move on to another task.",
-         tryToDoBetterOrMoveToNextLevel: "Try to do even better, or move on to a more difficult version.",
-         bestPossibleScoreCongrats: "This is the best possible score on this task, congratulations!",
-         forMorePointsMoveToNextLevel: "To obtain more points, move on to a harder version of this task.",
-         youDidBetterBefore: "You did better before.",
-         scoreStays2: "Your score stays the same.",
-         reloadBestAnswer: "Reload your best answer.",
-         validate: "Validate",
-         restart: "Restart",
-         harderLevelSolved: "Warning: you already solved a harder version of this task. You won't be able to obtain extra points with this version.",
-         showLevelAnyway: "Show it to me anyways.",
-         scoreObtained: "Obtained score:",
-         hardVersionTakesTime: "Solving a {0} can take a lot of time. Consider working on the {1} to gain points quickly.",
-         illKeepThatInMind: "I'll consider it.",
-         harderLevelAvailable: "Note that for this task, you may try to directly work on a harder version than this one.",
-         lockedLevel: "This version is locked. Solve the previous version to display it!",
-         gradeThisAnswer: "Grade this answer",
+        version: "Version",
+        levelVersionName_easy: "version facile",
+        levelVersionName_medium: "version moyenne",
+        levelVersionName_hard: "version difficile",
+        levelVersionName_easy_stars: "version à 2 étoiles",
+        levelVersionName_medium_stars: "version à 3 étoiles",
+        levelVersionName_hard_stars: "version à 4 étoiles",
+        levelName_easy: "Facile",
+        levelName_medium: "Moyen",
+        levelName_hard: "Difficile",
+        warningTimeout: "<p>Attention, cela fait plus de {0} minutes que vous êtes sur cette question.</p><p>Vous devriez sans doute changer de sujet, en cliquant sur le bouton tout en haut à droite.</p>",
+        alright: "D'accord",
+        moveOn: "Passer à la suite",
+        solvedMoveOn: "Vous avez entièrement résolu cette question, passez à une autre question.",
+        confirmRestart: "Êtes-vous certain de vouloir recommencer cette version ?",
+        yes: "Oui",
+        no: "Non",
+        tryHardLevel: "Nous vous proposons d'essayer la version 4 étoiles.",
+        tryMediumLevel: "Nous vous proposons d'essayer la version 3 étoiles.",
+        tryNextTask: "Nous vous proposons de passer au sujet suivant. S'il vous reste du temps, vous reviendrez plus tard essayer la version suivante.",
+        yourScoreIsNow: "Votre score est maintenant :",
+        worseScoreStays: "C'est moins bien qu'avant ; votre score reste :",
+        scoreStays: "Votre score reste le même :",
+        score: "Score :",
+        noPointsForLevel: "Vous n'avez pas encore obtenu de points sur cette version.",
+        outOf: " sur ",
+        tryToDoBetterOrChangeTask: "Essayez de faire encore mieux, ou passez à une autre question.",
+        tryToDoBetterOrMoveToNextLevel: "Essayez de faire encore mieux, ou passez à une version plus difficile.",
+        bestPossibleScoreCongrats: "C'est le meilleur score possible sur ce sujet ; félicitations !",
+        forMorePointsMoveToNextLevel: "Pour obtenir plus de points, passez à une version plus difficile.",
+        youDidBetterBefore: "Vous aviez fait mieux avant.",
+        scoreStays2: "Votre score reste le même.",
+        reloadBestAnswer: "Rechargez votre meilleure réponse.",
+        validate: "Valider",
+        restart: "Recommencer",
+        harderLevelSolved: "Attention : vous avez déjà résolu une version plus difficile. Vous ne pourrez pas gagner de points supplémentaires avec cette version.",
+        showLevelAnyway: "Voir quand même",
+        scoreObtained: "Score obtenu :",
+        hardVersionTakesTime: "Résoudre une {0} peut vous prendre beaucoup de temps ; songez en priorité à répondre aux questions en {1} pour gagner des points rapidement.",
+        illKeepThatInMind: "J'y prendrai garde",
+        harderLevelAvailable: "Notez que pour cette question, vous pouvez résoudre directement une version plus difficile que celle-ci.",
+        lockedLevel: "Cette version est verrouillée. Résolvez la précédente pour l'afficher !",
+        gradeThisAnswer: "Évaluer cette réponse",
 
-         // The following messages are used for tasks with no feedback
-         saveAnswer: "Save this answer",
-         answerSavedModifyOrCancelIt: "Your answer has been saved. You can modify it, or {0} and restart.",
-         cancelIt: "cancel it",
-         warningDifferentAnswerSaved: "Warning: a different answer was saved before.",
-         youMay: "You may {0}.",
-         reloadIt: "reload it",
-         saveThisNewAnswer: "Save this new answer",
+        // The following messages are used for tasks with no feedback
+        saveAnswer: "Enregistrer votre réponse",
+        answerSavedModifyOrCancelIt: "Votre réponse a été enregistrée. Vous pouvez la modifier, ou bien {0} et recommencer.",
+        cancelIt: "l'annuler",
+        warningDifferentAnswerSaved: "Attention : une réponse différente est enregistrée.",
+        youMay: "Vous pouvez {0}.",
+        reloadIt: "la recharger",
+        saveThisNewAnswer: "Enregistrer cette nouvelle réponse",
 
-         gradingInProgress: "Grading in process",
-         scoreIs: "Your score is:",
-         point: "point",
-         points: "points",
-         // The following messages are used when viewing tasks after contest is over
-         contestOverScoreStays: "The contest being over, your new answer was not saved and your score stays:",
-         scoreWouldBecome: "With this answer, your score would be:",
-         reloadValidAnswer: "Reload the validated answer.",
-         contestOverAnswerNotSaved: "The contest being over, your new answer was not saved.",
-         scoreWouldStay: "With this answer, your score would stay the same:",
-         answerNotSavedContestOver: "The contest being over, your answer was not saved. You may {0}.",
-         reloadSubmittedAnswer: "reload the validated answer",
-         difficultyWarning: "<strong>Warning:</strong> solving this version takes time.<br/>You would solve the 2 or 3 star versions of other tasks more quickly."
+        gradingInProgress: "Évaluation en cours",
+        scoreIs: "Votre score est de :",
+        point: "point",
+        points: "points",
+        // The following messages are used when viewing tasks after contest is over
+        contestOverScoreStays: "Le concours étant terminé, votre réponse n'est pas enregistrée et votre score reste de :",
+        scoreWouldBecome: "Avec cette réponse, votre score serait :",
+        reloadValidAnswer: "Rechargez la réponse validée.",
+        contestOverAnswerNotSaved: "Le concours est terminé : votre réponse n'est pas enregistrée.",
+        scoreWouldStay: "Avec cette réponse, votre score resterait le même :",
+        answerNotSavedContestOver: "Le concours étant terminé, votre réponse n'a pas été enregistrée. Vous pouvez {0}.",
+        reloadSubmittedAnswer: "recharger la réponse que vous avez soumise",
+        difficultyWarning: "<strong>Attention :</strong> résoudre cette version prend du temps.<br/>Vous pourrez résoudre bien plus rapidement les versions 2 et 3 étoiles d'autres sujets."
       },
       en: {
          version: "Version",
@@ -479,7 +479,7 @@ window.displayHelper = {
          drawStars('titleStars', 4, 24, 0, 'normal');
       } else {
          // Disabled: doesn't work with new tabs layout.
-         //scoreHTML = '<div class="bestScore">Score retenu : <span id="bestScore">0</span> sur ' + maxScores.hard + '</div>';
+         //scoreHTML = '<div class="bestScore">Score retenu : <span id="bestScore">0</span> sur ' + maxScores.hard + '</div>';
          //$('#tabsContainer').append(scoreHTML);
       }
 
@@ -594,7 +594,7 @@ window.displayHelper = {
    },
    getAvatar: function(mood) {
       if (displayHelper.avatarType == "beaver") {
-         return "castor.png";
+         return "robot.png";
       } else {
          if (mood == "success") {
             return "laptop_success.png";
@@ -620,7 +620,7 @@ window.displayHelper = {
          yesButtonText = this.strings.alright;
       }
       // Hack: when in the context of the platform, we need to change the path
-      var imgPath = window.contestsRoot ? window.contestsRoot + '/' + window.contestFolder + '/' : '../../modules/img/';
+      var imgPath = window.contestsRoot ? window.contestsRoot + '/' + window.contestFolder + '/' : '../../_common/modules/img/';
       var buttonYes = mode == 'lock' ? '' : '<button class="buttonYes">' + (yesButtonText || this.strings.alright) + '</button>';
       var buttonNo = '';
       if (noButtonText != undefined) {
