@@ -983,7 +983,7 @@ window.displayHelper = {
 
    getAvatar: function(mood) {
       if (displayHelper.avatarType == "beaver") {
-         return "castor.png";
+         return "robot.png";
       } else if (displayHelper.avatarType == "none") {
         return "";
       } else {
@@ -1222,24 +1222,15 @@ window.displayHelper = {
          });
       } else {
          task.getAnswer(function(strAnswer) {
-            if (!self.hasSolution) {
-               self.prevSavedScore = self.graderScore;
-               if (self.hasLevels) {
-                  self.prevLevelsScores[self.taskLevel] = self.levelsScores[self.taskLevel];
-               }
-            }
-            var refresh = function() {
-               self.refreshMessages = true;
-               self.checkAnswerChanged();
-            };
-            self.submittedAnswer = strAnswer;
-            if (self.showScore) {
-               self.updateScore(strAnswer, false, refresh, (mode == "silent"));
-            } else {
-               self.savedAnswer = strAnswer;
-               refresh();
-            }
-         });
+           
+			var refresh = function() {
+			   self.refreshMessages = true;
+			   self.checkAnswerChanged();
+			};
+			self.submittedAnswer = strAnswer;
+		    
+		    self.updateScore(strAnswer, false, refresh, "silent");
+			 });
       }
    },
 
@@ -1250,172 +1241,62 @@ window.displayHelper = {
          self.checkAnswerChanged();
          callback();
       }
-      if (allLevels) {
-         // TODO: make sure the grader doesn't evaluate each level at each call (most do right now!)
-         var levelsToDo = this.levels.slice();
-         var updateNextScore = null;
-         updateNextScore = function() {
-            var nextLevel = levelsToDo.shift();
-            if(nextLevel) {
-               self.updateScoreOneLevel(strAnswer, nextLevel, updateNextScore);
-            } else {
-               refresh();
-            }
-         }
-         updateNextScore();
-      } else {
-         this.updateScoreOneLevel(strAnswer, this.taskLevel, function() {
-            if (!silentMode) {
-               if (self.hasLevels) {
-                  self.showValidatePopup(self.taskLevel);
-               } else {
-                  self.showValidatePopup();
-               }
-            }
-            callback();
-         }, silentMode);
-      }
+	 this.updateScoreOneLevel(strAnswer, this.taskLevel, function() {
+			  self.showValidatePopup();
+			  callback();
+	 }, silentMode);
    },
+   
    updateScoreOneLevel: function(strAnswer, gradedLevel, callback, silentMode) {
       var self = this;
       this.graderMessage = this.strings.gradingInProgress;
       task.getLevelGrade(strAnswer, null, function(score, message) {
-         score = +score;
+         score = score;
          self.submittedScore = score;
-         if (self.hasSolution) {
-            self.graderScore = score;
-            self.levelsScores[gradedLevel] = score;
-         } else {
-            if (self.hasLevels) {
-               if (score > self.levelsScores[gradedLevel]) {
-                  self.levelsScores[gradedLevel] = score;
-                  self.graderScore = score;
-                  if (self.savedAnswer === '') {
-                     self.savedAnswer = strAnswer;
-                  } else {
-                     var savedAnswerObj = $.parseJSON(self.savedAnswer);
-                     var answerObj = $.parseJSON(strAnswer);
-                     savedAnswerObj[gradedLevel] = answerObj[gradedLevel];
-                     self.savedAnswer = JSON.stringify(savedAnswerObj);
-                  }
-               }
-            } else if (score > self.graderScore) {
-               self.savedAnswer = strAnswer;
-               self.graderScore = score;
-            }
-         }
-         if (silentMode) {
-            message = "";
-         }
-         if (message !== undefined) {
-            self.graderMessage = message;
-         } else {
-            self.graderMessage = "";
-         }
-         // TODO : should not be called from here, might update the display of a level not currently opened!
-         if (self.hasLevels) {
-            self.updateScoreDisplays(gradedLevel);
-         }
+         self.graderMessage = message;
          callback();
       }, gradedLevel);
    },
-   updateScoreDisplays: function(gradedLevel) {
-      var scores = this.levelsScores;
-      var maxScores = this.levelsMaxScores;
-      if (this.pointsAsStars) {
-         this.updateStarsAtLevel(gradedLevel);
-         drawStars('titleStars', this.maxStars, 24, this.graderScore / maxScores.hard, 'normal');
-      } else {
-         $('#tabScore_' + gradedLevel).html(scores[gradedLevel]);
-         $('#bestScore').html(this.graderScore);
-      }
-
-      var gradedLevelNum = $.inArray(gradedLevel, this.levels);
-      var curLevel;
-      // Possibly unlocking a level
-      if (maxScores[gradedLevel] == scores[gradedLevel]) {
-         var unlockedLevel = gradedLevelNum + 1;
-         if (unlockedLevel < this.levels.length && unlockedLevel >= this.unlockedLevels) {
-            curLevel = this.levels[unlockedLevel];
-            $('#tab_' + curLevel).removeClass('lockedLevel');
-            this.unlockedLevels++;
-            this.updateStarsAtLevel(curLevel);
-         }
-      }
-      if (scores[gradedLevel] == this.graderScore) {
-         // Marks levels that can't earn points as useless
-         for (curLevel in this.levelsRanks) {
-            if (maxScores[curLevel] > this.graderScore) {
-               break;
-            }
-            if (this.pointsAsStars) {
-               this.updateStarsAtLevel(curLevel);
-            }
-            $('#tab_' + curLevel).addClass('uselessLevel');
-         }
-      }
-   },
+   
+   
    showValidatePopup: function(gradedLevel) {
-      var curTime = new Date().getTime();
-      var secondsSinceLoaded = (curTime - this.timeLoaded) / 1000;
-      var actionNext = "stay";
-      // Display popup to indicate what to do next
-      var fullMessage = this.graderMessage;
-      var maxScores = this.levelsMaxScores;
-      var buttonText = this.strings.alright;
-      var avatarMood = "error";
-      if ((gradedLevel == undefined) && (this.graderScore >= this.taskParams.maxScore - 0.001)) {
-         avatarMood = "success";
-         buttonText = this.strings.moveOn;
-         fullMessage += "<br/><br/>";
-         actionNext = "nextTask";
-         fullMessage += this.strings.solvedMoveOn;
-      } else if (maxScores && (gradedLevel !== undefined) && this.graderScore >= maxScores[gradedLevel] - 0.001) {
-         avatarMood = "success";
-         buttonText = this.strings.moveOn;
-         fullMessage += "<br/><br/>";
-         var levelIdx = this.levelsIdx[gradedLevel];
-         var nextLevel = levelIdx !== undefined && levelIdx < this.levels.length-1 ? this.levels[levelIdx+1] : null;
-         if(nextLevel) {
-            // Offer to try next task if the user solved this difficulty slowly
-            var threshold = this.thresholds[gradedLevel];
-            if(!threshold) {
-                if(gradedLevel == "medium") { threshold = this.thresholdMedium; }
-                else if(gradedLevel == "easy") { threshold = this.thresholdEasy; }
-            }
-            if(!threshold || (threshold && secondsSinceLoaded < threshold)) {
-               actionNext = nextLevel;
-               if(gradedLevel == "easy") { fullMessage += this.strings.tryMediumLevel; }
-               if(gradedLevel == "medium") { fullMessage += this.strings.tryHardLevel; }
-            } else {
-               actionNext = "nextTask";
-               fullMessage += this.strings.tryNextTask;
-            }
-         } else {
-            // Solved the last level, move on
-            actionNext = "nextTask";
-            fullMessage += this.strings.solvedMoveOn;
-         }
-      }
-      var self = this;
-      // Offer an option to stay on the task instead of forcing nextTask
-      var noButtonText = actionNext == "nextTask" ? this.strings.no : null;
-      this.showPopupMessage(fullMessage, 'blanket', buttonText,
-         function() {
-            // TODO: replace with something compatible with the API.
-            try {
-               $(parent.document).scrollTop(0);
-            } catch (e) {
-            }
-            if (actionNext == "nextTask") {
-               platform.validate("nextImmediate");
-            } else if(self.levelsIdx[actionNext] !== undefined) {
-               self.setLevel(actionNext);
-            }
-         },
-         noButtonText,
-         avatarMood
-      );
+      	var message = this.graderMessage;
+		var buttonText = this.strings.alright;
+		var noButtonText = null;
+		var avatarMood = "error";
+		var agreeFunc = null;
+		if(this.submittedScore == this.taskParams.maxScore){ 
+			var actionNext ="nextTask" ;
+			message += "<br/><br/>";
+			message += this.strings.solvedMoveOn;
+			buttonText = this.strings.moveOn;
+			noButtonText = this.strings.no;
+			avatarMood = "success";
+			agreeFunc = function() {
+					// TODO: replace with something compatible with the API.
+					try {
+					   $(parent.document).scrollTop(0);
+					} catch (e) {
+					}
+					if (actionNext == "nextTask") {
+					   platform.validate("nextImmediate");
+					  var levels = ["e-1-0","e-1-1","e-1-2","e-1-3","e-1-4","e-2-4","e-3-1","e-3-3","e-3-5","e-3-6","e-4-1","e-4-2","e-4-3","e-4-4","e-4-5","e-4-6"];
+					  var path = window.location.pathname;
+					  var level = path.substring(0, path.lastIndexOf('/')).substring(path.substring(0, path.lastIndexOf('/')).lastIndexOf('/')+1);
+					  console.log(level);
+					  var nextLevel = levels.indexOf(level);
+					  if(nextLevel+1 < levels.length) {
+						console.log(levels[nextLevel+1]);
+						window.location.href = "../"+levels[nextLevel+1]+"/index.html";
+					  }
+					} else if(this.levelsIdx[actionNext] !== undefined) {
+					   this.setLevel(actionNext);
+					}
+				 }
+		 }
+
+		this.showPopupMessage(message, 'blanket', buttonText, agreeFunc, noButtonText, avatarMood);
+			
    },
 
    // Does task have unsaved answers?
@@ -1662,31 +1543,36 @@ window.displayHelper = {
             messages.saved = this.getFullFeedbackSavedMessage(taskMode);
          }
       } else {
-         switch (taskMode) {
-            case 'unsaved_unchanged':
-            case 'unsaved_changed':
-               if (!this.hasSolution) {
-                  messages.validate = '<input type="button" value="' + this.strings.saveAnswer + '" ' +
-                     'onclick="platform.validate(\'done\', function(){})" ' + disabledStr + '/>';
-               }
-               break;
-            case 'saved_unchanged':
-               if (!this.hasSolution) {
-                  messages.saved = this.formatTranslation(this.strings.answerSavedModifyOrCancelIt,
-                     ["<a href='#' onclick=\"platform.validate('cancel', function(){}); return false;\" " + disabledStr + ">" + this.strings.cancelIt + "</a>"]);
-               } else {
-                  messages.saved = this.formatTranslation(this.strings.answerNotSavedContestOver,
-                     ["<a href='#' onclick=\"displayHelper.validate('cancel'); return false;\" " + disabledStr + ">" + this.strings.reloadSubmittedAnswer + "</a>"]);
-               }
-               break;
-            case 'saved_changed':
-               messages.saved = "<br/><b style='color: red;'>" + this.strings.warningDifferentAnswerSaved + "</b> " +
-                  this.formatTranslation(this.strings.youMay, ["<a href='#' onclick='displayHelper.retrieveAnswer(); return false;'>" + this.strings.reloadIt + "</a>"]);
-               if (!this.hideValidateButton) {
-                  messages.validate = "<input type='button' value='" + this.strings.saveThisNewAnswer + "' onclick=\"platform.validate('done', function(){})\" " + disabledStr + "/>";
-               }
-               break;
+         if (!this.hideRestartButton) {
+            messages.cancel = '<input type="button" value="' + this.strings.restart + '" onclick="displayHelper.restartAll();"' +
+               disabledStr + '/></div>';
          }
+         
+//          switch (taskMode) {
+//             case 'unsaved_unchanged':
+//             case 'unsaved_changed':
+//                if (!this.hasSolution) {
+//                   messages.validate = '<input type="button" value="' + this.strings.saveAnswer + '" ' +
+//                      'onclick="platform.validate(\'done\', function(){})" ' + disabledStr + '/>';
+//                }
+//                break;
+//             case 'saved_unchanged':
+//                if (!this.hasSolution) {
+//                   messages.saved = this.formatTranslation(this.strings.answerSavedModifyOrCancelIt,
+//                      ["<a href='#' onclick=\"platform.validate('cancel', function(){}); return false;\" " + disabledStr + ">" + this.strings.cancelIt + "</a>"]);
+//                } else {
+//                   messages.saved = this.formatTranslation(this.strings.answerNotSavedContestOver,
+//                      ["<a href='#' onclick=\"displayHelper.validate('cancel'); return false;\" " + disabledStr + ">" + this.strings.reloadSubmittedAnswer + "</a>"]);
+//                }
+//                break;
+//             case 'saved_changed':
+//                messages.saved = "<br/><b style='color: red;'>" + this.strings.warningDifferentAnswerSaved + "</b> " +
+//                   this.formatTranslation(this.strings.youMay, ["<a href='#' onclick='displayHelper.retrieveAnswer(); return false;'>" + this.strings.reloadIt + "</a>"]);
+//                if (!this.hideValidateButton) {
+//                   messages.validate = "<input type='button' value='" + this.strings.saveThisNewAnswer + "' onclick=\"platform.validate('done', function(){})\" " + disabledStr + "/>";
+//                }
+//                break;
+//          }
       }
       for (var type in messages) {
          if (this.loaded && (typeof this.previousMessages[type] === 'undefined' || this.previousMessages[type] !== messages[type])) {

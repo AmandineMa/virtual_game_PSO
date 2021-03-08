@@ -110,28 +110,6 @@
     return str ? str : "";
   }
 
-  /*
-   * Create custom elements for platformless implementation
-   */
-  var miniPlatformWrapping = {
-    beaver: {
-      header: ""
-    },
-    laptop: {
-      header:
-        '\
-            <div style="width:100%; border-bottom:1px solid #B47238;overflow:hidden">\
-               <table style="width:770px;margin: 10px auto;">\
-                  <td><img src="' +
-        (window.modulesPath ? window.modulesPath : "../../../_common/modules") +
-        '/img/laptop.png" width="60px" style="display:inline-block;margin-right:20px;vertical-align:middle"/></td>\
-                  <td><span class="platform">Concours Alkindi</span></td>\
-                  <td><a href="http://concours-alkindi.fr/home.html#/" style="display:inline-block;text-align:right;">Le concours Alkindi</a></td>\
-               </table>\
-            </div>'
-    }
-  };
-
   function inIframe() {
     try {
       return window.self !== window.top;
@@ -566,7 +544,7 @@
           solution: true,
           hints: true,
           editor: true,
-          grader: true,
+          grader: false,
           metadata: true,
           submission: true
         };
@@ -600,18 +578,6 @@
                   getLanguageString("showSolution") +
                   "</button></center>"
               );
-            }
-
-            // add branded header to platformless task depending on avatarType
-            // defaults to beaver platform branding
-            if (window.displayHelper) {
-              if (miniPlatformWrapping[displayHelper.avatarType].header) {
-                $("body").prepend(
-                  miniPlatformWrapping[displayHelper.avatarType].header
-                );
-              } else {
-                $("body").prepend(miniPlatformWrapping[beaver].header);
-              }
             }
           },
           function(error) {
