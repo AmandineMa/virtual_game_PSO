@@ -37,6 +37,39 @@ var robotEndConditions = {
       throw window.languageStrings.messages.failureOpenAllLockers;
     }
     },
+
+  checkBothReachAndAllLocksOpened: function(context, lastTurn) {
+	var robot = context.getRobot();
+    if (
+      context.isOn(function(obj) {
+        return obj.isExit === true;
+      })
+    ) {
+		var solved = true;
+		for (var row = 0; row < context.nbRows; row++) {
+		  for (var col = 0; col < context.nbCols; col++) {
+			if (
+			  context.hasOn(row, col, function(obj) {
+				return obj.isLocker === true;
+			  })
+			) {
+			  solved = false;
+			  throw window.languageStrings.messages.failureOpenAllLockers;
+			}
+		  }
+		}
+
+		if (solved) {
+		  context.success = true;
+		  throw window.languageStrings.messages.successOpenAllLockers;
+		}
+	}
+    if (lastTurn) {
+      context.success = false;
+       throw window.languageStrings.messages.failureReachExit;
+    }
+    },
+
   checkPickedAllWithdrawables: function(context, lastTurn) {
 
     var solved = true;
@@ -215,6 +248,7 @@ var robotEndConditions = {
       throw window.languageStrings.messages.failureReachExit;
     }
   },
+
   checkLights: function(context, lastTurn) {
     var solved = true;
     for (var row = 0; row < context.nbRows; row++) {

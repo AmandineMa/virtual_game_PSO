@@ -7,7 +7,7 @@ var contextParams = {
       cellSide: 60
     },
     exo_boat: {
-      backgroundColor: "#abe3f5",
+      backgroundColor: "#8be1eb",
        itemTypes: {
       robot: {
         img: "../images/robot/ship.png",
@@ -21,7 +21,7 @@ var contextParams = {
       },
       mer: {
         num: 1,
-        img: "../images/fonds/mer.png",
+        img: "../images/fonds/eau.png",
         side: 60,
         isObstacle: false
       },
@@ -199,7 +199,7 @@ var contextParams = {
     diamantOrange: {
         num: 31,
         side: 60,
-        img: "../images/objects/fond_ciel/diamant_orange.png",
+        img: "../images/objects/fond_mer/diamant_orange.png",
         isWithdrawable: true,
         isObstacle: false,
         isDiamond: true,
@@ -208,7 +208,7 @@ var contextParams = {
       diamantJaune: {
         num: 32,
         side: 60,
-        img: "../images/objects/fond_ciel/diamant_jaune.png",
+        img: "../images/objects/fond_mer/diamant_jaune.png",
         isWithdrawable: true,
         isObstacle: false,
         isDiamond: true,
@@ -217,7 +217,7 @@ var contextParams = {
       diamantBleu: {
         num: 33,
         side: 60,
-        img: "../images/objects/fond_ciel/diamant_vert.png",
+        img: "../images/objects/fond_mer/diamant_vert.png",
         isWithdrawable: true,
         isObstacle: false,
         isDiamond: true,
@@ -225,7 +225,7 @@ var contextParams = {
       },
       blue_flag: {
         num: 34,
-        img: "../images/objects/fond_vert/blue_flag.png",
+        img: "../images/objects/fond_mer/blue_flag.png",
         side: 60,
         isExit: true,
         isObstacle: false
@@ -235,7 +235,7 @@ var contextParams = {
     },
 
     exo_bonhomme: {
-      backgroundColor: "#abe3f5",
+      backgroundColor: "#8be1eb",
       hasGravity : true,
        itemTypes: {
       robot: {
@@ -290,7 +290,7 @@ var contextParams = {
       checkEndCondition: robotEndConditions.checkPickedAllWithdrawables
     },
  exo_bonhomme_hors_eau: {
-      backgroundColor: "#abe3f5",
+      backgroundColor: "#8be1eb",
       hasGravity : true,
        itemTypes: {
       robot: {
@@ -323,7 +323,7 @@ mer_top: {
       },
  caisse: {
         num: 4,
-        img: "../images/objects/fond_ciel/caise.png",
+        img: "../images/objects/fond_mer/caisse.png",
         side: 60,
         zOrder: 1,
     isObstacle: true
@@ -365,23 +365,64 @@ star_auto_withdraw: {
         zOrder: 1,
     isObstacle: true
       }, 
-     serrure: {
+     pierre4: {
+        num: 5,
+        img: "../images/objects/fond_mer/mapTile_027.png",
+        side: 60,
+        zOrder: 1,
+    isObstacle: true
+      }, 
+     cadenas: {
         num: 10,
-        img: "../images/objects/fond_ciel/serrure_jaune.png",
+        img: "../images/objects/fond_mer/cadenas.png",
         side: 60,
         isLocker: true,
         isObstacle: false
       },
       cle: {
         num: 11,
-        img: "../images/objects/fond_ciel/cle.png",
+        img: "../images/objects/fond_mer/cle.png",
         side: 60,
         isKey: true,
         zOrder: 1,
         isWithdrawable: true,
         autoWithdraw: false,
       },
- 
+    blue_flag: {
+        num: 12,
+        img: "../images/objects/fond_mer/blue_flag.png",
+        side: 60,
+        isExit: true,
+        isObstacle: false
+      },
+    poissonGlobe: {
+        num: 13,
+        img: "../images/objects/fond_mer/fishTile_101.png",
+        side: 60,
+        zOrder: 1
+      },
+    diamantJaune: {
+        num: 14,
+        side: 60,
+        img: "../images/objects/fond_mer/diamant_jaune.png",
+        isWithdrawable: true,
+        isObstacle: false,
+        isDiamond: true,
+        zOrder: 1
+      },
+     poisson: {
+        num: 15,
+        img: "../images/objects/fond_mer/poisson.png",
+        side: 60,
+        isObstacle: false
+      },
+    blue_flag: {
+        num: 16,
+        img: "../images/objects/fond_mer/sign.png",
+        side: 60,
+        isExit: true,
+        isObstacle: false
+      },
     },
       checkEndCondition: robotEndConditions.checkPickedAllWithdrawables
     },

@@ -8,7 +8,7 @@ function initTask(subTask) {
     includeBlocks: {
       groupByCategory: false,
       generatedBlocks: {
-        robot: ["east", "west", "north", "jump"]
+        robot: ["forward", "jump"]
       },
       standardBlocks: {
         includeAll: false,
@@ -22,13 +22,13 @@ function initTask(subTask) {
     easy: [
       {
         tiles: [
-          [3, 3, 3, 3, 3, 3, 3],
-          [3, 3, 3, 3, 3, 3, 3],
-          [3, 3, 4, 4, 4, 3, 3],
-          [3, 3, 3, 3, 3, 3, 3],
-          [3, 4, 4, 3, 3, 3, 3],
-          [3, 3, 3, 3, 3, 3, 3],
-          [8, 9, 2, 2, 2, 2, 2],
+          [1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1],
+          [1, 1, 4, 4, 4, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1],
+          [1, 4, 4, 1, 1, 1, 1],
+          [1, 1, 1, 1, 1, 1, 1],
+          [8, 9, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1]
         ],

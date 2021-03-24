@@ -60,9 +60,9 @@ Blockly.Msg.CONTROLS_IF_HELPURL =
   "https://github.com/google/blockly/wiki/IfElse"; // untranslated
 Blockly.Msg.CONTROLS_IF_IF_TOOLTIP =
   "Ajouter, supprimer ou réordonner les sections pour reconfigurer ce bloc si.";
-Blockly.Msg.CONTROLS_IF_MSG_ELSE = "else";
-Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "else if";
-Blockly.Msg.CONTROLS_IF_MSG_IF = "if";
+Blockly.Msg.CONTROLS_IF_MSG_ELSE = "alors";
+Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "alors si";
+Blockly.Msg.CONTROLS_IF_MSG_IF = "si";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_1 =
   "If a value is true, then execute certain orders.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_2 =
@@ -72,8 +72,8 @@ Blockly.Msg.CONTROLS_IF_TOOLTIP_3 =
 Blockly.Msg.CONTROLS_IF_TOOLTIP_4 =
   "If the first value is true, then execute the first block of orders. Otherwise, if the second value is true, execute the second block of orders. If none of the values ​​is true, execute the last block of orders . ";
 Blockly.Msg.CONTROLS_REPEAT_HELPURL = "http://fr.wikipedia.org/wiki/Boucle_for";
-Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "do";
-Blockly.Msg.CONTROLS_REPEAT_TITLE = "repeat %1 time";
+Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "fait";
+Blockly.Msg.CONTROLS_REPEAT_TITLE = "répète %1 fois";
 Blockly.Msg.CONTROLS_REPEAT_TOOLTIP = "Execute instructions several times.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_HELPURL =
   "Https://github.com/google/blockly/wiki/Loops#repeat"; // untranslated

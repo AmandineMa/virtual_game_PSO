@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    
     <title>PNC Bloc Challenges</title>
      <script>
       window.stringsLanguage = 'fr';
@@ -34,23 +35,26 @@
       };
       </script>
       <script type="text/javascript" src="task.js"></script>
-<script type="text/javascript" src="../../../_common/modules1-3/pemFioi/robotend.js"></script>
+	<script type="text/javascript" src="../../../_common/modules1-3/pemFioi/robotend.js"></script>
     <script type="text/javascript" src="../../../_common/modules1-3/pemFioi/contextparams.js"></script>
 
   </head>
+  
   <body onresize="task.displayedSubTask.updateScale()">
+	  
     <div id="task">
-      <h1>1. Move forward and pick up</h1>
+      <h1>1. Avance et récupère l'étoile</h1>
       <img src="icon.png" style="display:none" />
 
       <div id="tabsContainer"></div>
       <div id="taskContent" style="text-align:left;position:relative">
         <div id="taskIntro" style="width: 100%">
           <p>
-            Help Balouk to pick up the mushroom. 2 actions available:
+           Aide le bateau-robot à récupérer l'étoile magique. 3 actions sont disponible:
             <ul>
-              <li>Forward : Balouk moves one step right</li>
-              <li>Pick up object : Balouk picks up something</li>
+              <li>Avancer : Le bateau-robot avance d'une case</li>
+              <li>Tourner à gauche : Le bateau-robot s'oriente vers la gauche sans avancer</li>
+              <li>Ramasser l'objet : Le bateau-robot ramasse l'objet sur la case</li>
             </ul>
           </p>
         </div>
@@ -58,5 +62,7 @@
         <div id="blocklyLibContent"></div>
       </div>
     </div>
+    <button class="buttonReturn" style="margin-right: 20px;font-size: 20px; background-color:white;padding: 16px 32px; float: right;">
+			<a href="../../../index.html">Retour à la page d'accueil</button>
   </body>
 </html>

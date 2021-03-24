@@ -173,28 +173,29 @@ var getContext = function(display, infos, curLevel) {
         messages: {
           leavesGrid: "Le robot sort de la grille !",
           obstacle: "Le robot essaie d'avancer dans un obstacle",
-          nothingToPickUp: "There's nothing to pick up!",
-          nothingToOpen: "There's nothing to open!",
-          nothingToLookAt: "There is no card or container in this box",
-          falls: "The robot will throw itself into the void!",
-          willFallAndCrash: "The robot will fall from the top and crash!",
-          jumpOutsideGrid: "The robot is trying to jump outside the grid!",
+          nothingToPickUp: "Il n'y a rien à ramasser !",
+          nothingToOpen: "Il n'y a rien à ouvrir !",
+          nothingToLookAt: "Il n'y a rien dans cette boite",
+          falls: "Le robot essaie de se jeter dans le vide !",
+          willFallAndCrash: "Le robot va tomber de haut et s'écraser !",
+          jumpOutsideGrid: "Le robot essaie de sauter en dehors de la grille !",
           jumpObstacleBlocking:
-            "The robot is trying to jump but there is an obstacle blocking it",
+            "Le robot essaie de sauter mais il y a un obstacle qui le bloque",
           jumpNoPlatform:
-            "The robot is trying to jump but there is no platform above!",
+            "Le robot essaie de sauter mais il n'y a pas de plateforme au dessus !",
           tooManyObjects:
-            "The robot is trying to transport too many objects at the same time!",
+            "Le robot essaie de transporter trop d'objets à la fois !",
           emptyBag:
-            "The robot tries to deposit an object while it is not transporting it!",
-          successReachExit: "Well done, your robot has reached the exit!",
-          failureReachExit: "Your robot has not reached the exit.",
+            "Le robot essaie de déposer un objet alors qu'il n'en transporte pas !",
+          successReachExit: "Bravo, le robot a atteint la sortie !",
+          failureReachExit: "Le robot n'a pas atteint la sortie :(",
           successPickedAllWithdrawables:
-            "Well done, your robot has picked everything up!",
+            "Bravo, le robot a tout ramassé !",
           failurePickedAllWithdrawables:
-            "Your robot hasn't picked up everything.",
-          successOpenAllLockers:  "Well done, your robot opened all the locks!",
-          failureOpenAllLockers:  "Your robot didn't open all the locks",
+            "Le robot n'a pas tout ramassé :(",
+          successOpenAllLockers:  "Bravo, le robot a ouvert tous les cadenas !",
+          failureOpenAllLockers:  "Le robot n'a pas ouvert tous les cadenas :(",
+	      failureOpenLocker: "Le robot essaie d'ouvrir le cadenas mais il n'a pas de clé :(",
           successContainersFilled:
             "Well done, your robot has filled all the containers",
           failureContainersFilled: "There is an object outside the containers",
@@ -203,7 +204,7 @@ var getContext = function(display, infos, curLevel) {
           failureContainersFilledBag:
             "Your robot has not placed all the objects",
           failureUnfilteredObject: "Your robot has picked up an invalid object",
-          failureTooManyMoves: "Your robot has moved too much.",
+          failureTooManyMoves: "Votre robot a effectué trop de déplacements.",
           failureWriteHere: "Your robot can't write here!",
           failureReadHere: "There is no number written here!",
           successNumbersWritten:
@@ -214,7 +215,7 @@ var getContext = function(display, infos, curLevel) {
           failureDropObject: "We can't put an object here",
           failureDropOutside:
             "Your robot is trying to put an object outside the grid",
-          failureNotEnoughPlatform: "Not enough platforms",
+          failureNotEnoughPlatform: "Pas assez de plateformes",
           failureLights: "There are still spots to light up.",
           successLights: "Well done, your robot has turned on all the spots!",
           failureLaser:
@@ -235,7 +236,7 @@ var getContext = function(display, infos, curLevel) {
           failureProjectile: "The robot has caught a projectile!",
           failureRewrite: "The robot tried to repaint a box."
         },
-        startingBlockName: "Robot Programm"
+        startingBlockName: "Programme du robot"
       },
       en: {
         label: {
@@ -1610,6 +1611,15 @@ var getContext = function(display, infos, curLevel) {
       this.callCallback(callback, this.hasDiamond());
     }
   });
+  
+    infos.newBlocks.push({
+    name: "hasAKey",
+    type: "sensors",
+    block: { name: "hasAKey", yieldsValue: true },
+    func: function(callback) {
+      this.callCallback(callback, this.hasAKey());
+    }
+  });
 
 
   infos.newBlocks.push({
@@ -2869,7 +2879,7 @@ var getContext = function(display, infos, curLevel) {
 		}
 	}
     if (hasAKey === false) {
-      throw "The robot tries to open a lock, but does not have a key.";
+      throw window.languageStrings.messages.failureOpenLocker;
     }
 
     var locker = lockers[0];
@@ -3102,6 +3112,12 @@ var getContext = function(display, infos, curLevel) {
   context.hasDiamond = function() {
     return context.isOn(function(obj) {
       return obj.isDiamond === true;
+    });
+  };
+  
+  context.hasAKey = function() {
+    return context.isOn(function(obj) {
+      return obj.isKey === true;
     });
   };
 
