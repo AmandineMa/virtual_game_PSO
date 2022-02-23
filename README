@@ -1,0 +1,9 @@
+Fichiers à modifier :
+_common/modules1-3/ext/blockly/fr.js : pour les infos afficher sur les blocs
+_common/modules1-3/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js : pour les phrases associées aux boutons et pour les actions des boutons. Contiens aussi la liste des exercices sur laquelle itérer pour le bouton "continuer".
+_common/modules1-3/pemFioi/blocklyRobot_lib-1.0.0.js : pour les phrases associées aux actions du robot et pour définir des nouveaux blocs d'action et des contextes possibles
+_common/modules1-3/pemFioi/contextparams.js : contient la liste des images et leurs caractéristiques
+_common/modules1-3/pemFioi/quickAlgo/i18n.js : contient des phrases
+_common/modules1-3/pemFioi/robotend.js : contient les robotEndConditions utilisées dans les task.js de chaque exercice (permet de définir si l'exo est réussi ou non)
+
+Pour créer un nouvel exo, partir du index.html et du task.js d'un exo existant. Dans le index.html, modifier le contenu de <div id="task"> pour l'adapter comme voulu. Pour le task.js, modifier le contenu de subTask.gridInfos et de subTask.data.

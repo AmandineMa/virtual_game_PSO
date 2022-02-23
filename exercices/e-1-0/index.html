@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>PNC Bloc Challenges</title>
+     <script>
+      window.stringsLanguage = 'fr';
+      window.taskStrings = {
+      };
+      </script>
+      <script class="remove" type="text/javascript" src="../../_common/modules1-3/pemFioi/importModules-1.3.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript">
+        var modulesPath = '../../_common/modules1-3/'
+        importModules([
+            'jquery-1.7.1', 'JSON-js', 'raphael-2.2.1', 'beaver-task-2.0', 'jschannel', 'raphaelFactory-1.0', 'delayFactory-1.0', 'simulationFactory-1.0',
+            'platform-pr', 'buttonsAndMessages', 'beav-1.0', 'installationAPI.01', 'miniPlatform', 'conceptViewer-1.0', 'conceptViewer_css-1.0',
+            'taskStyles-0.1']);
+        // set Blockly as default language when none is specified through ?language=
+        importLanguageModules('blockly');
+      </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/questions/algorea_2017_1/collecting_gems",
+          "language": "fr",
+          "version": "fr.01",
+          "authors": "Mathias Hiron, Marielle Léonard, JF Parmentier",
+          "translators": [],
+          "license": "",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": false,
+          "minWidth": "auto"
+      };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+	<script type="text/javascript" src="../../_common/modules1-3/pemFioi/robotend.js"></script>
+    <script type="text/javascript" src="../../_common/modules1-3/pemFioi/contextparams.js"></script>
+
+  </head>
+  
+  <body onresize="task.displayedSubTask.updateScale()">
+	  
+    <div id="task">
+      <h1>1. Avance et récupère l'étoile</h1>
+      <img src="icon.png" style="display:none" />
+
+      <div id="tabsContainer"></div>
+      <div id="taskContent" style="text-align:left;position:relative">
+        <div id="taskIntro" style="width: 100%">
+          <p>
+           Aide le bateau-robot à récupérer l'étoile magique. 3 actions sont disponible:
+            <ul>
+              <li>Avancer : Le bateau-robot avance d'une case</li>
+              <li>Tourner à gauche : Le bateau-robot s'oriente vers la gauche sans avancer</li>
+              <li>Ramasser l'objet : Le bateau-robot ramasse l'objet sur la case</li>
+            </ul>
+          </p>
+        </div>
+        <div id="gridContainer"></div>
+        <div id="blocklyLibContent"></div>
+      </div>
+    </div>
+    <button class="buttonReturn" style="margin-right: 20px;font-size: 20px; background-color:white;padding: 16px 32px; float: right;">
+			<a href="../../index.html">Retour à la page d'accueil</button>
+  </body>
+</html>
